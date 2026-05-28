@@ -523,6 +523,7 @@
 
 .gallery-tile {
   aspect-ratio: 1 / 0.78;
+  background: #050505;
   cursor: pointer;
   overflow: hidden;
   position: relative;
@@ -535,7 +536,7 @@
 
 .gallery-tile img {
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform 0.3s;
   width: 100%;
 }

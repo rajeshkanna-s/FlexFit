@@ -3,11 +3,11 @@ import SectionHeading from '../common/SectionHeading';
 import SectionLabel from '../common/SectionLabel';
 
 const images = [
-  '/assets/images/gallery/gym-1.jpg',
-  '/assets/images/gallery/gym-2.jpg',
-  '/assets/images/gallery/gym-3.jpg',
-  '/assets/images/gallery/gym-4.jpg',
-  '/assets/images/gallery/gym-5.jpg'
+  '/assets/Gallery/FlexFit_Gym_Interior_Daytime_View.png',
+  '/assets/Gallery/FlexFit_Gym_Interior_Equipment_View_1.png',
+  '/assets/Gallery/FlexFit_Dumbbell_Barbell_Rack_Setup.png',
+  '/assets/Gallery/FlexFit_Gym_Members_Training_Session.png',
+  '/assets/Gallery/FlexFit_Signboard_Night_View.png'
 ];
 
 const GalleryPreview = () => (

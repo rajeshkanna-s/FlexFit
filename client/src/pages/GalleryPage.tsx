@@ -6,20 +6,28 @@ import SectionLabel from '../components/common/SectionLabel';
 import CtaBand from '../components/common/CtaBand';
 import PageHero from './PageHero';
 
-const tabs = ['All', 'Equipment', 'Cardio Zone', 'Free Weights', 'Yoga Area', 'Member Transformations', 'Events'];
+const tabs = ['All', 'Gym Floor', 'Equipment', 'Members', 'Events'];
 
 const photos = [
-  ['gym-1.jpg', 'Main Gym Floor', 'Equipment'],
-  ['gym-2.jpg', 'Cardio Zone', 'Cardio Zone'],
-  ['gym-3.jpg', 'Free Weights Area', 'Free Weights'],
-  ['gym-4.jpg', 'Strength Machines', 'Equipment'],
-  ['gym-5.jpg', 'Yoga & Stretch Area', 'Yoga Area'],
-  ['gym-6.jpg', 'Reception & Entrance', 'Events'],
-  ['gym-7.jpg', 'Transformation Wall', 'Member Transformations'],
-  ['gym-8.jpg', 'Functional Training', 'Equipment'],
-  ['gym-9.jpg', 'Community Workout', 'Events'],
-  ['gym-10.jpg', 'Evening Session', 'Free Weights']
-].map(([file, label, category]) => ({ src: `/assets/images/gallery/${file}`, label, category }));
+  ['FlexFit_Gym_Interior_Daytime_View.png', 'Gym Floor'],
+  ['FlexFit_Gym_Interior_Equipment_View_1.png', 'Gym Floor'],
+  ['FlexFit_Gym_Interior_Equipment_View_2.png', 'Gym Floor'],
+  ['FlexFit_Dumbbell_Barbell_Rack_Setup.png', 'Equipment'],
+  ['FlexFit_Athlete_Holding_Weight_Plates.png', 'Members'],
+  ['FlexFit_Gym_Members_Training_Session.png', 'Members'],
+  ['FlexFit_Gym_Two_Friends_Posing.png', 'Members'],
+  ['FlexFit_Member_Back_Muscle_Pose.png', 'Members'],
+  ['FlexFit_Member_Double_Bicep_Flex_Yellow_Tee.png', 'Members'],
+  ['FlexFit_Trainer_Back_Double_Bicep_Pose.png', 'Members'],
+  ['FlexFit_Trainer_Bicep_Curl_Pose.png', 'Members'],
+  ['FlexFit_Award_Ceremony_Manmakers_Clinic.png', 'Events'],
+  ['FlexFit_Signboard_Night_View.png', 'Gym Floor'],
+  ['FlexFit_Logo_Black_Background.png', 'Events']
+].map(([file, category], index) => ({
+  src: `/assets/Gallery/${encodeURIComponent(file)}`,
+  alt: `FlexFit Club gallery photo ${index + 1}`,
+  category
+}));
 
 const GalleryPage = () => {
   const [activeTab, setActiveTab] = useState('All');
@@ -50,7 +58,7 @@ const GalleryPage = () => {
           <div className="gallery-grid">
             {filtered.map((photo, photoIndex) => (
               <button className={`gallery-tile border-0 p-0 ${photoIndex === 0 ? 'wide' : ''}`} key={photo.src} onClick={() => setIndex(photoIndex)}>
-                <img src={photo.src} alt={photo.label} />
+                <img src={photo.src} alt={photo.alt} />
               </button>
             ))}
           </div>
@@ -62,7 +70,7 @@ const GalleryPage = () => {
         </div>
       </section>
       <CtaBand title="Like the space? Come feel the energy." text="Book a free trial and train on the FlexFit floor this week." />
-      <Lightbox open={index >= 0} index={index} close={() => setIndex(-1)} slides={filtered.map((photo) => ({ src: photo.src, alt: photo.label }))} />
+      <Lightbox open={index >= 0} index={index} close={() => setIndex(-1)} slides={filtered.map((photo) => ({ src: photo.src, alt: photo.alt }))} />
     </>
   );
 };

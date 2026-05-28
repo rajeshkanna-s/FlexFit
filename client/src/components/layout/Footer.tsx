@@ -25,6 +25,7 @@ const Footer = () => (
               ['About', '/about'],
               ['Programs', '/programs'],
               ['Membership', '/membership'],
+              ['Exercise', '/exercise'],
               ['Gallery', '/gallery'],
               ['Contact', '/contact'],
               ['Join Now', '/join']

@@ -17,6 +17,7 @@ client/.env.*
 *.log
 vite.err
 vite.log
+client/public/assets/*.docx
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

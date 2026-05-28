@@ -13,6 +13,7 @@ import AboutPage from './pages/AboutPage';
 import ProgramsPage from './pages/ProgramsPage';
 import MembershipPage from './pages/MembershipPage';
 import GalleryPage from './pages/GalleryPage';
+import ExercisePage from './pages/ExercisePage';
 import ContactPage from './pages/ContactPage';
 import JoinPage from './pages/JoinPage';
 import PrivacyPage from './pages/PrivacyPage';
@@ -37,6 +38,7 @@ const App = () => {
           <Route path="/programs" element={<ProgramsPage />} />
           <Route path="/membership" element={<MembershipPage />} />
           <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/exercise" element={<ExercisePage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/join" element={<JoinPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />

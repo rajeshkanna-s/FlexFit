@@ -19,7 +19,7 @@ const defaultSubtitles: Record<string, string> = {
 };
 
 const PageHero = ({ label, title, highlight, subtitle }: PageHeroProps) => (
-  <section className="page-hero" style={{ backgroundImage: "url('/assets/images/hero-bg.jpg')" }}>
+  <section className="page-hero" style={{ backgroundImage: "url('/assets/Gallery/FlexFit_Gym_Interior_Daytime_View.png')" }}>
     <div className="container">
       <div className="row g-4 align-items-end">
         <div className="col-lg-8">

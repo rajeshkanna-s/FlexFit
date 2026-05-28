@@ -374,6 +374,135 @@
   text-decoration: line-through;
 }
 
+.legacy-plan-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.legacy-plan-card,
+.add-on-price-panel,
+.addon-card {
+  background:
+    linear-gradient(145deg, rgba(255,214,0,0.08), rgba(255,255,255,0.02) 42%, transparent),
+    var(--color-black-card);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.legacy-plan-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 245px;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.legacy-plan-card:hover,
+.addon-card:hover {
+  border-color: var(--color-yellow);
+  box-shadow: 0 16px 38px rgba(255,214,0,0.08);
+  transform: translateY(-4px);
+}
+
+.legacy-plan-card.featured,
+.addon-card.featured {
+  border-color: var(--color-border-yellow);
+}
+
+.legacy-plan-card.wide {
+  background: var(--color-yellow);
+  color: var(--color-black);
+}
+
+.legacy-plan-card.wide .legacy-plan-duration,
+.legacy-plan-card.wide .legacy-plan-price,
+.legacy-plan-card.wide h3 {
+  color: var(--color-black);
+}
+
+.legacy-plan-card.wide .btn-ff {
+  border-color: var(--color-black);
+  color: var(--color-black);
+}
+
+.legacy-plan-duration {
+  color: var(--color-yellow);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.legacy-plan-card h3,
+.addon-card h3 {
+  font-size: 1.55rem;
+  margin: 16px 0 10px;
+}
+
+.legacy-plan-price,
+.addon-price {
+  color: var(--color-yellow);
+  font-family: 'Oswald', sans-serif;
+  font-size: 2.45rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.legacy-plan-card .btn-ff {
+  margin-top: auto;
+}
+
+.add-on-price-panel h2 {
+  font-size: clamp(2.1rem, 4vw, 3.8rem);
+}
+
+.training-price-list {
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.training-price-row {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 16px;
+}
+
+.training-price-row + .training-price-row {
+  border-top: 1px solid var(--color-border);
+}
+
+.training-price-row span {
+  color: var(--color-white);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.training-price-row strong {
+  color: var(--color-yellow);
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.45rem;
+}
+
+.addon-goal-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.addon-goal-list span {
+  background: rgba(255,214,0,0.1);
+  border: 1px solid var(--color-border-yellow);
+  border-radius: 999px;
+  color: var(--color-white);
+  font-size: 0.82rem;
+  font-weight: 800;
+  padding: 8px 12px;
+}
+
 .avatar-initials {
   align-items: center;
   background: var(--color-yellow);
@@ -1080,6 +1209,7 @@
 
   .gallery-grid,
   .plan-selector,
+  .legacy-plan-grid,
   .impact-strip,
   .program-path,
   .exercise-grid {
@@ -1106,6 +1236,7 @@
 @media (max-width: 575px) {
   .gallery-grid,
   .plan-selector,
+  .legacy-plan-grid,
   .impact-strip,
   .program-path,
   .exercise-grid,

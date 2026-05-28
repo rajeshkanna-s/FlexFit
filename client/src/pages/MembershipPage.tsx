@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import PriceCard from '../components/common/PriceCard';
 import SectionHeading from '../components/common/SectionHeading';
 import SectionLabel from '../components/common/SectionLabel';
@@ -20,6 +21,23 @@ const faqs = [
   ['What is the 90 Days Body Transformation Challenge?', 'It is a focused 90-day plan for weight loss, muscle gain, fat loss, or maintaining a fit body. It includes 1-to-1 personal training, a body-specific diet chart, a custom workout plan, and full guidance for Rs. 5000 only. Limited seats are available.']
 ];
 
+const existingMembershipPlans = [
+  { name: 'Flex Starter', duration: '1 Month Plan', price: 'Rs. 599/-' },
+  { name: 'Strength Builder', duration: '3 Months Plan', price: 'Rs. 1499/-', highlighted: true },
+  { name: 'Power Surge', duration: '6 Months Plan', price: 'Rs. 2999/-' },
+  { name: 'Peak Performance', duration: '12 Months Plan', price: 'Rs. 5555/-' },
+  { name: 'Couple Offer', duration: 'Annual couple package', price: 'Rs. 10,000/-', wide: true }
+];
+
+const personalTrainingPlans = [
+  { duration: '1 Month', price: 'Rs. 999/-' },
+  { duration: '3 Months', price: 'Rs. 2499/-' },
+  { duration: '6 Months', price: 'Rs. 4799/-' },
+  { duration: '12 Months', price: 'Rs. 8999/-' }
+];
+
+const addOnGoals = ['Fat Loss', 'Muscle Gain', 'Contest Prep', 'Weight Loss', 'Weight Gain', 'General Fitness'];
+
 const MembershipPage = () => {
   const [billingMode, setBillingMode] = useState<'monthly' | 'annual'>('monthly');
 
@@ -32,6 +50,80 @@ const MembershipPage = () => {
       </Helmet>
       <PageHero label="Membership" title="Plans That" highlight="Fit Your Goal" />
       <TransformationChallenge />
+      <section className="section">
+        <div className="container">
+          <div className="text-center mb-5">
+            <SectionLabel text="Existing Rate Card" />
+            <SectionHeading line1="In-Gym" line2="Membership Plans" highlightLine={2} centered />
+            <p className="text-muted-ff mx-auto mb-0" style={{ maxWidth: 720 }}>
+              These are the current in-gym plan options from the FlexFit printed rate card. Pick a short starter plan or lock in more value with longer memberships.
+            </p>
+          </div>
+          <div className="legacy-plan-grid">
+            {existingMembershipPlans.map((plan) => (
+              <article className={`legacy-plan-card ${plan.highlighted ? 'featured' : ''} ${plan.wide ? 'wide' : ''}`} key={plan.name}>
+                <span className="legacy-plan-duration">{plan.duration}</span>
+                <h3>{plan.name}</h3>
+                <div className="legacy-plan-price">{plan.price}</div>
+                <Link className="btn-ff btn-ff-outline w-100" to={`/join?plan=${encodeURIComponent(plan.name.toLowerCase().replace(/\s+/g, '-'))}`}>
+                  Choose Plan
+                </Link>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="section section-card">
+        <div className="container">
+          <div className="row g-4 align-items-stretch">
+            <div className="col-lg-5">
+              <div className="add-on-price-panel h-100">
+                <SectionLabel text="Personal Training" />
+                <h2>
+                  Focused Coaching
+                  <br />
+                  <span className="text-yellow">At Simple Prices</span>
+                </h2>
+                <p className="text-muted-ff">
+                  Add personal training to your membership for one-to-one guidance, form correction, progress tracking, and goal-specific support.
+                </p>
+                <div className="training-price-list">
+                  {personalTrainingPlans.map((plan) => (
+                    <div className="training-price-row" key={plan.duration}>
+                      <span>{plan.duration}</span>
+                      <strong>{plan.price}</strong>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-7">
+              <div className="row g-4 h-100">
+                <div className="col-md-6">
+                  <div className="addon-card h-100">
+                    <span className="addon-price">Rs. 300/-</span>
+                    <h3>Customised Diet Plan</h3>
+                    <p className="text-muted-ff">Body-specific food guidance for fat loss, weight loss, muscle gain, weight gain, contest prep, and general fitness.</p>
+                    <div className="addon-goal-list">
+                      {addOnGoals.map((goal) => <span key={goal}>{goal}</span>)}
+                    </div>
+                  </div>
+                </div>
+                <div className="col-md-6">
+                  <div className="addon-card h-100 featured">
+                    <span className="addon-price">Rs. 500/-</span>
+                    <h3>Customised Workout Plan</h3>
+                    <p className="text-muted-ff">A structured training plan built around your target, fitness level, and preferred training style.</p>
+                    <div className="addon-goal-list">
+                      {addOnGoals.map((goal) => <span key={goal}>{goal}</span>)}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <section className="section section-card">
         <div className="container">
           <div className="text-center mb-5">

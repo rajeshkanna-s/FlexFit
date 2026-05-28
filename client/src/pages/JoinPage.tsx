@@ -165,7 +165,7 @@ const JoinPage = () => {
                   <a className="text-yellow fw-bold" href="https://wa.me/919940846719" target="_blank" rel="noreferrer">Chat on WhatsApp</a>
                 </div>
               </div>
-              <div className="row g-3 text-center mt-4">
+              <div className="row g-3 text-center join-trust-row">
                 {['No Joining Fee', 'Free Trial Session', 'WhatsApp Confirmation'].map((item) => (
                   <div className="col-md-4" key={item}>
                     <div className="feature-card py-3">{item}</div>

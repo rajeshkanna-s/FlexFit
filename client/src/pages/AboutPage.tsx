@@ -1,11 +1,8 @@
 import { Helmet } from 'react-helmet-async';
 import { Bullseye, EyeFill } from 'react-bootstrap-icons';
-import Icon from '../components/common/Icon';
 import SectionHeading from '../components/common/SectionHeading';
 import SectionLabel from '../components/common/SectionLabel';
-import TrainerCard from '../components/common/TrainerCard';
 import CtaBand from '../components/common/CtaBand';
-import { trainers } from '../data/trainers.data';
 import PageHero from './PageHero';
 
 const timeline = [
@@ -13,15 +10,6 @@ const timeline = [
   ['2023', 'First 100 Members', 'Hit our first milestone with 100 active members. Expanded our equipment lineup and introduced personal training packages.'],
   ['2024', 'Expansion & Upgrades', 'Upgraded to 60+ equipment units. Added AC facility, cardio zone, yoga area, and a dedicated free-weights section.'],
   ['2025', '500+ Members Strong', 'Today FlexFit Club is home to 500+ members from across Chennai. Multiple programs, certified trainers, and real transformations.']
-];
-
-const facilities = [
-  ['snow', 'Fully Air-Conditioned', 'Climate-controlled from 5 AM to 10 PM'],
-  ['gear', '60+ Equipment Units', 'Free weights, machines, cardio, cables'],
-  ['heart', 'Dedicated Cardio Zone', 'Treadmills, cycles, ellipticals, rowers'],
-  ['activity', 'Free Weights Area', 'Dumbbells 2 kg-50 kg, barbells, plates'],
-  ['wind', 'Yoga & Stretch Zone', 'Dedicated mats, foam rollers, bands'],
-  ['shield', 'Locker Rooms', 'Secure lockers for members during sessions']
 ];
 
 const AboutPage = () => (
@@ -80,41 +68,6 @@ const AboutPage = () => (
             <div className="timeline-item" key={year} data-aos="fade-up">
               <div className="feature-card">
                 <span className="text-yellow fw-bold">{year}</span>
-                <h3>{title}</h3>
-                <p className="text-muted-ff mb-0">{text}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-    <section className="section section-card">
-      <div className="container">
-        <div className="text-center mb-5">
-          <SectionLabel text="Team" />
-          <SectionHeading line1="Meet The" line2="Experts" highlightLine={2} centered />
-          <p className="text-muted-ff">Certified coaching support across strength, HIIT, mobility, recovery, and nutrition.</p>
-        </div>
-        <div className="row g-4">
-          {trainers.map((trainer) => (
-            <div className="col-md-6 col-xl-3" key={trainer.id}>
-              <TrainerCard {...trainer} />
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-    <section className="section">
-      <div className="container">
-        <div className="text-center mb-5">
-          <SectionLabel text="Facilities" />
-          <SectionHeading line1="Our" line2="Facilities" highlightLine={2} centered />
-        </div>
-        <div className="row g-4">
-          {facilities.map(([icon, title, text]) => (
-            <div className="col-md-6 col-lg-4" key={title}>
-              <div className="feature-card">
-                <div className="icon-badge"><Icon name={icon} /></div>
                 <h3>{title}</h3>
                 <p className="text-muted-ff mb-0">{text}</p>
               </div>

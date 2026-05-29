@@ -22,11 +22,58 @@ const faqs = [
 ];
 
 const existingMembershipPlans = [
-  { name: 'Flex Starter', duration: '1 Month Plan', price: 'Rs. 599/-' },
-  { name: 'Strength Builder', duration: '3 Months Plan', price: 'Rs. 1499/-', highlighted: true },
-  { name: 'Power Surge', duration: '6 Months Plan', price: 'Rs. 2999/-' },
-  { name: 'Peak Performance', duration: '12 Months Plan', price: 'Rs. 5555/-' },
-  { name: 'Couple Offer', duration: 'Annual couple package', price: 'Rs. 10,000/-', wide: true }
+  {
+    id: 'flex-starter',
+    name: 'Flex Starter',
+    duration: '1 Month Plan',
+    compareDuration: '1 Month',
+    price: 'Rs. 599/-',
+    coaching: 'Self-guided gym access with basic support',
+    bestFor: ['Trying the gym first', 'Short-term access', 'Budget-friendly start'],
+    limits: ['No personal training included', 'Best for self-guided members']
+  },
+  {
+    id: 'strength-builder',
+    name: 'Strength Builder',
+    duration: '3 Months Plan',
+    compareDuration: '3 Months',
+    price: 'Rs. 1499/-',
+    coaching: 'Consistent access for strength and habit building',
+    bestFor: ['Better value than monthly', 'Strength-focused members', 'Building routine consistency'],
+    limits: ['Personal training add-on billed separately'],
+    highlighted: true
+  },
+  {
+    id: 'power-surge',
+    name: 'Power Surge',
+    duration: '6 Months Plan',
+    compareDuration: '6 Months',
+    price: 'Rs. 2999/-',
+    coaching: 'Longer training block for visible progress',
+    bestFor: ['Muscle gain or weight loss goals', 'Committed training', 'Lower monthly average'],
+    limits: ['Requires a longer commitment']
+  },
+  {
+    id: 'peak-performance',
+    name: 'Peak Performance',
+    duration: '12 Months Plan',
+    compareDuration: '12 Months',
+    price: 'Rs. 5555/-',
+    coaching: 'Best annual value for regular members',
+    bestFor: ['Full-year consistency', 'Lowest monthly average', 'Serious transformation goals'],
+    limits: ['Largest upfront payment']
+  },
+  {
+    id: 'couple-offer',
+    name: 'Couple Offer',
+    duration: 'Annual couple package',
+    compareDuration: '12 Months for 2 members',
+    price: 'Rs. 10,000/-',
+    coaching: 'Train together with annual access',
+    bestFor: ['Couples', 'Shared accountability', 'Annual savings'],
+    limits: ['Requires two-member annual commitment'],
+    wide: true
+  }
 ];
 
 const personalTrainingPlans = [
@@ -40,6 +87,23 @@ const addOnGoals = ['Fat Loss', 'Muscle Gain', 'Contest Prep', 'Weight Loss', 'W
 
 const MembershipPage = () => {
   const [billingMode, setBillingMode] = useState<'monthly' | 'annual'>('monthly');
+  const [comparePlanOneId, setComparePlanOneId] = useState('flex-starter');
+  const [comparePlanTwoId, setComparePlanTwoId] = useState('strength-builder');
+  const comparePlanOne = existingMembershipPlans.find((plan) => plan.id === comparePlanOneId) ?? existingMembershipPlans[0];
+  const comparePlanTwo = existingMembershipPlans.find((plan) => plan.id === comparePlanTwoId) ?? existingMembershipPlans[1];
+  const chooseAlternatePlan = (currentId: string) => existingMembershipPlans.find((plan) => plan.id !== currentId)?.id ?? currentId;
+  const handleComparePlanOneChange = (nextPlanId: string) => {
+    setComparePlanOneId(nextPlanId);
+    if (nextPlanId === comparePlanTwoId) {
+      setComparePlanTwoId(chooseAlternatePlan(nextPlanId));
+    }
+  };
+  const handleComparePlanTwoChange = (nextPlanId: string) => {
+    setComparePlanTwoId(nextPlanId);
+    if (nextPlanId === comparePlanOneId) {
+      setComparePlanOneId(chooseAlternatePlan(nextPlanId));
+    }
+  };
 
   return (
     <>
@@ -67,6 +131,76 @@ const MembershipPage = () => {
                 <div className="legacy-plan-price">{plan.price}</div>
                 <Link className="btn-ff btn-ff-outline w-100" to={`/join?plan=${encodeURIComponent(plan.name.toLowerCase().replace(/\s+/g, '-'))}`}>
                   Choose Plan
+                </Link>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="section section-card plan-compare-section">
+        <div className="container">
+          <div className="text-center mb-5">
+            <SectionLabel text="Compare" />
+            <SectionHeading line1="Compare" line2="Membership Plans" highlightLine={2} centered />
+            <p className="text-muted-ff mx-auto mb-0" style={{ maxWidth: 760 }}>
+              Select any two FlexFit rate-card plans and compare price, duration, coaching style, and best fit before you join.
+            </p>
+          </div>
+
+          <div className="plan-compare-controls">
+            <label className="plan-compare-select">
+              <span>Plan 1</span>
+              <select value={comparePlanOneId} onChange={(event) => handleComparePlanOneChange(event.target.value)}>
+                {existingMembershipPlans.map((plan) => (
+                  <option value={plan.id} key={plan.id}>{plan.name}</option>
+                ))}
+              </select>
+            </label>
+            <label className="plan-compare-select">
+              <span>Plan 2</span>
+              <select value={comparePlanTwoId} onChange={(event) => handleComparePlanTwoChange(event.target.value)}>
+                {existingMembershipPlans.map((plan) => (
+                  <option value={plan.id} key={plan.id}>{plan.name}</option>
+                ))}
+              </select>
+            </label>
+          </div>
+
+          <div className="plan-compare-grid">
+            {[comparePlanOne, comparePlanTwo].map((plan, index) => (
+              <article className="plan-compare-card" key={`${index}-${plan.id}`}>
+                <span className="plan-compare-kicker">Plan {index + 1}</span>
+                <h3>{plan.name}</h3>
+                <div className="plan-compare-meta">
+                  <div>
+                    <span>Duration</span>
+                    <strong>{plan.compareDuration}</strong>
+                  </div>
+                  <div>
+                    <span>Price</span>
+                    <strong>{plan.price}</strong>
+                  </div>
+                </div>
+                <div className="plan-compare-detail">
+                  <span>Coaching</span>
+                  <p>{plan.coaching}</p>
+                </div>
+                <div className="plan-compare-columns">
+                  <div>
+                    <h4>Best For</h4>
+                    <ul>
+                      {plan.bestFor.map((item) => <li key={item}>{item}</li>)}
+                    </ul>
+                  </div>
+                  <div>
+                    <h4>Note</h4>
+                    <ul>
+                      {plan.limits.map((item) => <li key={item}>{item}</li>)}
+                    </ul>
+                  </div>
+                </div>
+                <Link className="btn-ff btn-ff-primary w-100" to={`/join?plan=${encodeURIComponent(plan.id)}`}>
+                  Choose {plan.name}
                 </Link>
               </article>
             ))}

@@ -1,7 +1,6 @@
 import { useMemo, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Check, ChevronDown, PlayCircleFill, Search } from 'react-bootstrap-icons';
-import PageHero from './PageHero';
 import SectionHeading from '../components/common/SectionHeading';
 import SectionLabel from '../components/common/SectionLabel';
 import { exercises } from '../data/exercises.generated';
@@ -139,7 +138,6 @@ const ExercisePage = () => {
         <meta name="description" content="Explore FlexFit Club's exercise library with workout videos, equipment filters, and muscle-group filters." />
         <link rel="canonical" href="https://flexfitclub.in/exercise" />
       </Helmet>
-      <PageHero label="Exercise" title="Exercise" highlight="Library" subtitle="Filter workouts by equipment and muscle group, then watch the movement video before you train." />
       <section className="section section-card exercise-library-section">
         <div className="container">
           <div className="exercise-library-head">

@@ -8,7 +8,7 @@ import PageHero from './PageHero';
 const timeline = [
   ['2022', 'FlexFit Founded', 'Started with 200 sq ft and a dream. Just 2 trainers, 20 members, and the belief that Chrompet deserved a world-class gym.'],
   ['2023', 'First 100 Members', 'Hit our first milestone with 100 active members. Expanded our equipment lineup and introduced personal training packages.'],
-  ['2024', 'Expansion & Upgrades', 'Upgraded to 60+ equipment units. Added AC facility, cardio zone, yoga area, and a dedicated free-weights section.'],
+  ['2024', 'Expansion & Upgrades', 'Upgraded to 60+ equipment units. Added cardio, yoga, and a dedicated free-weights section.'],
   ['2025', '500+ Members Strong', 'Today FlexFit Club is home to 500+ members from across Chennai. Multiple programs, certified trainers, and real transformations.']
 ];
 

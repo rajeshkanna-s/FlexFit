@@ -3,7 +3,7 @@ import SectionHeading from '../common/SectionHeading';
 import SectionLabel from '../common/SectionLabel';
 
 const features = [
-  ['snow', 'AC Facility', 'Fully air-conditioned every day'],
+  ['gear', 'Modern Equipment', 'Strength, cardio, and functional tools'],
   ['clock', '5 AM Open', 'Early & late-night sessions'],
   ['personCheck', '1-on-1 Training', 'Personalized coaching plans'],
   ['heartFill', 'Diet Guidance', 'Nutrition plans for your goals'],

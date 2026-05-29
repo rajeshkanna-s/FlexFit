@@ -1,6 +1,6 @@
 const stats = [
   ['5 AM', 'Opens Early'],
-  ['AC', 'Fully Air-Conditioned'],
+  ['60+', 'Equipment Units'],
   ['6', 'Fitness Programs'],
   ['Rs. 999', 'Starting Monthly']
 ];

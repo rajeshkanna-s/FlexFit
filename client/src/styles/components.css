@@ -26,6 +26,7 @@
 
 .navbar-brand img {
   max-height: 58px;
+  width: auto;
 }
 
 .hero-logo-mark {
@@ -178,6 +179,8 @@
   color: var(--color-white-muted);
   display: inline-flex;
   gap: 10px;
+  max-width: 100%;
+  overflow-x: auto;
   padding: 8px 14px;
 }
 
@@ -207,6 +210,7 @@
   display: flex;
   gap: 12px;
   padding: 12px 0;
+  min-width: 0;
 }
 
 .hero-info-card svg {
@@ -247,6 +251,7 @@
 .mission-card,
 .contact-card {
   height: 100%;
+  min-width: 0;
   padding: 26px;
   transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
 }
@@ -752,6 +757,7 @@
   justify-content: center;
   overflow-x: auto;
   padding-bottom: 6px;
+  scrollbar-width: thin;
 }
 
 .gallery-tabs button {
@@ -911,6 +917,13 @@
   width: 100%;
 }
 
+.exercise-select-toggle span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .exercise-select-toggle.open {
   border-color: #0d6efd;
   box-shadow: 0 0 0 1px rgba(13,110,253,0.12);
@@ -1012,6 +1025,11 @@
 
 .exercise-card-body {
   padding: 18px;
+}
+
+.exercise-card h3,
+.exercise-card p {
+  overflow-wrap: anywhere;
 }
 
 .exercise-tags {
@@ -1291,6 +1309,11 @@
   max-width: 480px;
 }
 
+.footer img {
+  height: auto;
+  max-width: 150px;
+}
+
 .footer-socials {
   display: flex;
   flex-wrap: wrap;
@@ -1418,8 +1441,22 @@
 }
 
 @media (max-width: 991px) {
+  .navbar-brand img {
+    max-height: 52px;
+  }
+
   .navbar-collapse {
     padding: 18px 0;
+  }
+
+  .navbar-nav {
+    align-items: stretch !important;
+  }
+
+  .nav-link-ff,
+  .btn-join-nav {
+    border-radius: 6px;
+    padding: 10px 12px !important;
   }
 
   .timeline::before {
@@ -1460,6 +1497,22 @@
     flex-direction: column;
   }
 
+  .hero-section {
+    min-height: auto;
+    padding: 140px 0 72px;
+  }
+
+  .page-hero {
+    background-position: center 24%;
+    background-size: min(520px, 82vw) auto;
+    min-height: auto;
+    padding: 142px 0 72px;
+  }
+
+  .about-image-wrap {
+    min-height: 380px;
+  }
+
   .footer {
     padding: 56px 0 26px;
   }
@@ -1474,7 +1527,7 @@
   }
 }
 
-@media (max-width: 575px) {
+@media (max-width: 767px) {
   .gallery-grid,
   .plan-selector,
   .legacy-plan-grid,
@@ -1494,17 +1547,73 @@
     grid-row: span 1;
   }
 
+  .hero-section {
+    padding: 118px 0 58px;
+  }
+
   .hero-logo-mark {
     height: 112px;
     width: 112px;
   }
 
   .page-hero {
-    min-height: 0;
-    padding: 130px 0 62px;
+    background-position: center top 70px;
+    background-size: min(360px, 92vw) auto;
+    padding: 118px 0 54px;
+  }
+
+  .page-hero-copy {
+    font-size: 1rem;
+    margin: 16px 0 20px;
+  }
+
+  .page-breadcrumb {
+    border-radius: 8px;
   }
 
   .hero-info-card {
+    margin-top: 8px;
+    padding: 18px;
+  }
+
+  .hero-offer-card,
+  .feature-card,
+  .program-card,
+  .price-card,
+  .testimonial-card,
+  .trainer-card,
+  .mission-card,
+  .contact-card,
+  .legacy-plan-card,
+  .add-on-price-panel,
+  .addon-card,
+  .challenge-list-card {
+    padding: 20px;
+  }
+
+  .program-card img,
+  .trainer-card img {
+    margin: -20px -20px 20px;
+    max-width: calc(100% + 40px);
+    width: calc(100% + 40px);
+  }
+
+  .about-image-wrap {
+    min-height: 300px;
+  }
+
+  .badge-float {
+    bottom: 16px;
+    left: 16px;
+    max-width: calc(100% - 32px);
+  }
+
+  .stats-strip {
+    padding: 22px 0;
+  }
+
+  .impact-strip > div,
+  .program-path > div {
     padding: 18px;
   }
 
@@ -1516,6 +1625,58 @@
     font-size: 1.8rem;
   }
 
+  .exercise-library-section {
+    padding-top: 108px;
+  }
+
+  .exercise-library-head {
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .exercise-counts {
+    width: 100%;
+  }
+
+  .exercise-filter-panel {
+    gap: 12px;
+    margin-left: -2px;
+    margin-right: -2px;
+    padding: 12px;
+  }
+
+  .exercise-select-menu {
+    max-height: 290px;
+  }
+
+  .exercise-result-bar {
+    gap: 6px;
+  }
+
+  .gallery-tabs {
+    justify-content: flex-start;
+  }
+
+  .conversion-band,
+  .cta-banner {
+    padding: 48px 0;
+  }
+
+  .conversion-actions,
+  .conversion-actions .btn-ff,
+  .cta-banner .btn-ff,
+  .contact-card .btn-ff {
+    width: 100%;
+  }
+
+  .founder-note {
+    flex-direction: column;
+  }
+
+  .footer .col-6 {
+    width: 100%;
+  }
+
   .whatsapp-float {
     display: none;
   }
@@ -1523,9 +1684,39 @@
   .mobile-action-bar {
     display: grid;
   }
+}
 
-  .conversion-actions,
-  .conversion-actions .btn-ff {
-    width: 100%;
+@media (max-width: 420px) {
+  .container {
+    --bs-gutter-x: 1.25rem;
+  }
+
+  .navbar-brand img {
+    max-height: 46px;
+  }
+
+  .section-label {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .section-label::after {
+    width: 32px;
+  }
+
+  .price,
+  .legacy-plan-price,
+  .addon-price {
+    font-size: 2.2rem;
+  }
+
+  .exercise-card-body {
+    padding: 15px;
+  }
+
+  .footer-socials .btn-ff {
+    height: 44px;
+    min-height: 44px;
+    width: 44px;
   }
 }

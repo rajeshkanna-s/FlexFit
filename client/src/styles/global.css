@@ -4,6 +4,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -13,6 +14,7 @@ body {
   font-family: 'Nunito', sans-serif;
   font-size: 16px;
   line-height: 1.75;
+  overflow-x: hidden;
 }
 
 ::selection {
@@ -38,6 +40,7 @@ h4,
   font-family: 'Oswald', sans-serif;
   letter-spacing: 0;
   text-transform: uppercase;
+  overflow-wrap: anywhere;
 }
 
 h1 {
@@ -92,8 +95,10 @@ h3 {
   font-weight: 800;
   min-height: 48px;
   padding: 12px 24px;
+  text-align: center;
   text-transform: uppercase;
   transition: all 0.2s ease;
+  white-space: normal;
 }
 
 .btn-ff:focus-visible,
@@ -157,7 +162,7 @@ a:focus-visible {
 
 @media (max-width: 767px) {
   .section {
-    padding: 70px 0;
+    padding: 60px 0;
   }
 
   .page-shell {
@@ -166,5 +171,18 @@ a:focus-visible {
 
   body {
     padding-bottom: 76px;
+  }
+
+  h1 {
+    font-size: clamp(2.55rem, 13vw, 4rem);
+  }
+
+  h2 {
+    font-size: clamp(2rem, 10vw, 2.8rem);
+  }
+
+  .btn-ff {
+    min-height: 46px;
+    padding: 11px 18px;
   }
 }

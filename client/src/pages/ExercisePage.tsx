@@ -177,7 +177,6 @@ const ExercisePage = () => {
                     muted
                     playsInline
                     preload="metadata"
-                    poster={assetPath('Exercise_Images', exercise.image)}
                   >
                     <source src={assetPath('Workouts', exercise.media)} type="video/mp4" />
                   </video>

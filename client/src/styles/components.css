@@ -111,7 +111,7 @@
 
 .page-hero {
   background-repeat: no-repeat;
-  background-size: min(760px, 72vw) auto;
+  background-size: min(620px, 58vw) auto;
   min-height: 500px;
   padding: 170px 0 86px;
 }

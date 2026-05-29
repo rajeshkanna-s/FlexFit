@@ -875,23 +875,6 @@
   width: 100%;
 }
 
-.exercise-video-badge {
-  align-items: center;
-  background: rgba(13,13,13,0.82);
-  border: 1px solid var(--color-border-yellow);
-  border-radius: 999px;
-  color: var(--color-yellow);
-  display: inline-flex;
-  font-size: 0.78rem;
-  font-weight: 900;
-  gap: 6px;
-  left: 12px;
-  padding: 6px 10px;
-  position: absolute;
-  top: 12px;
-  text-transform: uppercase;
-}
-
 .exercise-card-body {
   padding: 18px;
 }

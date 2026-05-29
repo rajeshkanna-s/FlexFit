@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Check, ChevronDown, PlayCircleFill, Search } from 'react-bootstrap-icons';
+import { Check, ChevronDown, Search } from 'react-bootstrap-icons';
 import SectionHeading from '../components/common/SectionHeading';
 import SectionLabel from '../components/common/SectionLabel';
 import { exercises } from '../data/exercises.generated';
@@ -181,7 +181,6 @@ const ExercisePage = () => {
                   >
                     <source src={assetPath('Workouts', exercise.media)} type="video/mp4" />
                   </video>
-                  <span className="exercise-video-badge"><PlayCircleFill /> Video</span>
                 </div>
                 <div className="exercise-card-body">
                   <div className="exercise-tags">

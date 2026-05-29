@@ -57,6 +57,8 @@ const uniqueOptions = (preferred: string[], values: string[], allLabel: string) 
   return [...ordered, ...extras];
 };
 
+const videoExercises = exercises.filter((exercise) => exercise.mediaType === 'video' && exercise.media);
+
 interface FilterSelectProps {
   label: string;
   value: string;
@@ -102,18 +104,18 @@ const ExercisePage = () => {
   const [visibleCount, setVisibleCount] = useState(24);
 
   const equipmentOptions = useMemo(
-    () => uniqueOptions(EQUIPMENT_ORDER, exercises.map((exercise) => exercise.equipment), 'All Equipment'),
+    () => uniqueOptions(EQUIPMENT_ORDER, videoExercises.map((exercise) => exercise.equipment), 'All Equipment'),
     []
   );
 
   const muscleOptions = useMemo(
-    () => uniqueOptions(MUSCLE_ORDER, exercises.map((exercise) => exercise.muscle), 'All Muscles'),
+    () => uniqueOptions(MUSCLE_ORDER, videoExercises.map((exercise) => exercise.muscle), 'All Muscles'),
     []
   );
 
   const filteredExercises = useMemo(() => {
     const searchText = query.trim().toLowerCase();
-    return exercises.filter((exercise) => {
+    return videoExercises.filter((exercise) => {
       const matchesEquipment = equipment === 'All Equipment' || exercise.equipment === equipment;
       const matchesMuscle = muscle === 'All Muscles' || exercise.muscle === muscle;
       const matchesSearch = !searchText || `${exercise.name} ${exercise.workoutName} ${exercise.muscle} ${exercise.equipment}`.toLowerCase().includes(searchText);
@@ -122,7 +124,6 @@ const ExercisePage = () => {
   }, [equipment, muscle, query]);
 
   const visibleExercises = filteredExercises.slice(0, visibleCount);
-  const videoCount = exercises.filter((exercise) => exercise.mediaType === 'video').length;
 
   const resetFilters = () => {
     setEquipment('All Equipment');
@@ -147,9 +148,7 @@ const ExercisePage = () => {
               <SectionHeading line1="Find The Right" line2="Exercise" highlightLine={2} />
             </div>
             <div className="exercise-counts">
-              <strong>{exercises.length}</strong>
-              <span>Exercises</span>
-              <strong>{videoCount}</strong>
+              <strong>{videoExercises.length}</strong>
               <span>Playable videos</span>
             </div>
           </div>
@@ -165,7 +164,7 @@ const ExercisePage = () => {
           </div>
 
           <div className="exercise-result-bar">
-            <span>{filteredExercises.length} matching exercises</span>
+            <span>{filteredExercises.length} matching videos</span>
             <span>{equipment} / {muscle}</span>
           </div>
 
@@ -173,20 +172,18 @@ const ExercisePage = () => {
             {visibleExercises.map((exercise) => (
               <article className="exercise-card" key={exercise.id}>
                 <div className="exercise-media">
-                  {exercise.mediaType === 'video' && exercise.media ? (
-                    <video
-                      controls
-                      muted
-                      playsInline
-                      preload="metadata"
-                      poster={assetPath('Exercise_Images', exercise.image)}
-                    >
-                      <source src={assetPath('Workouts', exercise.media)} type="video/mp4" />
-                    </video>
-                  ) : (
-                    <img src={assetPath('Exercise_Images', exercise.image)} alt={exercise.name} loading="lazy" />
-                  )}
-                  {exercise.mediaType === 'video' && <span className="exercise-video-badge"><PlayCircleFill /> Video</span>}
+                  <video
+                    autoPlay
+                    controls
+                    loop
+                    muted
+                    playsInline
+                    preload="metadata"
+                    poster={assetPath('Exercise_Images', exercise.image)}
+                  >
+                    <source src={assetPath('Workouts', exercise.media)} type="video/mp4" />
+                  </video>
+                  <span className="exercise-video-badge"><PlayCircleFill /> Video</span>
                 </div>
                 <div className="exercise-card-body">
                   <div className="exercise-tags">
@@ -202,16 +199,16 @@ const ExercisePage = () => {
 
           {filteredExercises.length === 0 && (
             <div className="exercise-empty">
-              <h3>No exercises found</h3>
+              <h3>No videos found</h3>
               <p className="text-muted-ff">Try changing equipment, muscle group, or search text.</p>
-              <button className="btn-ff btn-ff-primary" type="button" onClick={resetFilters}>Show All Exercises</button>
+              <button className="btn-ff btn-ff-primary" type="button" onClick={resetFilters}>Show All Videos</button>
             </div>
           )}
 
           {visibleCount < filteredExercises.length && (
             <div className="text-center mt-5">
               <button className="btn-ff btn-ff-primary" type="button" onClick={() => setVisibleCount((count) => count + 24)}>
-                Load More Exercises
+                Load More Videos
               </button>
             </div>
           )}

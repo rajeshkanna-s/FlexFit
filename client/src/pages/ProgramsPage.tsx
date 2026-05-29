@@ -10,7 +10,7 @@ const ProgramsPage = () => (
   <>
     <Helmet>
       <title>Fitness Programs - Strength, Cardio, Personal Training | FlexFit Chrompet</title>
-      <meta name="description" content="Explore FlexFit Club's 6 fitness programs: Strength Training, Cardio & HIIT, Personal Training, Weight Loss, Muscle Building, and Yoga." />
+        <meta name="description" content="Explore FlexFit Club's fitness programs: Strength Training, Cardio Workouts, Personal Training, Weight Loss, Muscle Building, and Bodybuilding Contest Prep." />
       <link rel="canonical" href="https://flexfitclub.in/programs" />
     </Helmet>
     <PageHero label="Programs" title="Training For" highlight="Every Goal" />

@@ -68,15 +68,15 @@ export const programs: Program[] = [
   },
   {
     id: '6',
-    slug: 'yoga',
-    image: '/assets/images/programs/yoga.jpg',
-    icon: 'wind',
-    badge: 'RECOVERY & WELLNESS',
-    title: 'YOGA & FLEXIBILITY',
-    shortDesc: 'Improve mobility, posture, recovery, and mental clarity.',
-    fullDesc: 'Balance your strength training with mindful recovery. Our yoga and flexibility sessions improve joint mobility, correct postural imbalances, reduce injury risk, and promote mental clarity.',
-    features: ['Hatha and Vinyasa yoga', 'Dynamic stretching routines', 'Foam rolling and release', 'Breathing basics', 'Morning and evening sessions'],
-    duration: 'Ongoing or add-on',
-    sessions: '3 days/week recommended'
+    slug: 'contest-prep',
+    image: '/assets/images/programs/muscle.jpg',
+    icon: 'trophy',
+    badge: 'NATURAL BODYBUILDING',
+    title: 'BODYBUILDING CONTEST PREP',
+    shortDesc: 'Coaching for natural bodybuilding and men\'s physique competitions.',
+    fullDesc: 'Prepare for natural bodybuilding and men\'s physique competitions with structured training, posing guidance, nutrition support, and progress tracking tailored to your body type and stage timeline.',
+    features: ['Stage-focused training plan', 'Fat-loss and conditioning phases', 'Posing and presentation guidance', 'Diet adjustments by progress', 'Check-ins for sustainable prep'],
+    duration: '12-16 weeks or custom prep timeline',
+    sessions: 'Coach-guided plan with regular check-ins'
   }
 ];

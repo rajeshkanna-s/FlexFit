@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import { Bullseye, EyeFill } from 'react-bootstrap-icons';
+import { Bullseye, EyeFill, PersonBadgeFill } from 'react-bootstrap-icons';
 import SectionHeading from '../components/common/SectionHeading';
 import SectionLabel from '../components/common/SectionLabel';
 import CtaBand from '../components/common/CtaBand';
@@ -53,6 +53,16 @@ const AboutPage = () => (
               <h3>Our Vision</h3>
               <p className="text-muted-ff mb-0">To become South Chennai's #1 fitness destination and build a community of 10,000+ healthy, confident, and strong individuals who inspire each other every day.</p>
             </div>
+          </div>
+        </div>
+        <div className="mission-card founder-note mt-4">
+          <div className="icon-badge"><PersonBadgeFill /></div>
+          <div>
+            <SectionLabel text="Founder & Head Coach" />
+            <h3>M Sanjay Raja</h3>
+            <p className="text-muted-ff mb-0">
+              Certified personal trainer and bodybuilding coach specializing in personalized fitness programs for beginners, everyday members, and competitive athletes. His coaching focuses on fat loss, muscle gain, weight management, natural bodybuilding contest prep, and long-term sustainable results.
+            </p>
           </div>
         </div>
       </div>

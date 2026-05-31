@@ -128,16 +128,13 @@
   font-size: 0.78rem;
   font-weight: 800;
   gap: 10px;
-  letter-spacing: 0;
+  letter-spacing: 1px;
   margin-bottom: 16px;
   text-transform: uppercase;
-}
-
-.section-label::after {
-  background: var(--color-yellow);
-  content: '';
-  height: 2px;
-  width: 40px;
+  padding: 0 10px;
+  border-left: 3px solid var(--color-yellow);
+  border-right: 3px solid var(--color-yellow);
+  line-height: 1.1;
 }
 
 .hero-section,
@@ -2209,14 +2206,7 @@
     width: 150px;
   }
 
-  .section-label {
-    align-items: flex-start;
-    flex-wrap: wrap;
-  }
 
-  .section-label::after {
-    width: 32px;
-  }
 
   .price,
   .legacy-plan-price,

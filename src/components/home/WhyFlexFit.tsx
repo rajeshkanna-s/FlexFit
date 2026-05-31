@@ -4,7 +4,7 @@ import SectionLabel from '../common/SectionLabel';
 
 const features = [
   ['gear', 'Modern Equipment', 'Strength, cardio, and functional tools'],
-  ['clock', '5 AM Open', 'Early & late-night sessions'],
+  ['clock', 'Early Opening', 'Morning and evening sessions'],
   ['personCheck', '1-on-1 Training', 'Personalized coaching plans'],
   ['heartFill', 'Diet Guidance', 'Nutrition plans for your goals'],
   ['shield', 'Safe & Clean', 'Daily sanitization & safety'],

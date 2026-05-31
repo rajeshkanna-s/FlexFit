@@ -4,6 +4,7 @@ import { Check, ChevronDown, Search } from 'react-bootstrap-icons';
 import SectionHeading from '../components/common/SectionHeading';
 import SectionLabel from '../components/common/SectionLabel';
 import { exercises } from '../data/exercises.generated';
+import PageHero from './PageHero';
 
 const EQUIPMENT_ORDER = [
   'All Equipment',
@@ -186,6 +187,7 @@ const ExercisePage = () => {
         <meta name="description" content="Explore FlexFit Club's exercise library with workout videos, equipment filters, and muscle-group filters." />
         <link rel="canonical" href="https://flexfitclub.in/exercise" />
       </Helmet>
+      <PageHero label="Exercise" title="Exercise" highlight="Library" />
       <section className="section section-card exercise-library-section">
         <div className="container">
           <div className="exercise-library-head">

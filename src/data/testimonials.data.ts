@@ -9,7 +9,7 @@ export const testimonials = [
   },
   {
     id: '2',
-    quote: 'As a working woman I needed early morning sessions. FlexFit opens at 5 AM - complete game changer! The personal trainer and safe environment made me confident and motivated every single day.',
+    quote: 'As a working woman I needed early morning sessions. FlexFit opens early - complete game changer! The personal trainer and safe environment made me confident and motivated every single day.',
     name: 'Sowmya Devi',
     role: '12-month Member - Weight Loss Program',
     initials: 'SD',

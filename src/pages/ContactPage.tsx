@@ -47,7 +47,7 @@ const ContactPage = () => {
     <>
       <Helmet>
         <title>Contact FlexFit Club - Chennai Branches | WhatsApp, Email, Location</title>
-        <meta name="description" content="Contact FlexFit Club in Chrompet and Anna Nagar, Chitlapakkam, Chennai. Choose your nearest branch before sending a WhatsApp enquiry." />
+        <meta name="description" content="Contact FlexFit Club in Chrompet and Chitlapakkam, Chennai. Choose your nearest branch before sending a WhatsApp enquiry." />
         <link rel="canonical" href="https://flexfitclub.in/contact" />
       </Helmet>
       <PageHero label="Contact" title="Let's Start" highlight="Your Journey" />
@@ -79,22 +79,6 @@ const ContactPage = () => {
                     <a href="https://www.instagram.com/flex._.fit_" target="_blank" rel="noreferrer">@flex._.fit_</a>
                   </div>
                 </div>
-                <hr className="border-secondary" />
-                <p className="mb-3"><strong>Locations</strong></p>
-                <div className="branch-location-list">
-                  {branchLocations.map((location) => (
-                    <div className="branch-location-item" key={location.id}>
-                      <strong>{location.shortName}</strong>
-                      <span>{location.address}</span>
-                      <span>{location.challengeOffer.title}: {location.challengeOffer.price}</span>
-                      <span>{location.coupleOffer.title}: {location.coupleOffer.price}</span>
-                      <a className="text-yellow fw-bold" href={location.mapUrl} target="_blank" rel="noreferrer">View on Google Maps</a>
-                    </div>
-                  ))}
-                </div>
-                <hr className="border-secondary" />
-                <p className="mb-1"><strong>Working Hours</strong></p>
-                <p className="text-muted-ff mb-0">Monday - Friday: 5:00 AM - 10:00 PM<br />Saturday: 5:00 AM - 9:00 PM<br />Sunday: 6:00 AM - 8:00 PM<br />Public Holidays: 7:00 AM - 7:00 PM</p>
               </div>
             </div>
             <div className="col-lg-7">
@@ -137,6 +121,35 @@ const ContactPage = () => {
                     <button className="btn-ff btn-ff-primary" type="submit" disabled={isSubmitting}>Send on WhatsApp</button>
                   </div>
                 </form>
+              </div>
+            </div>
+          </div>
+          <div className="contact-card contact-details-card mt-5">
+            <div className="contact-details-grid">
+              <div className="contact-detail-block">
+                <p className="mb-3"><strong>Locations</strong></p>
+                <div className="branch-location-list">
+                  {branchLocations.map((location) => (
+                    <div className="branch-location-item" key={location.id}>
+                      <strong>{location.shortName}</strong>
+                      <span>{location.address}</span>
+                      <a className="text-yellow fw-bold" href={location.mapUrl} target="_blank" rel="noreferrer">View on Google Maps</a>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="contact-detail-block">
+                <p className="mb-3"><strong>Working Hours</strong></p>
+                <div className="working-hours-grid">
+                  {branchLocations.map((location) => (
+                    <div className="branch-location-item working-hours-card" key={`${location.id}-hours`}>
+                      <strong>{location.shortName}</strong>
+                      <span>Sunday: {location.workingHours.sunday}</span>
+                      <span>Monday - Friday: {location.workingHours.weekdays}</span>
+                      <span>Saturday: {location.workingHours.saturday}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

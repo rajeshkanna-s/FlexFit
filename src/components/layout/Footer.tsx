@@ -8,16 +8,16 @@ const Footer = () => (
       <div className="row g-4">
         <div className="col-lg-4">
           <div className="footer-brand">
-          <img src="/assets/images/logo.png" alt="FlexFit Club" height="92" className="mb-3" />
-          <p className="text-muted-ff">
-            Chennai's premier fitness destination with branches in Chrompet and Anna Nagar, Chitlapakkam. Strength, cardio, and personal training under one roof.
-          </p>
-          <div className="footer-socials">
-            <a className="btn-ff btn-ff-outline px-3" href="https://www.instagram.com/flex._.fit_" target="_blank" rel="noreferrer" aria-label="Instagram"><Instagram /></a>
-            <Link className="btn-ff btn-ff-outline px-3" to="/contact" aria-label="Choose branch and WhatsApp"><Whatsapp /></Link>
-            <a className="btn-ff btn-ff-outline px-3" href="mailto:flexfitclub2k25@gmail.com" aria-label="Email"><EnvelopeFill /></a>
-            <span className="btn-ff btn-ff-outline px-3" aria-label="YouTube coming soon"><Youtube /></span>
-          </div>
+            <img src="/assets/images/logo.png" alt="FlexFit Club" height="92" className="mb-3" />
+            <p className="text-muted-ff">
+              Chennai's premier fitness destination with branches in Chrompet and Chitlapakkam. Strength, cardio, and personal training under one roof.
+            </p>
+            <div className="footer-socials">
+              <a className="btn-ff btn-ff-outline px-3" href="https://www.instagram.com/flex._.fit_" target="_blank" rel="noreferrer" aria-label="Instagram"><Instagram /></a>
+              <Link className="btn-ff btn-ff-outline px-3" to="/contact" aria-label="Choose branch and WhatsApp"><Whatsapp /></Link>
+              <a className="btn-ff btn-ff-outline px-3" href="mailto:flexfitclub2k25@gmail.com" aria-label="Email"><EnvelopeFill /></a>
+              <span className="btn-ff btn-ff-outline px-3" aria-label="YouTube coming soon"><Youtube /></span>
+            </div>
           </div>
         </div>
         <div className="col-6 col-lg-2">

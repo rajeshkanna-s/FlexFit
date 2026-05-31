@@ -200,9 +200,8 @@ const JoinPage = () => {
                     <label className="form-label text-yellow small fw-bold text-uppercase">Preferred Timing</label>
                     <select className="form-select" {...register('timing')}>
                       <option value="">Choose timing</option>
-                      <option>Morning (5 AM - 10 AM)</option>
-                      <option>Afternoon (10 AM - 4 PM)</option>
-                      <option>Evening (4 PM - 10 PM)</option>
+                      <option>Morning (5/5:30 AM - 10 AM)</option>
+                      <option>Evening (4 PM - 10 PM, Mon-Sat)</option>
                       <option>Flexible</option>
                     </select>
                   </div>

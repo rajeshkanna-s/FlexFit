@@ -123,7 +123,7 @@ const GalleryPage = () => {
     <>
       <Helmet>
         <title>Gym Gallery - FlexFit Club Equipment & Facilities | Chennai Branches</title>
-        <meta name="description" content="See FlexFit Club's facilities, equipment, member transformations, and branch photos from Chrompet and Anna Nagar, Chitlapakkam, Chennai." />
+        <meta name="description" content="See FlexFit Club's facilities, equipment, member transformations, and branch photos from Chrompet and Chitlapakkam, Chennai." />
         <link rel="canonical" href="https://flexfitclub.in/gallery" />
       </Helmet>
       <PageHero label="Gallery" title="See The" highlight="FlexFit Space" />
@@ -159,7 +159,6 @@ const GalleryPage = () => {
                     ) : (
                       <img src={item.src} alt={item.alt} />
                     )}
-                    <span className="gallery-branch-badge">{item.branchLabel}</span>
                   </button>
                 ))}
               </div>

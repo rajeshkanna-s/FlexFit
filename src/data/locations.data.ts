@@ -11,6 +11,12 @@ export interface BranchLocation {
   address: string;
   mapUrl: string;
   embedQuery: string;
+  workingHours: {
+    summary: string;
+    sunday: string;
+    weekdays: string;
+    saturday: string;
+  };
   challengeOffer: BranchOffer;
   coupleOffer: BranchOffer;
 }
@@ -23,6 +29,12 @@ export const branchLocations: BranchLocation[] = [
     address: 'Plot no 5, First Floor, Muthusamy Main Road, Muthusamy Nagar, Chrompet, Chennai - 600044',
     mapUrl: 'https://maps.app.goo.gl/K8LZ5yGL2shDQjWH9',
     embedQuery: 'FlexFit Club, Chrompet, Chennai',
+    workingHours: {
+      summary: 'Morning 5-10 am; Evening 4-10 pm',
+      sunday: '5-10 am',
+      weekdays: '5-10 am, 4-10 pm',
+      saturday: '5-10 am, 4-10 pm'
+    },
     challengeOffer: {
       title: '90 Days Body Transformation Challenge',
       price: 'Rs. 5,000/-',
@@ -41,6 +53,12 @@ export const branchLocations: BranchLocation[] = [
     address: '1, Russo St, Doss Avenue, Anna Nagar, Chitlapakkam, Chennai, Tamil Nadu 600064',
     mapUrl: 'https://maps.app.goo.gl/N8bX75kz8WcuHYjv5',
     embedQuery: '1 Russo St, Doss Avenue, Anna Nagar, Chitlapakkam, Chennai, Tamil Nadu 600064',
+    workingHours: {
+      summary: 'Morning 5:30-10 am; Evening 4-10 pm',
+      sunday: '5:30-10 am',
+      weekdays: '5:30-10 am, 4-10 pm',
+      saturday: '5:30-10 am, 4-10 pm'
+    },
     challengeOffer: {
       title: '90 Days Transformation Offer Including PT',
       price: 'Rs. 6,999/-',

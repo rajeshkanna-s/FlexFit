@@ -87,6 +87,7 @@ const personalTrainingPlans = [
 ];
 
 const addOnGoals = ['Fat Loss', 'Muscle Gain', 'Contest Prep', 'Weight Loss', 'Weight Gain', 'General Fitness'];
+const showDetailedPricingSections = false;
 
 const MembershipPage = () => {
   const [billingMode, setBillingMode] = useState<'monthly' | 'annual'>('monthly');
@@ -112,204 +113,208 @@ const MembershipPage = () => {
     <>
       <Helmet>
         <title>Gym Membership Plans & Branch Pricing | FlexFit Club Chennai</title>
-        <meta name="description" content="FlexFit Club membership plans and branch-wise offers for Chrompet and Anna Nagar, Chitlapakkam, including 90 Days Body Transformation Challenge pricing." />
+        <meta name="description" content="FlexFit Club membership plans and branch-wise offers for Chrompet and Chitlapakkam, including 90 Days Body Transformation Challenge pricing." />
         <link rel="canonical" href="https://flexfitclub.in/membership" />
       </Helmet>
-      <PageHero label="Membership" title="Plans That" highlight="Fit Your Goal" showInfoCard />
+      <PageHero label="Membership" title="Plans That" highlight="Fit Your Goal" />
       <TransformationChallenge />
-      <section className="section">
-        <div className="container">
-          <div className="text-center mb-5">
-            <SectionLabel text="Chrompet Branch Rate Card" />
-            <SectionHeading line1="In-Gym" line2="Membership Plans" highlightLine={2} centered />
-            <p className="text-muted-ff mx-auto mb-0" style={{ maxWidth: 720 }}>
-              These are the current Chrompet branch in-gym plan options from the FlexFit printed rate card. Chitlapakkam branch offer prices are shown above in the branch-wise challenge section.
-            </p>
-          </div>
-          <div className="legacy-plan-grid">
-            {existingMembershipPlans.map((plan) => (
-              <article className={`legacy-plan-card ${plan.highlighted ? 'featured' : ''} ${plan.wide ? 'wide' : ''}`} key={plan.name}>
-                <span className="legacy-plan-duration">{plan.duration}</span>
-                <h3>{plan.name}</h3>
-                <div className="legacy-plan-price">{plan.price}</div>
-                <Link className="btn-ff btn-ff-outline w-100" to={`/join?plan=${encodeURIComponent(plan.name.toLowerCase().replace(/\s+/g, '-'))}`}>
-                  Choose Plan
-                </Link>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-      <section className="section section-card plan-compare-section">
-        <div className="container">
-          <div className="text-center mb-5">
-            <SectionLabel text="Compare" />
-            <SectionHeading line1="Compare" line2="Membership Plans" highlightLine={2} centered />
-            <p className="text-muted-ff mx-auto mb-0" style={{ maxWidth: 760 }}>
-              Select any two FlexFit rate-card plans and compare price, duration, coaching style, and best fit before you join.
-            </p>
-          </div>
-
-          <div className="plan-compare-controls">
-            <label className="plan-compare-select">
-              <span>Plan 1</span>
-              <select value={comparePlanOneId} onChange={(event) => handleComparePlanOneChange(event.target.value)}>
-                {existingMembershipPlans.map((plan) => (
-                  <option value={plan.id} key={plan.id}>{plan.name}</option>
-                ))}
-              </select>
-            </label>
-            <label className="plan-compare-select">
-              <span>Plan 2</span>
-              <select value={comparePlanTwoId} onChange={(event) => handleComparePlanTwoChange(event.target.value)}>
-                {existingMembershipPlans.map((plan) => (
-                  <option value={plan.id} key={plan.id}>{plan.name}</option>
-                ))}
-              </select>
-            </label>
-          </div>
-
-          <div className="plan-compare-grid">
-            {[comparePlanOne, comparePlanTwo].map((plan, index) => (
-              <article className="plan-compare-card" key={`${index}-${plan.id}`}>
-                <span className="plan-compare-kicker">Plan {index + 1}</span>
-                <h3>{plan.name}</h3>
-                <div className="plan-compare-meta">
-                  <div>
-                    <span>Duration</span>
-                    <strong>{plan.compareDuration}</strong>
-                  </div>
-                  <div>
-                    <span>Price</span>
-                    <strong>{plan.price}</strong>
-                  </div>
-                </div>
-                <div className="plan-compare-detail">
-                  <span>Coaching</span>
-                  <p>{plan.coaching}</p>
-                </div>
-                <div className="plan-compare-columns">
-                  <div>
-                    <h4>Best For</h4>
-                    <ul>
-                      {plan.bestFor.map((item) => <li key={item}>{item}</li>)}
-                    </ul>
-                  </div>
-                  <div>
-                    <h4>Note</h4>
-                    <ul>
-                      {plan.limits.map((item) => <li key={item}>{item}</li>)}
-                    </ul>
-                  </div>
-                </div>
-                <Link className="btn-ff btn-ff-primary w-100" to={`/join?plan=${encodeURIComponent(plan.id)}`}>
-                  Choose {plan.name}
-                </Link>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-      <section className="section section-card">
-        <div className="container">
-          <div className="row g-4 align-items-stretch">
-            <div className="col-lg-5">
-              <div className="add-on-price-panel h-100">
-                <SectionLabel text="Personal Training" />
-                <h2>
-                  Focused Coaching
-                  <br />
-                  <span className="text-yellow">At Simple Prices</span>
-                </h2>
-                <p className="text-muted-ff">
-                  Add personal training to your membership for one-to-one guidance, form correction, progress tracking, and goal-specific support.
+      {showDetailedPricingSections && (
+        <>
+          <section className="section">
+            <div className="container">
+              <div className="text-center mb-5">
+                <SectionLabel text="Chrompet Branch Rate Card" />
+                <SectionHeading line1="In-Gym" line2="Membership Plans" highlightLine={2} centered />
+                <p className="text-muted-ff mx-auto mb-0" style={{ maxWidth: 720 }}>
+                  These are the current Chrompet branch in-gym plan options from the FlexFit printed rate card. Chitlapakkam branch offer prices are shown above in the branch-wise challenge section.
                 </p>
-                <div className="training-price-list">
-                  {personalTrainingPlans.map((plan) => (
-                    <div className="training-price-row" key={plan.duration}>
-                      <span>{plan.duration}</span>
-                      <strong>{plan.price}</strong>
-                    </div>
-                  ))}
-                </div>
+              </div>
+              <div className="legacy-plan-grid">
+                {existingMembershipPlans.map((plan) => (
+                  <article className={`legacy-plan-card ${plan.highlighted ? 'featured' : ''} ${plan.wide ? 'wide' : ''}`} key={plan.name}>
+                    <span className="legacy-plan-duration">{plan.duration}</span>
+                    <h3>{plan.name}</h3>
+                    <div className="legacy-plan-price">{plan.price}</div>
+                    <Link className="btn-ff btn-ff-outline w-100" to={`/join?plan=${encodeURIComponent(plan.name.toLowerCase().replace(/\s+/g, '-'))}`}>
+                      Choose Plan
+                    </Link>
+                  </article>
+                ))}
               </div>
             </div>
-            <div className="col-lg-7">
-              <div className="row g-4 h-100">
-                <div className="col-md-6">
-                  <div className="addon-card h-100">
-                    <span className="addon-price">Rs. 300/-</span>
-                    <h3>Customised Diet Plan</h3>
-                    <p className="text-muted-ff">Body-specific food guidance for fat loss, weight loss, muscle gain, weight gain, contest prep, and general fitness.</p>
-                    <div className="addon-goal-list">
-                      {addOnGoals.map((goal) => <span key={goal}>{goal}</span>)}
+          </section>
+          <section className="section section-card plan-compare-section">
+            <div className="container">
+              <div className="text-center mb-5">
+                <SectionLabel text="Compare" />
+                <SectionHeading line1="Compare" line2="Membership Plans" highlightLine={2} centered />
+                <p className="text-muted-ff mx-auto mb-0" style={{ maxWidth: 760 }}>
+                  Select any two FlexFit rate-card plans and compare price, duration, coaching style, and best fit before you join.
+                </p>
+              </div>
+
+              <div className="plan-compare-controls">
+                <label className="plan-compare-select">
+                  <span>Plan 1</span>
+                  <select value={comparePlanOneId} onChange={(event) => handleComparePlanOneChange(event.target.value)}>
+                    {existingMembershipPlans.map((plan) => (
+                      <option value={plan.id} key={plan.id}>{plan.name}</option>
+                    ))}
+                  </select>
+                </label>
+                <label className="plan-compare-select">
+                  <span>Plan 2</span>
+                  <select value={comparePlanTwoId} onChange={(event) => handleComparePlanTwoChange(event.target.value)}>
+                    {existingMembershipPlans.map((plan) => (
+                      <option value={plan.id} key={plan.id}>{plan.name}</option>
+                    ))}
+                  </select>
+                </label>
+              </div>
+
+              <div className="plan-compare-grid">
+                {[comparePlanOne, comparePlanTwo].map((plan, index) => (
+                  <article className="plan-compare-card" key={`${index}-${plan.id}`}>
+                    <span className="plan-compare-kicker">Plan {index + 1}</span>
+                    <h3>{plan.name}</h3>
+                    <div className="plan-compare-meta">
+                      <div>
+                        <span>Duration</span>
+                        <strong>{plan.compareDuration}</strong>
+                      </div>
+                      <div>
+                        <span>Price</span>
+                        <strong>{plan.price}</strong>
+                      </div>
+                    </div>
+                    <div className="plan-compare-detail">
+                      <span>Coaching</span>
+                      <p>{plan.coaching}</p>
+                    </div>
+                    <div className="plan-compare-columns">
+                      <div>
+                        <h4>Best For</h4>
+                        <ul>
+                          {plan.bestFor.map((item) => <li key={item}>{item}</li>)}
+                        </ul>
+                      </div>
+                      <div>
+                        <h4>Note</h4>
+                        <ul>
+                          {plan.limits.map((item) => <li key={item}>{item}</li>)}
+                        </ul>
+                      </div>
+                    </div>
+                    <Link className="btn-ff btn-ff-primary w-100" to={`/join?plan=${encodeURIComponent(plan.id)}`}>
+                      Choose {plan.name}
+                    </Link>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </section>
+          <section className="section section-card">
+            <div className="container">
+              <div className="row g-4 align-items-stretch">
+                <div className="col-lg-5">
+                  <div className="add-on-price-panel h-100">
+                    <SectionLabel text="Personal Training" />
+                    <h2>
+                      Focused Coaching
+                      <br />
+                      <span className="text-yellow">At Simple Prices</span>
+                    </h2>
+                    <p className="text-muted-ff">
+                      Add personal training to your membership for one-to-one guidance, form correction, progress tracking, and goal-specific support.
+                    </p>
+                    <div className="training-price-list">
+                      {personalTrainingPlans.map((plan) => (
+                        <div className="training-price-row" key={plan.duration}>
+                          <span>{plan.duration}</span>
+                          <strong>{plan.price}</strong>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
-                <div className="col-md-6">
-                  <div className="addon-card h-100 featured">
-                    <span className="addon-price">Rs. 500/-</span>
-                    <h3>Customised Workout Plan</h3>
-                    <p className="text-muted-ff">A structured training plan built around your target, fitness level, and preferred training style.</p>
-                    <div className="addon-goal-list">
-                      {addOnGoals.map((goal) => <span key={goal}>{goal}</span>)}
+                <div className="col-lg-7">
+                  <div className="row g-4 h-100">
+                    <div className="col-md-6">
+                      <div className="addon-card h-100">
+                        <span className="addon-price">Rs. 300/-</span>
+                        <h3>Customised Diet Plan</h3>
+                        <p className="text-muted-ff">Body-specific food guidance for fat loss, weight loss, muscle gain, weight gain, contest prep, and general fitness.</p>
+                        <div className="addon-goal-list">
+                          {addOnGoals.map((goal) => <span key={goal}>{goal}</span>)}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-md-6">
+                      <div className="addon-card h-100 featured">
+                        <span className="addon-price">Rs. 500/-</span>
+                        <h3>Customised Workout Plan</h3>
+                        <p className="text-muted-ff">A structured training plan built around your target, fitness level, and preferred training style.</p>
+                        <div className="addon-goal-list">
+                          {addOnGoals.map((goal) => <span key={goal}>{goal}</span>)}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-      <section className="section section-card">
-        <div className="container">
-          <div className="text-center mb-5">
-            <SectionLabel text="Pricing" />
-            <SectionHeading line1="Regular" line2="Membership Plans" highlightLine={2} centered />
-            <div className="btn-group mt-4" role="group" aria-label="Billing mode">
-              <button className={`btn btn-${billingMode === 'monthly' ? 'warning' : 'outline-light'}`} onClick={() => setBillingMode('monthly')}>Monthly</button>
-              <button className={`btn btn-${billingMode === 'annual' ? 'warning' : 'outline-light'}`} onClick={() => setBillingMode('annual')}>Annual - 20% off</button>
-            </div>
-          </div>
-          <div className="row g-4">
-            {plans.map((plan) => (
-              <div className="col-md-4" key={plan.id}>
-                <PriceCard
-                  name={plan.name}
-                  price={plan.monthlyPrice}
-                  annualPrice={plan.annualPrice}
-                  isPopular={plan.isPopular}
-                  features={plan.features}
-                  planKey={plan.key}
-                  billingMode={billingMode}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      <section className="section">
-        <div className="container">
-          <div className="text-center mb-5">
-            <SectionLabel text="FAQ" />
-            <SectionHeading line1="Frequently Asked" line2="Questions" highlightLine={2} centered />
-          </div>
-          <div className="accordion" id="membershipFaq">
-            {faqs.map(([question, answer], index) => (
-              <div className="accordion-item" key={question}>
-                <h3 className="accordion-header">
-                  <button className={`accordion-button ${index === 0 ? '' : 'collapsed'}`} type="button" data-bs-toggle="collapse" data-bs-target={`#faq-${index}`}>
-                    {question}
-                  </button>
-                </h3>
-                <div id={`faq-${index}`} className={`accordion-collapse collapse ${index === 0 ? 'show' : ''}`} data-bs-parent="#membershipFaq">
-                  <div className="accordion-body text-muted-ff">{answer}</div>
+          </section>
+          <section className="section section-card">
+            <div className="container">
+              <div className="text-center mb-5">
+                <SectionLabel text="Pricing" />
+                <SectionHeading line1="Regular" line2="Membership Plans" highlightLine={2} centered />
+                <div className="btn-group mt-4" role="group" aria-label="Billing mode">
+                  <button className={`btn btn-${billingMode === 'monthly' ? 'warning' : 'outline-light'}`} onClick={() => setBillingMode('monthly')}>Monthly</button>
+                  <button className={`btn btn-${billingMode === 'annual' ? 'warning' : 'outline-light'}`} onClick={() => setBillingMode('annual')}>Annual - 20% off</button>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
+              <div className="row g-4">
+                {plans.map((plan) => (
+                  <div className="col-md-4" key={plan.id}>
+                    <PriceCard
+                      name={plan.name}
+                      price={plan.monthlyPrice}
+                      annualPrice={plan.annualPrice}
+                      isPopular={plan.isPopular}
+                      features={plan.features}
+                      planKey={plan.key}
+                      billingMode={billingMode}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+          <section className="section">
+            <div className="container">
+              <div className="text-center mb-5">
+                <SectionLabel text="FAQ" />
+                <SectionHeading line1="Frequently Asked" line2="Questions" highlightLine={2} centered />
+              </div>
+              <div className="accordion" id="membershipFaq">
+                {faqs.map(([question, answer], index) => (
+                  <div className="accordion-item" key={question}>
+                    <h3 className="accordion-header">
+                      <button className={`accordion-button ${index === 0 ? '' : 'collapsed'}`} type="button" data-bs-toggle="collapse" data-bs-target={`#faq-${index}`}>
+                        {question}
+                      </button>
+                    </h3>
+                    <div id={`faq-${index}`} className={`accordion-collapse collapse ${index === 0 ? 'show' : ''}`} data-bs-parent="#membershipFaq">
+                      <div className="accordion-body text-muted-ff">{answer}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        </>
+      )}
       <CtaBand title="Pick your plan, then let us handle the guidance." text="Start with a trial, a regular membership, or the focused 90-day challenge." />
     </>
   );

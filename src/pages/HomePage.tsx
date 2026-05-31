@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { GearFill, PeopleFill, TrophyFill } from 'react-bootstrap-icons';
 import GalleryPreview from '../components/home/GalleryPreview';
+import HeroIntroSection from '../components/home/HeroIntroSection';
 import HeroSection from '../components/home/HeroSection';
 import ServicesPreview from '../components/home/ServicesPreview';
 import StatsBar from '../components/home/StatsBar';
@@ -15,16 +16,17 @@ const HomePage = () => (
   <>
     <Helmet>
       <title>FlexFit Club - Gym in Chrompet & Chitlapakkam Chennai | Get Into Good Addiction</title>
-      <meta name="description" content="Join FlexFit Club in Chrompet and Anna Nagar, Chitlapakkam. Strength training, cardio, personal coaching, and branch-wise transformation offers." />
+      <meta name="description" content="Join FlexFit Club in Chrompet and Chitlapakkam. Strength training, cardio, personal coaching, and branch-wise transformation offers." />
       <meta name="keywords" content="gym chrompet, gym chennai, flexfit club, personal training chennai, fitness center chrompet" />
       <meta property="og:title" content="FlexFit Club - Gym in Chrompet & Chitlapakkam Chennai" />
-      <meta property="og:description" content="Transform your body at FlexFit Club in Chrompet and Anna Nagar, Chitlapakkam." />
+      <meta property="og:description" content="Transform your body at FlexFit Club in Chrompet and Chitlapakkam." />
       <meta property="og:image" content="/assets/images/logo.png" />
       <meta property="og:url" content="https://flexfitclub.in" />
       <meta name="twitter:card" content="summary_large_image" />
       <link rel="canonical" href="https://flexfitclub.in/" />
     </Helmet>
     <HeroSection />
+    <HeroIntroSection />
     <StatsBar />
     <section className="section section-card">
       <div className="container">
@@ -32,7 +34,7 @@ const HomePage = () => (
           <div className="col-lg-5">
             <div className="about-image-wrap">
               <img src="/assets/Gallery/FlexFit_Athlete_Holding_Weight_Plates.png" alt="FlexFit Club members training inside the gym" />
-              <span className="badge-float">3+ Years of Excellence</span>
+
             </div>
           </div>
           <div className="col-lg-7">

@@ -1,5 +1,5 @@
 const stats = [
-  ['5 AM', 'Opens Early'],
+  ['5 AM+', 'Opens Early'],
   ['60+', 'Equipment Units'],
   ['6', 'Fitness Programs'],
   ['Rs. 999', 'Starting Monthly']

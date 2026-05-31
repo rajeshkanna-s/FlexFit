@@ -32,7 +32,7 @@ const ProgramCard = ({ image, icon, badge, title, description, features = [], li
       </ul>
     )}
     <Link className="btn-ff btn-ff-primary mt-3" to={link}>
-      Enroll Now
+      ENROLL NOW
     </Link>
   </article>
 );

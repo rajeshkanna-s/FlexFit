@@ -18,6 +18,7 @@ import ContactPage from './pages/ContactPage';
 import JoinPage from './pages/JoinPage';
 import PrivacyPage from './pages/PrivacyPage';
 import TermsPage from './pages/TermsPage';
+import CalculatorsPage from './pages/CalculatorsPage';
 
 const App = () => {
   useEffect(() => {
@@ -43,6 +44,7 @@ const App = () => {
           <Route path="/join" element={<JoinPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/terms" element={<TermsPage />} />
+          <Route path="/calculators" element={<CalculatorsPage />} />
         </Routes>
         <Footer />
       </BrowserRouter>

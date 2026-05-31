@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { SunFill, MoonStarsFill } from 'react-bootstrap-icons';
 
 const links = [
   { to: '/', label: 'Home' },
@@ -8,6 +9,7 @@ const links = [
   { to: '/membership', label: 'Membership' },
   { to: '/exercise', label: 'Exercise' },
   { to: '/calculators', label: 'Calculators' },
+  { to: '/diet-chart', label: 'Diet Chart' },
   { to: '/gallery', label: 'Gallery' },
   { to: '/contact', label: 'Contact' }
 ];
@@ -15,6 +17,9 @@ const links = [
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [theme, setTheme] = useState<'dark' | 'light'>(() => {
+    return (localStorage.getItem('theme') as 'dark' | 'light') || 'dark';
+  });
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60);
@@ -22,6 +27,15 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
+  };
 
   return (
     <nav className={`navbar navbar-expand-lg fixed-top navbar-ff ${scrolled ? 'scrolled' : ''} ${open ? 'menu-open' : ''}`}>
@@ -43,6 +57,22 @@ const Navbar = () => {
             <NavLink className="nav-link btn-join-nav ms-lg-2" to="/join" onClick={() => setOpen(false)}>
               Join Now
             </NavLink>
+            <button
+              onClick={toggleTheme}
+              className="btn btn-theme-toggle ms-lg-3 mt-2 mt-lg-0 d-flex align-items-center justify-content-center p-2 rounded-circle"
+              aria-label="Toggle theme"
+              style={{
+                width: '40px',
+                height: '40px',
+                background: 'transparent',
+                border: '1px solid var(--color-border)',
+                color: 'var(--color-yellow)',
+                cursor: 'pointer',
+                transition: 'all 0.25s ease',
+              }}
+            >
+              {theme === 'dark' ? <SunFill size={18} /> : <MoonStarsFill size={18} />}
+            </button>
           </div>
         </div>
       </div>

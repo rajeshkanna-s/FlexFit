@@ -21,7 +21,6 @@ const GalleryPreview = () => (
         {images.map((image, index) => (
           <Link className={`gallery-tile ${index === 0 ? 'wide' : ''}`} to="/gallery" key={image.src}>
             <img src={image.src} alt={`FlexFit gym preview ${index + 1}`} />
-            <span className="gallery-branch-badge">{image.branch}</span>
           </Link>
         ))}
       </div>

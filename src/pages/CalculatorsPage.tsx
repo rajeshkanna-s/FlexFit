@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import {
@@ -115,8 +115,137 @@ const goalAdjustments: Record<string, { factor: number; label: string; colorClas
   }
 };
 
+interface EducationalGuideProps {
+  showMacros?: boolean;
+}
+
+function EducationalGuide({ showMacros = true }: EducationalGuideProps) {
+  return (
+    <div className="mt-4 pt-4 border-top border-secondary text-start animate-fade-in">
+      <h4 className="text-yellow small fw-bold text-uppercase mb-3 d-flex align-items-center gap-2" style={{ letterSpacing: '1px' }}>
+        <InfoCircleFill className="text-yellow" /> Educational Guide: Understanding Your Numbers
+      </h4>
+      
+      <div className="row g-3">
+        {/* What is BMR & TDEE? */}
+        <div className="col-12">
+          <div className="p-3 rounded border border-secondary" style={{ background: 'rgba(255,255,255,0.015)' }}>
+            <h5 className="text-white small fw-bold text-uppercase mb-2 d-flex align-items-center gap-2">
+              <span className="badge bg-yellow text-black px-2 py-1 rounded" style={{ fontSize: '0.65rem' }}>1</span>
+              What is BMR & TDEE?
+            </h5>
+            <p className="text-muted-ff small mb-2 lh-base">
+              <strong>Basal Metabolic Rate (BMR)</strong> is the number of calories your body needs at complete rest to maintain vital functions like breathing, circulation, and cell production.
+            </p>
+            <p className="text-muted-ff small mb-2 lh-base">
+              <strong>Total Daily Energy Expenditure (TDEE)</strong> is your BMR multiplied by an activity factor. This represents the total calories you burn in a day including physical activity.
+            </p>
+            <p className="text-muted-ff small mb-2 lh-base">
+              We use the <strong>Mifflin-St Jeor formula</strong>, which is widely recognized as the most accurate estimation formula for BMR.
+            </p>
+            <p className="text-muted-ff small mb-0 mt-2 border-top border-secondary pt-2 style-xs" style={{ fontSize: '0.72rem', fontStyle: 'italic', color: 'rgba(255,255,255,0.4)' }}>
+              Note: These are estimates. Individual metabolism varies based on genetics, muscle mass, hormones, and other factors. Consult a healthcare provider for personalized advice.
+            </p>
+          </div>
+        </div>
+
+        {/* What Are Macros? */}
+        {showMacros && (
+          <div className="col-12">
+            <div className="p-3 rounded border border-secondary" style={{ background: 'rgba(255,255,255,0.015)' }}>
+              <h5 className="text-white small fw-bold text-uppercase mb-2 d-flex align-items-center gap-2">
+                <span className="badge bg-yellow text-black px-2 py-1 rounded" style={{ fontSize: '0.65rem' }}>2</span>
+                What Are Macros?
+              </h5>
+              <p className="text-muted-ff small mb-3 lh-base">
+                Macronutrients (macros) are nutrients your body needs in large amounts to function, recover, and grow:
+              </p>
+              
+              <div className="row g-2 text-center">
+                <div className="col-4">
+                  <div className="p-2 border border-danger rounded h-100 d-flex flex-column justify-content-between" style={{ background: 'rgba(239,68,68,0.02)' }}>
+                    <div>
+                      <strong className="text-danger small d-block mb-1 text-uppercase" style={{ fontSize: '0.75rem', letterSpacing: '0.5px' }}>Protein</strong>
+                      <span className="text-muted-ff d-block" style={{ fontSize: '0.68rem', lineHeight: '1.2' }}>Muscle building & repair</span>
+                    </div>
+                    <div className="text-white small fw-bold mt-2 pt-1 border-top border-secondary" style={{ fontSize: '0.72rem' }}>4 cal / gram</div>
+                  </div>
+                </div>
+                
+                <div className="col-4">
+                  <div className="p-2 border border-warning rounded h-100 d-flex flex-column justify-content-between" style={{ background: 'rgba(245,158,11,0.02)' }}>
+                    <div>
+                      <strong className="text-warning small d-block mb-1 text-uppercase" style={{ fontSize: '0.75rem', letterSpacing: '0.5px' }}>Carbs</strong>
+                      <span className="text-muted-ff d-block" style={{ fontSize: '0.68rem', lineHeight: '1.2' }}>Primary energy source</span>
+                    </div>
+                    <div className="text-white small fw-bold mt-2 pt-1 border-top border-secondary" style={{ fontSize: '0.72rem' }}>4 cal / gram</div>
+                  </div>
+                </div>
+                
+                <div className="col-4">
+                  <div className="p-2 border border-info rounded h-100 d-flex flex-column justify-content-between" style={{ background: 'rgba(6,182,212,0.02)' }}>
+                    <div>
+                      <strong className="text-info small d-block mb-1 text-uppercase" style={{ fontSize: '0.75rem', letterSpacing: '0.5px' }}>Fat</strong>
+                      <span className="text-muted-ff d-block" style={{ fontSize: '0.68rem', lineHeight: '1.2' }}>Hormone & storage</span>
+                    </div>
+                    <div className="text-white small fw-bold mt-2 pt-1 border-top border-secondary" style={{ fontSize: '0.72rem' }}>9 cal / gram</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* How It Works */}
+        <div className="col-12">
+          <div className="p-3 rounded border border-secondary" style={{ background: 'rgba(255,255,255,0.015)' }}>
+            <h5 className="text-white small fw-bold text-uppercase mb-3 d-flex align-items-center gap-2">
+              <span className="badge bg-yellow text-black px-2 py-1 rounded" style={{ fontSize: '0.65rem' }}>{showMacros ? '3' : '2'}</span>
+              How It Works
+            </h5>
+            <div className="d-flex flex-column gap-3 text-muted-ff small ps-1">
+              <div className="d-flex gap-3 align-items-start">
+                <span className="d-flex align-items-center justify-content-center rounded-circle border border-warning text-yellow fw-bold" style={{ width: '22px', height: '22px', fontSize: '0.7rem', flexShrink: 0 }}>1</span>
+                <div>
+                  <strong className="text-white d-block small mb-0.5">Calculate your BMR</strong>
+                  <span className="style-xs" style={{ fontSize: '0.72rem' }}>Establishes your baseline metabolic rate at rest.</span>
+                </div>
+              </div>
+              <div className="d-flex gap-3 align-items-start">
+                <span className="d-flex align-items-center justify-content-center rounded-circle border border-warning text-yellow fw-bold" style={{ width: '22px', height: '22px', fontSize: '0.7rem', flexShrink: 0 }}>2</span>
+                <div>
+                  <strong className="text-white d-block small mb-0.5">Multiply by Activity Level</strong>
+                  <span className="style-xs" style={{ fontSize: '0.72rem' }}>Accounts for exercise and physical movement to find TDEE.</span>
+                </div>
+              </div>
+              <div className="d-flex gap-3 align-items-start">
+                <span className="d-flex align-items-center justify-content-center rounded-circle border border-warning text-yellow fw-bold" style={{ width: '22px', height: '22px', fontSize: '0.7rem', flexShrink: 0 }}>3</span>
+                <div>
+                  <strong className="text-white d-block small mb-0.5">Adjust Calories for Your Goal</strong>
+                  <span className="style-xs" style={{ fontSize: '0.72rem' }}>Creates a caloric deficit for fat loss, or a caloric surplus for muscle gain.</span>
+                </div>
+              </div>
+              <div className="d-flex gap-3 align-items-start">
+                <span className="d-flex align-items-center justify-content-center rounded-circle border border-warning text-yellow fw-bold" style={{ width: '22px', height: '22px', fontSize: '0.7rem', flexShrink: 0 }}>4</span>
+                <div>
+                  <strong className="text-white d-block small mb-0.5">Distribute Into Macros</strong>
+                  <span className="style-xs" style={{ fontSize: '0.72rem' }}>Allocates target calories into specific ratios of protein, carbs, and fat.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function CalculatorsPage() {
   const [activeTab, setActiveTab] = useState<'bmi' | 'calorie' | 'macro'>('bmi');
+
+  const bmiResultRef = useRef<HTMLDivElement>(null);
+  const calResultRef = useRef<HTMLDivElement>(null);
+  const macResultRef = useRef<HTMLDivElement>(null);
 
   // --- Shared Input Units State ---
   const [weightUnit, setWeightUnit] = useState<'kg' | 'lb'>('kg');
@@ -161,6 +290,9 @@ export default function CalculatorsPage() {
 
     const res = calculateBmi(wKg, hCm);
     setBmiResult(res);
+    setTimeout(() => {
+      bmiResultRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 100);
   };
 
   const handleBmiReset = () => {
@@ -212,6 +344,9 @@ export default function CalculatorsPage() {
       tdee,
       activityLevelLabel: matchedActivity ? matchedActivity.label : 'Moderately Active'
     });
+    setTimeout(() => {
+      calResultRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 100);
   };
 
   const handleCalReset = () => {
@@ -290,6 +425,9 @@ export default function CalculatorsPage() {
       carbsCalories: carbsCal,
       fatCalories: fatCal
     });
+    setTimeout(() => {
+      macResultRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 100);
   };
 
   const handleMacReset = () => {
@@ -323,46 +461,7 @@ export default function CalculatorsPage() {
 
       <section className="section section-card">
         <div className="container">
-          {/* Unit Toggle Buttons */}
-          <div className="d-flex justify-content-center justify-content-sm-end gap-3 mb-4 flex-wrap">
-            <div className="btn-group" role="group" aria-label="Weight Units">
-              <button
-                type="button"
-                className={`btn-ff px-3 py-1 btn-sm ${weightUnit === 'kg' ? 'btn-ff-primary' : 'btn-ff-outline'}`}
-                style={{ minHeight: '36px', fontSize: '0.8rem' }}
-                onClick={() => setWeightUnit('kg')}
-              >
-                KG
-              </button>
-              <button
-                type="button"
-                className={`btn-ff px-3 py-1 btn-sm ${weightUnit === 'lb' ? 'btn-ff-primary' : 'btn-ff-outline'}`}
-                style={{ minHeight: '36px', fontSize: '0.8rem' }}
-                onClick={() => setWeightUnit('lb')}
-              >
-                LB
-              </button>
-            </div>
 
-            <div className="btn-group" role="group" aria-label="Height Units">
-              <button
-                type="button"
-                className={`btn-ff px-3 py-1 btn-sm ${heightUnit === 'cm' ? 'btn-ff-primary' : 'btn-ff-outline'}`}
-                style={{ minHeight: '36px', fontSize: '0.8rem' }}
-                onClick={() => setHeightUnit('cm')}
-              >
-                CM
-              </button>
-              <button
-                type="button"
-                className={`btn-ff px-3 py-1 btn-sm ${heightUnit === 'inch' ? 'btn-ff-primary' : 'btn-ff-outline'}`}
-                style={{ minHeight: '36px', fontSize: '0.8rem' }}
-                onClick={() => setHeightUnit('inch')}
-              >
-                INCH
-              </button>
-            </div>
-          </div>
 
           {/* Nav Tabs Switcher */}
           <div className="d-flex justify-content-center gap-2 gap-sm-3 mb-5 flex-wrap">
@@ -399,34 +498,74 @@ export default function CalculatorsPage() {
                   <form onSubmit={handleBmiCalculate}>
                     <div className="mb-4">
                       <label className="form-label text-yellow small fw-bold text-uppercase">
-                        Weight ({weightUnit === 'kg' ? 'kg' : 'lbs'})
+                        Weight
                       </label>
-                      <input
-                        type="number"
-                        step="any"
-                        placeholder={`Enter weight in ${weightUnit}`}
-                        className="form-control"
-                        value={bmiWeight}
-                        onChange={(e) => setBmiWeight(e.target.value)}
-                        required
-                        min="1"
-                      />
+                      <div className="input-group">
+                        <input
+                          type="number"
+                          step="any"
+                          placeholder="Enter weight"
+                          className="form-control"
+                          value={bmiWeight}
+                          onChange={(e) => setBmiWeight(e.target.value)}
+                          required
+                          min="1"
+                        />
+                        <div className="input-group-text p-1 d-flex gap-1" style={{ background: 'var(--color-black-card)', borderColor: 'var(--color-border)', zIndex: 3 }}>
+                          <button
+                            type="button"
+                            className={`btn btn-sm py-1 px-2 fw-bold ${weightUnit === 'kg' ? 'btn-warning text-black' : 'text-white-50 border-0 bg-transparent'}`}
+                            onClick={() => setWeightUnit('kg')}
+                            style={{ minHeight: 'auto', fontSize: '0.75rem' }}
+                          >
+                            KG
+                          </button>
+                          <button
+                            type="button"
+                            className={`btn btn-sm py-1 px-2 fw-bold ${weightUnit === 'lb' ? 'btn-warning text-black' : 'text-white-50 border-0 bg-transparent'}`}
+                            onClick={() => setWeightUnit('lb')}
+                            style={{ minHeight: 'auto', fontSize: '0.75rem' }}
+                          >
+                            LB
+                          </button>
+                        </div>
+                      </div>
                     </div>
 
                     <div className="mb-4">
                       <label className="form-label text-yellow small fw-bold text-uppercase">
-                        Height ({heightUnit === 'cm' ? 'cm' : 'inches'})
+                        Height
                       </label>
-                      <input
-                        type="number"
-                        step="any"
-                        placeholder={`Enter height in ${heightUnit}`}
-                        className="form-control"
-                        value={bmiHeight}
-                        onChange={(e) => setBmiHeight(e.target.value)}
-                        required
-                        min="1"
-                      />
+                      <div className="input-group">
+                        <input
+                          type="number"
+                          step="any"
+                          placeholder="Enter height"
+                          className="form-control"
+                          value={bmiHeight}
+                          onChange={(e) => setBmiHeight(e.target.value)}
+                          required
+                          min="1"
+                        />
+                        <div className="input-group-text p-1 d-flex gap-1" style={{ background: 'var(--color-black-card)', borderColor: 'var(--color-border)', zIndex: 3 }}>
+                          <button
+                            type="button"
+                            className={`btn btn-sm py-1 px-2 fw-bold ${heightUnit === 'cm' ? 'btn-warning text-black' : 'text-white-50 border-0 bg-transparent'}`}
+                            onClick={() => setHeightUnit('cm')}
+                            style={{ minHeight: 'auto', fontSize: '0.75rem' }}
+                          >
+                            CM
+                          </button>
+                          <button
+                            type="button"
+                            className={`btn btn-sm py-1 px-2 fw-bold ${heightUnit === 'inch' ? 'btn-warning text-black' : 'text-white-50 border-0 bg-transparent'}`}
+                            onClick={() => setHeightUnit('inch')}
+                            style={{ minHeight: 'auto', fontSize: '0.75rem' }}
+                          >
+                            INCH
+                          </button>
+                        </div>
+                      </div>
                     </div>
 
                     {bmiError && <div className="alert alert-danger mb-4 py-2 small">{bmiError}</div>}
@@ -449,7 +588,7 @@ export default function CalculatorsPage() {
               </div>
 
               {/* Result Display */}
-              <div className="col-lg-7">
+              <div className="col-lg-7" ref={bmiResultRef}>
                 <div className="contact-card d-flex flex-column justify-content-between h-100">
                   {bmiResult ? (
                     <div className="text-center p-3 animate-fade-in">
@@ -599,49 +738,94 @@ export default function CalculatorsPage() {
 
                     <div className="mb-3">
                       <label className="form-label text-yellow small fw-bold text-uppercase">
-                        Weight ({weightUnit === 'kg' ? 'kg' : 'lbs'})
+                        Weight
                       </label>
-                      <input
-                        type="number"
-                        step="any"
-                        placeholder={`Enter weight in ${weightUnit}`}
-                        className="form-control"
-                        value={calWeight}
-                        onChange={(e) => setCalWeight(e.target.value)}
-                        required
-                        min="1"
-                      />
+                      <div className="input-group">
+                        <input
+                          type="number"
+                          step="any"
+                          placeholder="Enter weight"
+                          className="form-control"
+                          value={calWeight}
+                          onChange={(e) => setCalWeight(e.target.value)}
+                          required
+                          min="1"
+                        />
+                        <div className="input-group-text p-1 d-flex gap-1" style={{ background: 'var(--color-black-card)', borderColor: 'var(--color-border)', zIndex: 3 }}>
+                          <button
+                            type="button"
+                            className={`btn btn-sm py-1 px-2 fw-bold ${weightUnit === 'kg' ? 'btn-warning text-black' : 'text-white-50 border-0 bg-transparent'}`}
+                            onClick={() => setWeightUnit('kg')}
+                            style={{ minHeight: 'auto', fontSize: '0.75rem' }}
+                          >
+                            KG
+                          </button>
+                          <button
+                            type="button"
+                            className={`btn btn-sm py-1 px-2 fw-bold ${weightUnit === 'lb' ? 'btn-warning text-black' : 'text-white-50 border-0 bg-transparent'}`}
+                            onClick={() => setWeightUnit('lb')}
+                            style={{ minHeight: 'auto', fontSize: '0.75rem' }}
+                          >
+                            LB
+                          </button>
+                        </div>
+                      </div>
                     </div>
 
                     <div className="mb-3">
                       <label className="form-label text-yellow small fw-bold text-uppercase">
-                        Height ({heightUnit === 'cm' ? 'cm' : 'inches'})
+                        Height
                       </label>
-                      <input
-                        type="number"
-                        step="any"
-                        placeholder={`Enter height in ${heightUnit}`}
-                        className="form-control"
-                        value={calHeight}
-                        onChange={(e) => setCalHeight(e.target.value)}
-                        required
-                        min="1"
-                      />
+                      <div className="input-group">
+                        <input
+                          type="number"
+                          step="any"
+                          placeholder="Enter height"
+                          className="form-control"
+                          value={calHeight}
+                          onChange={(e) => setCalHeight(e.target.value)}
+                          required
+                          min="1"
+                        />
+                        <div className="input-group-text p-1 d-flex gap-1" style={{ background: 'var(--color-black-card)', borderColor: 'var(--color-border)', zIndex: 3 }}>
+                          <button
+                            type="button"
+                            className={`btn btn-sm py-1 px-2 fw-bold ${heightUnit === 'cm' ? 'btn-warning text-black' : 'text-white-50 border-0 bg-transparent'}`}
+                            onClick={() => setHeightUnit('cm')}
+                            style={{ minHeight: 'auto', fontSize: '0.75rem' }}
+                          >
+                            CM
+                          </button>
+                          <button
+                            type="button"
+                            className={`btn btn-sm py-1 px-2 fw-bold ${heightUnit === 'inch' ? 'btn-warning text-black' : 'text-white-50 border-0 bg-transparent'}`}
+                            onClick={() => setHeightUnit('inch')}
+                            style={{ minHeight: 'auto', fontSize: '0.75rem' }}
+                          >
+                            INCH
+                          </button>
+                        </div>
+                      </div>
                     </div>
 
                     <div className="mb-4">
-                      <label className="form-label text-yellow small fw-bold text-uppercase">Activity Level</label>
-                      <select
-                        className="form-select"
-                        value={calActivity}
-                        onChange={(e) => setCalActivity(e.target.value)}
-                      >
+                      <label className="form-label text-yellow small fw-bold text-uppercase mb-2">Activity Level</label>
+                      <div className="activity-selector">
                         {activityLevels.map((level) => (
-                          <option key={level.value} value={level.value}>
-                            {level.label} ({level.description})
-                          </option>
+                          <button
+                            type="button"
+                            className={`activity-option ${calActivity === level.value ? 'active' : ''}`}
+                            key={level.value}
+                            onClick={() => setCalActivity(level.value)}
+                          >
+                            <span className="activity-radio"></span>
+                            <div className="activity-details">
+                              <strong>{level.label}</strong>
+                              <small>{level.description}</small>
+                            </div>
+                          </button>
                         ))}
-                      </select>
+                      </div>
                     </div>
 
                     {calError && <div className="alert alert-danger mb-4 py-2 small">{calError}</div>}
@@ -664,7 +848,7 @@ export default function CalculatorsPage() {
               </div>
 
               {/* Result Display */}
-              <div className="col-lg-7">
+              <div className="col-lg-7" ref={calResultRef}>
                 <div className="contact-card d-flex flex-column justify-content-between h-100">
                   {calResult ? (
                     <div className="animate-fade-in">
@@ -737,6 +921,9 @@ export default function CalculatorsPage() {
                           </div>
                         </div>
                       </div>
+
+                      {/* Educational Guide */}
+                      <EducationalGuide showMacros={true} />
                     </div>
                   ) : (
                     <div className="text-center my-auto py-5 text-muted-ff">
@@ -749,14 +936,16 @@ export default function CalculatorsPage() {
                   )}
 
                   {/* Info Footer */}
-                  <div className="mt-4 pt-3 border-top border-secondary small text-muted-ff">
-                    <div className="d-flex gap-2 align-items-start">
-                      <InfoCircleFill className="text-yellow mt-1 flex-shrink-0" />
-                      <p className="mb-0">
-                        <strong>Mifflin-St Jeor Equation:</strong> BMR represents your energy burned completely at rest. TDEE includes daily movement. We suggest custom diets matching these targets based on your goals.
-                      </p>
+                  {!calResult && (
+                    <div className="mt-4 pt-3 border-top border-secondary small text-muted-ff">
+                      <div className="d-flex gap-2 align-items-start">
+                        <InfoCircleFill className="text-yellow mt-1 flex-shrink-0" />
+                        <p className="mb-0">
+                          <strong>Mifflin-St Jeor Equation:</strong> BMR represents your energy burned completely at rest. TDEE includes daily movement. We suggest custom diets matching these targets based on your goals.
+                        </p>
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -807,49 +996,94 @@ export default function CalculatorsPage() {
 
                     <div className="mb-3">
                       <label className="form-label text-yellow small fw-bold text-uppercase">
-                        Weight ({weightUnit === 'kg' ? 'kg' : 'lbs'})
+                        Weight
                       </label>
-                      <input
-                        type="number"
-                        step="any"
-                        placeholder={`Enter weight in ${weightUnit}`}
-                        className="form-control"
-                        value={macWeight}
-                        onChange={(e) => setMacWeight(e.target.value)}
-                        required
-                        min="1"
-                      />
+                      <div className="input-group">
+                        <input
+                          type="number"
+                          step="any"
+                          placeholder="Enter weight"
+                          className="form-control"
+                          value={macWeight}
+                          onChange={(e) => setMacWeight(e.target.value)}
+                          required
+                          min="1"
+                        />
+                        <div className="input-group-text p-1 d-flex gap-1" style={{ background: 'var(--color-black-card)', borderColor: 'var(--color-border)', zIndex: 3 }}>
+                          <button
+                            type="button"
+                            className={`btn btn-sm py-1 px-2 fw-bold ${weightUnit === 'kg' ? 'btn-warning text-black' : 'text-white-50 border-0 bg-transparent'}`}
+                            onClick={() => setWeightUnit('kg')}
+                            style={{ minHeight: 'auto', fontSize: '0.75rem' }}
+                          >
+                            KG
+                          </button>
+                          <button
+                            type="button"
+                            className={`btn btn-sm py-1 px-2 fw-bold ${weightUnit === 'lb' ? 'btn-warning text-black' : 'text-white-50 border-0 bg-transparent'}`}
+                            onClick={() => setWeightUnit('lb')}
+                            style={{ minHeight: 'auto', fontSize: '0.75rem' }}
+                          >
+                            LB
+                          </button>
+                        </div>
+                      </div>
                     </div>
 
                     <div className="mb-3">
                       <label className="form-label text-yellow small fw-bold text-uppercase">
-                        Height ({heightUnit === 'cm' ? 'cm' : 'inches'})
+                        Height
                       </label>
-                      <input
-                        type="number"
-                        step="any"
-                        placeholder={`Enter height in ${heightUnit}`}
-                        className="form-control"
-                        value={macHeight}
-                        onChange={(e) => setMacHeight(e.target.value)}
-                        required
-                        min="1"
-                      />
+                      <div className="input-group">
+                        <input
+                          type="number"
+                          step="any"
+                          placeholder="Enter height"
+                          className="form-control"
+                          value={macHeight}
+                          onChange={(e) => setMacHeight(e.target.value)}
+                          required
+                          min="1"
+                        />
+                        <div className="input-group-text p-1 d-flex gap-1" style={{ background: 'var(--color-black-card)', borderColor: 'var(--color-border)', zIndex: 3 }}>
+                          <button
+                            type="button"
+                            className={`btn btn-sm py-1 px-2 fw-bold ${heightUnit === 'cm' ? 'btn-warning text-black' : 'text-white-50 border-0 bg-transparent'}`}
+                            onClick={() => setHeightUnit('cm')}
+                            style={{ minHeight: 'auto', fontSize: '0.75rem' }}
+                          >
+                            CM
+                          </button>
+                          <button
+                            type="button"
+                            className={`btn btn-sm py-1 px-2 fw-bold ${heightUnit === 'inch' ? 'btn-warning text-black' : 'text-white-50 border-0 bg-transparent'}`}
+                            onClick={() => setHeightUnit('inch')}
+                            style={{ minHeight: 'auto', fontSize: '0.75rem' }}
+                          >
+                            INCH
+                          </button>
+                        </div>
+                      </div>
                     </div>
 
                     <div className="mb-3">
-                      <label className="form-label text-yellow small fw-bold text-uppercase">Activity Level</label>
-                      <select
-                        className="form-select"
-                        value={macActivity}
-                        onChange={(e) => setMacActivity(e.target.value)}
-                      >
+                      <label className="form-label text-yellow small fw-bold text-uppercase mb-2">Activity Level</label>
+                      <div className="activity-selector">
                         {activityLevels.map((level) => (
-                          <option key={level.value} value={level.value}>
-                            {level.label} ({level.description})
-                          </option>
+                          <button
+                            type="button"
+                            className={`activity-option ${macActivity === level.value ? 'active' : ''}`}
+                            key={level.value}
+                            onClick={() => setMacActivity(level.value)}
+                          >
+                            <span className="activity-radio"></span>
+                            <div className="activity-details">
+                              <strong>{level.label}</strong>
+                              <small>{level.description}</small>
+                            </div>
+                          </button>
                         ))}
-                      </select>
+                      </div>
                     </div>
 
                     <div className="mb-4">
@@ -911,7 +1145,7 @@ export default function CalculatorsPage() {
               </div>
 
               {/* Result Display */}
-              <div className="col-lg-7">
+              <div className="col-lg-7" ref={macResultRef}>
                 <div className="contact-card d-flex flex-column justify-content-between h-100">
                   {macResult ? (
                     <div className="animate-fade-in">
@@ -1088,7 +1322,7 @@ export default function CalculatorsPage() {
                         </div>
                         <div className="col-sm-6">
                           <Link
-                            to="/programs"
+                            to="/diet-chart"
                             className="btn-ff btn-ff-outline w-100 text-start d-flex align-items-center justify-content-between px-3 py-2"
                             style={{ minHeight: '44px', textTransform: 'none' }}
                           >
@@ -1113,6 +1347,9 @@ export default function CalculatorsPage() {
                           </Link>
                         </div>
                       </div>
+
+                      {/* Educational Guide */}
+                      <EducationalGuide showMacros={true} />
                     </div>
                   ) : (
                     <div className="text-center my-auto py-5 text-muted-ff">
@@ -1125,14 +1362,16 @@ export default function CalculatorsPage() {
                   )}
 
                   {/* Info Footer */}
-                  <div className="mt-4 pt-3 border-top border-secondary small text-muted-ff">
-                    <div className="d-flex gap-2 align-items-start">
-                      <InfoCircleFill className="text-yellow mt-1 flex-shrink-0" />
-                      <p className="mb-0">
-                        <strong>Macronutrient Targets:</strong> Muscle hypertrophy is optimized with sufficient protein intake. Fats are essential for metabolism and hormone synthesis. Carbs provide primary fuel for high intensity sessions.
-                      </p>
+                  {!macResult && (
+                    <div className="mt-4 pt-3 border-top border-secondary small text-muted-ff">
+                      <div className="d-flex gap-2 align-items-start">
+                        <InfoCircleFill className="text-yellow mt-1 flex-shrink-0" />
+                        <p className="mb-0">
+                          <strong>Macronutrient Targets:</strong> Muscle hypertrophy is optimized with sufficient protein intake. Fats are essential for metabolism and hormone synthesis. Carbs provide primary fuel for high intensity sessions.
+                        </p>
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
               </div>
             </div>

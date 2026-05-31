@@ -111,18 +111,18 @@ a:focus-visible {
 
 .btn-ff-primary {
   background: var(--color-yellow);
-  color: var(--color-black);
+  color: #0D0D0D;
 }
 
 .btn-ff-primary:hover {
   background: var(--color-yellow-hover);
-  color: var(--color-black);
+  color: #0D0D0D;
   transform: translateY(-1px);
 }
 
 .btn-ff-outline {
   background: transparent;
-  border-color: rgba(255,255,255,0.45);
+  border-color: var(--color-white-muted);
   color: var(--color-white);
 }
 
@@ -138,7 +138,7 @@ a:focus-visible {
 
 .form-control,
 .form-select {
-  background: #111;
+  background: var(--color-input-bg);
   border: 1px solid var(--color-border);
   border-radius: 6px;
   color: var(--color-white);
@@ -147,7 +147,7 @@ a:focus-visible {
 
 .form-control:focus,
 .form-select:focus {
-  background: #111;
+  background: var(--color-input-bg);
   border-color: var(--color-yellow);
   box-shadow: 0 0 0 0.2rem rgba(255,214,0,0.16);
   color: var(--color-white);
@@ -186,4 +186,33 @@ a:focus-visible {
     min-height: 46px;
     padding: 11px 18px;
   }
+}
+
+/* Light mode support rules */
+[data-theme='light'] .text-white {
+  color: var(--color-white) !important;
+}
+
+[data-theme='light'] .border-secondary {
+  border-color: var(--color-border) !important;
+}
+
+[data-theme='light'] .bg-dark,
+[data-theme='light'] .bg-black {
+  background-color: var(--color-black-mid) !important;
+}
+
+[data-theme='light'] .text-white-50 {
+  color: var(--color-white-muted) !important;
+}
+
+[data-theme='light'] [style*='rgba(255,255,255'] {
+  background-color: var(--color-translucent-white-04) !important;
+}
+
+[data-theme='light'] .table-dark {
+  --bs-table-bg: var(--color-black-card) !important;
+  --bs-table-color: var(--color-white) !important;
+  --bs-table-hover-bg: rgba(0, 0, 0, 0.02) !important;
+  border-color: var(--color-border) !important;
 }

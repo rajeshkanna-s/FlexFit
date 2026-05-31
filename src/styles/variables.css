@@ -16,8 +16,40 @@
   --color-border: rgba(255,255,255,0.08);
   --color-border-yellow: rgba(255,214,0,0.25);
 
+  /* Theme mode overrides support variables */
+  --color-input-bg: #111111;
+  --color-navbar-bg: rgba(13, 13, 13, 0.97);
+  --color-offer-card-bg: rgba(26, 26, 26, 0.88);
+  --color-info-card-bg: rgba(26, 26, 26, 0.84);
+  --color-impact-bg: rgba(13, 13, 13, 0.45);
+  --color-nav-link: rgba(255, 255, 255, 0.75);
+  --color-translucent-white-04: rgba(255, 255, 255, 0.04);
+  --color-translucent-white-08: rgba(255, 255, 255, 0.08);
+  --color-footer-bg: #000000;
+
   /* Layout tokens (additive — mobile-responsive-ux) */
   --tap-min: 44px;
   --font-body-min: 0.875rem;
   --map-min-height: 220px;
+}
+
+[data-theme='light'] {
+  --color-black: #F6F8FA;
+  --color-black-card: #FFFFFF;
+  --color-black-mid: #ECEFF2;
+  --color-white: #121212;
+  --color-white-muted: rgba(18, 18, 18, 0.65);
+  --color-white-dim: rgba(18, 18, 18, 0.35);
+  --color-border: rgba(0, 0, 0, 0.09);
+  --color-border-yellow: rgba(255, 214, 0, 0.40);
+
+  --color-input-bg: #FFFFFF;
+  --color-navbar-bg: rgba(255, 255, 255, 0.96);
+  --color-offer-card-bg: rgba(255, 255, 255, 0.92);
+  --color-info-card-bg: rgba(255, 255, 255, 0.88);
+  --color-impact-bg: rgba(255, 255, 255, 0.70);
+  --color-nav-link: rgba(18, 18, 18, 0.75);
+  --color-translucent-white-04: rgba(0, 0, 0, 0.04);
+  --color-translucent-white-08: rgba(0, 0, 0, 0.08);
+  --color-footer-bg: #FFFFFF;
 }

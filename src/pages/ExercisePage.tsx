@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useSearchParams } from 'react-router-dom';
 import { Check, ChevronDown, Search } from 'react-bootstrap-icons';
 import SectionHeading from '../components/common/SectionHeading';
 import SectionLabel from '../components/common/SectionLabel';
@@ -146,10 +147,35 @@ const FilterSelect = ({ label, value, options, onChange }: FilterSelectProps) =>
 };
 
 const ExercisePage = () => {
-  const [equipment, setEquipment] = useState('All Equipment');
-  const [muscle, setMuscle] = useState('All Muscles');
-  const [query, setQuery] = useState('');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [equipment, setEquipment] = useState(() => searchParams.get('equipment') || 'All Equipment');
+  const [muscle, setMuscle] = useState(() => searchParams.get('muscle') || 'All Muscles');
+  const [query, setQuery] = useState(() => searchParams.get('query') || '');
   const [visibleCount, setVisibleCount] = useState(24);
+
+  // Sync state with URL search params changes
+  useEffect(() => {
+    const muscleParam = searchParams.get('muscle');
+    const equipParam = searchParams.get('equipment');
+    const queryParam = searchParams.get('query');
+
+    if (muscleParam !== null) {
+      setMuscle(muscleParam);
+    } else {
+      setMuscle('All Muscles');
+    }
+    if (equipParam !== null) {
+      setEquipment(equipParam);
+    } else {
+      setEquipment('All Equipment');
+    }
+    if (queryParam !== null) {
+      setQuery(queryParam);
+    } else {
+      setQuery('');
+    }
+    setVisibleCount(24);
+  }, [searchParams]);
 
   const equipmentOptions = useMemo(
     () => uniqueOptions(EQUIPMENT_ORDER, videoExercises.map((exercise) => exercise.equipment), 'All Equipment'),
@@ -165,7 +191,8 @@ const ExercisePage = () => {
     const searchText = query.trim().toLowerCase();
     return videoExercises.filter((exercise) => {
       const matchesEquipment = equipment === 'All Equipment' || exercise.equipment === equipment;
-      const matchesMuscle = muscle === 'All Muscles' || exercise.muscle === muscle;
+      const matchesMuscle = muscle === 'All Muscles' || 
+        muscle.split(',').map(m => m.trim().toLowerCase()).includes(exercise.muscle.toLowerCase());
       const matchesSearch = !searchText || `${exercise.name} ${exercise.workoutName} ${exercise.muscle} ${exercise.equipment}`.toLowerCase().includes(searchText);
       return matchesEquipment && matchesMuscle && matchesSearch;
     });
@@ -178,6 +205,7 @@ const ExercisePage = () => {
     setMuscle('All Muscles');
     setQuery('');
     setVisibleCount(24);
+    setSearchParams({});
   };
 
   return (

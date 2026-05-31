@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { GearFill, PeopleFill, TrophyFill } from 'react-bootstrap-icons';
+import { GearFill, PeopleFill, TrophyFill, Calculator, ChevronRight } from 'react-bootstrap-icons';
 import GalleryPreview from '../components/home/GalleryPreview';
 import HeroIntroSection from '../components/home/HeroIntroSection';
 import HeroSection from '../components/home/HeroSection';
@@ -8,6 +8,7 @@ import ServicesPreview from '../components/home/ServicesPreview';
 import StatsBar from '../components/home/StatsBar';
 import TestimonialsSection from '../components/home/TestimonialsSection';
 import WhyFlexFit from '../components/home/WhyFlexFit';
+import DailyWod from '../components/home/DailyWod';
 import SectionHeading from '../components/common/SectionHeading';
 import SectionLabel from '../components/common/SectionLabel';
 import TransformationChallenge from '../components/common/TransformationChallenge';
@@ -60,11 +61,44 @@ const HomePage = () => (
               ))}
             </div>
             <Link className="btn-ff btn-ff-primary mt-3" to="/about">Learn About FlexFit</Link>
+
+            {/* Calculators Promo Card */}
+            <div className="mt-4 p-4 rounded border-yellow animate-fade-in d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-3" style={{ background: 'rgba(255,214,0,0.03)', border: '1px solid var(--color-border-yellow)' }}>
+              <div>
+                <h4 className="text-yellow h6 mb-1 text-uppercase fw-bold" style={{ letterSpacing: '1px' }}>
+                  <Calculator className="me-2" /> Free Fitness Calculators
+                </h4>
+                <p className="text-white small mb-0">
+                  Take the guesswork out of your nutrition and fitness. Instantly estimate your BMI, daily calorie targets (BMR & TDEE), and custom macronutrient splits.
+                </p>
+              </div>
+              <Link className="btn-ff btn-ff-outline py-2 px-3 text-nowrap align-self-start align-self-sm-center d-flex align-items-center gap-2" to="/calculators" style={{ fontSize: '0.85rem' }}>
+                <span>Try Calculators</span>
+                <ChevronRight className="small" />
+              </Link>
+            </div>
+
+            {/* Diet Chart Promo Card */}
+            <div className="mt-3 p-4 rounded border-yellow animate-fade-in d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-3" style={{ background: 'rgba(16,185,129,0.03)', border: '1px solid rgba(16,185,129,0.3)' }}>
+              <div>
+                <h4 className="h6 mb-1 text-uppercase fw-bold" style={{ letterSpacing: '1px', color: '#10b981' }}>
+                  🍽️ Personalised Diet Chart
+                </h4>
+                <p className="text-white small mb-0">
+                  Get a free South Indian weekly meal plan tailored to your goal — Weight Loss, Muscle Gain, Body Toning, and more. Built with local foods you already love.
+                </p>
+              </div>
+              <Link className="btn-ff btn-ff-outline py-2 px-3 text-nowrap align-self-start align-self-sm-center d-flex align-items-center gap-2" to="/diet-chart" style={{ fontSize: '0.85rem' }}>
+                <span>Get My Diet Plan</span>
+                <ChevronRight className="small" />
+              </Link>
+            </div>
           </div>
         </div>
       </div>
     </section>
     <WhyFlexFit />
+    <DailyWod />
     <TransformationChallenge compact />
     <ServicesPreview />
     <TestimonialsSection />
@@ -77,7 +111,7 @@ const HomePage = () => (
         </div>
         <div className="d-flex flex-wrap gap-3 mt-3 mt-lg-0">
           <Link className="btn-ff btn-ff-dark" to="/join">Join Now</Link>
-          <Link className="btn-ff border border-dark text-dark" to="/contact">WhatsApp Us</Link>
+          <a className="btn-ff border border-dark text-dark" href="https://wa.me/919940846719?text=Hi%20FlexFit!%20I%20want%20to%20enquire%20about%20your%20fitness%20programs%20and%20membership." target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
         </div>
       </div>
     </section>

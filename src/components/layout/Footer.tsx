@@ -14,7 +14,7 @@ const Footer = () => (
             </p>
             <div className="footer-socials">
               <a className="btn-ff btn-ff-outline px-3" href="https://www.instagram.com/flex._.fit_" target="_blank" rel="noreferrer" aria-label="Instagram"><Instagram /></a>
-              <Link className="btn-ff btn-ff-outline px-3" to="/contact" aria-label="Choose branch and WhatsApp"><Whatsapp /></Link>
+              <a className="btn-ff btn-ff-outline px-3" href="https://wa.me/919940846719?text=Hi%20FlexFit!%20I%20want%20to%20enquire%20about%20your%20fitness%20programs%20and%20membership." target="_blank" rel="noopener noreferrer" aria-label="Chat with FlexFit Club on WhatsApp"><Whatsapp /></a>
               <a className="btn-ff btn-ff-outline px-3" href="mailto:flexfitclub2k25@gmail.com" aria-label="Email"><EnvelopeFill /></a>
               <span className="btn-ff btn-ff-outline px-3" aria-label="YouTube coming soon"><Youtube /></span>
             </div>
@@ -30,6 +30,7 @@ const Footer = () => (
               ['Membership', '/membership'],
               ['Exercise', '/exercise'],
               ['Calculators', '/calculators'],
+              ['Diet Chart', '/diet-chart'],
               ['Gallery', '/gallery'],
               ['Contact', '/contact'],
               ['Join Now', '/join']

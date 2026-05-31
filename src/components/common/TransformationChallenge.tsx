@@ -48,9 +48,9 @@ const TransformationChallenge = ({ compact = false }: TransformationChallengePro
               <Link className="btn-ff btn-ff-primary" to="/join?plan=challenge">
                 <LightningChargeFill /> Reserve Challenge Seat
               </Link>
-              <Link className="btn-ff btn-ff-outline" to="/join?plan=challenge">
+              <a className="btn-ff btn-ff-outline" href="https://wa.me/919940846719?text=Hi%20FlexFit!%20I%20want%20to%20enquire%20about%20the%2090%20Days%20Body%20Transformation%20Challenge%20details." target="_blank" rel="noopener noreferrer">
                 WhatsApp Details
-              </Link>
+              </a>
             </div>
           </div>
           <div className="col-lg-7">

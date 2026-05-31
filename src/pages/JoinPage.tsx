@@ -10,7 +10,7 @@ import SectionLabel from '../components/common/SectionLabel';
 import { branchLocationIds, branchLocations, getBranchLocation } from '../data/locations.data';
 import PageHero from './PageHero';
 
-type PlanKey = 'basic' | 'pro' | 'elite' | 'challenge' | 'couple';
+type PlanKey = 'challenge' | 'couple';
 
 interface JoinFormValues {
   name: string;
@@ -38,24 +38,15 @@ const schema: yup.ObjectSchema<JoinFormValues> = yup.object({
 
 const planOptions: { key: PlanKey; title: string; price: string }[] = [
   { key: 'challenge', title: '90-Day Challenge', price: 'Branch-wise price' },
-  { key: 'couple', title: 'Couple Offer', price: 'Branch-wise price' },
-  { key: 'basic', title: 'Basic', price: 'Rs. 999/mo' },
-  { key: 'pro', title: 'Pro', price: 'Rs. 1,799/mo' },
-  { key: 'elite', title: 'Elite', price: 'Rs. 2,999/mo' }
+  { key: 'couple', title: 'Couple Offer', price: 'Branch-wise price' }
 ];
 
 const planLabels: Record<PlanKey, string> = {
-  basic: 'Basic',
-  pro: 'Pro',
-  elite: 'Elite',
   challenge: '90 Days Body Transformation Challenge',
   couple: '12 Months Couple Offer'
 };
 
 const planSummary: Record<PlanKey, string> = {
-  basic: 'Best for self-guided gym floor access with cardio and regular training.',
-  pro: 'Best for members who want personal training sessions and diet guidance.',
-  elite: 'Best for serious transformation with dedicated trainer support.',
   challenge: 'Focused 90-day body transformation with personal attention, diet chart, workout plan, and full guidance. Price depends on your selected branch.',
   couple: 'Annual couple package for two members. Price depends on your selected branch.'
 };
@@ -70,7 +61,7 @@ const JoinPage = () => {
   const initialPlan = useMemo<PlanKey>(() => {
     const plan = searchParams.get('plan');
     if (plan === 'couple-offer') return 'couple';
-    return plan && ['basic', 'pro', 'elite', 'challenge', 'couple'].includes(plan) ? (plan as PlanKey) : 'challenge';
+    return plan && ['challenge', 'couple'].includes(plan) ? (plan as PlanKey) : 'challenge';
   }, [searchParams]);
   const [selectedPlan, setSelectedPlan] = useState<PlanKey>(initialPlan);
   const [status, setStatus] = useState<'idle' | 'success'>('idle');
@@ -135,8 +126,8 @@ const JoinPage = () => {
                           key={location.id}
                           onClick={() => handleBranchSelect(location.id)}
                         >
-                          <strong>{location.shortName}</strong>
-                          <small>{location.address}</small>
+                          <span className="branch-radio"></span>
+                          <span className="branch-name">{location.shortName}</span>
                         </button>
                       ))}
                     </div>
@@ -211,7 +202,7 @@ const JoinPage = () => {
                   </div>
                   {status === 'success' && <div className="alert alert-success">Success! We opened WhatsApp so the team can confirm your enquiry.</div>}
                   <button className="btn-ff btn-ff-primary w-100" type="submit" disabled={isSubmitting}>
-                    {selectedPlan === 'challenge' ? 'Reserve My Challenge Seat' : selectedPlan === 'couple' ? 'Send Couple Offer Enquiry' : 'Send My Enquiry'}
+                    {selectedPlan === 'challenge' ? 'Reserve My Challenge Seat' : 'Send Couple Offer Enquiry'}
                   </button>
                 </form>
               </div>

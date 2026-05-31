@@ -18,7 +18,7 @@
 
 .navbar-ff.scrolled,
 .navbar-ff.menu-open {
-  background: rgba(13,13,13,0.97);
+  background: var(--color-navbar-bg);
   border-bottom: 1px solid var(--color-border-yellow);
   padding: 8px 0;
   backdrop-filter: blur(12px);
@@ -51,25 +51,54 @@
 }
 
 .nav-link-ff {
-  color: rgba(255,255,255,0.75) !important;
+  color: var(--color-nav-link) !important;
   font-family: 'Nunito', sans-serif;
   font-size: 0.88rem;
   font-weight: 700;
   letter-spacing: 0;
-  padding: 6px 14px !important;
+  padding: 6px 14px 4px !important;
+  border-bottom: 2px solid transparent;
   text-transform: uppercase;
-  transition: color 0.2s;
+  transition: all 0.2s ease;
 }
 
+/* Transparent navbar overrides (always dark background behind transparent header on hero sections) */
+.navbar-ff:not(.scrolled):not(.menu-open) .nav-link-ff {
+  color: rgba(255, 255, 255, 0.75) !important;
+  border-bottom-color: transparent;
+}
+.navbar-ff:not(.scrolled):not(.menu-open) .nav-link-ff:hover,
+.navbar-ff:not(.scrolled):not(.menu-open) .nav-link-ff.active {
+  color: var(--color-yellow) !important;
+  border-bottom-color: var(--color-yellow);
+}
+
+/* Hover / Active default styling for scrolled or dark mode navbar */
 .nav-link-ff:hover,
 .nav-link-ff.active {
   color: var(--color-yellow) !important;
+  border-bottom-color: var(--color-yellow);
+}
+
+/* Light mode scrolled / open overrides */
+[data-theme='light'] .navbar-ff.scrolled .nav-link-ff,
+[data-theme='light'] .navbar-ff.menu-open .nav-link-ff {
+  color: rgba(18, 18, 18, 0.75) !important;
+  border-bottom-color: transparent;
+}
+
+[data-theme='light'] .navbar-ff.scrolled .nav-link-ff:hover,
+[data-theme='light'] .navbar-ff.scrolled .nav-link-ff.active,
+[data-theme='light'] .navbar-ff.menu-open .nav-link-ff:hover,
+[data-theme='light'] .navbar-ff.menu-open .nav-link-ff.active {
+  color: var(--color-white) !important;
+  border-bottom-color: var(--color-white);
 }
 
 .btn-join-nav {
   background: var(--color-yellow);
   border-radius: 4px;
-  color: var(--color-black) !important;
+  color: #0D0D0D !important;
   font-weight: 800;
   padding: 8px 22px !important;
   transition: all 0.2s;
@@ -200,7 +229,7 @@
 }
 
 .hero-offer-card {
-  background: rgba(26,26,26,0.88);
+  background: var(--color-offer-card-bg);
   border: 1px solid var(--color-border-yellow);
   border-radius: 8px;
   box-shadow: 0 24px 70px rgba(0,0,0,0.36);
@@ -288,7 +317,7 @@
 }
 
 .hero-info-card {
-  background: rgba(26,26,26,0.84);
+  background: var(--color-info-card-bg);
   border: 1px solid var(--color-border-yellow);
   border-radius: 8px;
   box-shadow: 0 24px 60px rgba(0,0,0,0.32);
@@ -871,13 +900,13 @@
 
 .cta-banner {
   background: var(--color-yellow);
-  color: var(--color-black);
+  color: #0D0D0D;
   padding: 70px 0;
 }
 
 .impact-strip,
 .program-path {
-  background: rgba(255,255,255,0.04);
+  background: var(--color-translucent-white-04);
   border: 1px solid var(--color-border);
   border-radius: 8px;
   display: grid;
@@ -888,7 +917,7 @@
 
 .impact-strip > div,
 .program-path > div {
-  background: rgba(13,13,13,0.45);
+  background: var(--color-impact-bg);
   padding: 22px;
 }
 
@@ -1468,7 +1497,7 @@
 }
 
 .challenge-branch-card {
-  background: rgba(255,255,255,0.04);
+  background: var(--color-translucent-white-04);
   border: 1px solid var(--color-border);
   border-radius: 8px;
   padding: 18px;
@@ -1522,7 +1551,7 @@
 }
 
 .challenge-list-card {
-  background: rgba(255,255,255,0.035);
+  background: var(--color-translucent-white-04);
   border: 1px solid var(--color-border);
   border-radius: 8px;
   height: 100%;
@@ -2205,3 +2234,421 @@
     width: 44px;
   }
 }
+
+/* Theme toggle and image contrast support rules for Light Mode */
+.btn-theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: var(--color-yellow) !important;
+  transform: scale(1.05);
+}
+
+[data-theme='light'] .btn-theme-toggle:hover {
+  background: rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme='light'] .navbar-ff.scrolled .navbar-brand-wordmark,
+[data-theme='light'] .navbar-ff.menu-open .navbar-brand-wordmark {
+  filter: invert(1) brightness(0.15);
+}
+
+[data-theme='light'] .navbar-ff:not(.scrolled):not(.menu-open) .navbar-brand-wordmark {
+  filter: none;
+}
+
+[data-theme='light'] .page-hero-watermark {
+  filter: invert(1) opacity(0.04);
+}
+
+[data-theme='light'] .footer {
+  background: var(--color-footer-bg);
+  border-top: 1px solid var(--color-border);
+}
+
+/* Light mode support for toggler button & theme toggler border */
+[data-theme='light'] .navbar-ff:not(.scrolled):not(.menu-open) .btn-theme-toggle {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+[data-theme='light'] .navbar-ff.scrolled .btn-theme-toggle,
+[data-theme='light'] .navbar-ff.menu-open .btn-theme-toggle {
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
+[data-theme='light'] .navbar-ff.scrolled .navbar-toggler-icon,
+[data-theme='light'] .navbar-ff.menu-open .navbar-toggler-icon {
+  filter: none;
+}
+
+/* Activity Level Selector Cards */
+.activity-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+.activity-option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--color-black-card);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  color: var(--color-white);
+  padding: 12px 16px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  width: 100%;
+}
+.activity-option:hover {
+  border-color: rgba(255, 214, 0, 0.4);
+}
+.activity-option.active {
+  background: rgba(255, 214, 0, 0.08);
+  border-color: var(--color-yellow);
+}
+.activity-radio {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--color-border);
+  position: relative;
+  transition: all 0.2s ease;
+}
+.activity-option.active .activity-radio {
+  border-color: var(--color-yellow);
+}
+.activity-radio::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-yellow);
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.activity-option.active .activity-radio::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+.activity-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.activity-details strong {
+  color: var(--color-white);
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.activity-details small {
+  color: var(--color-white-muted);
+  font-size: 0.8rem;
+  line-height: 1.3;
+}
+
+/* ==========================================================================
+   DIET CHART PAGE
+   ========================================================================== */
+
+/* Step Progress Bar */
+.diet-step-progress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  position: relative;
+}
+.diet-step-progress::before {
+  content: '';
+  position: absolute;
+  top: 17px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 2px;
+  background: var(--color-border);
+  z-index: 0;
+}
+.diet-step-dot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  max-width: 120px;
+  z-index: 1;
+}
+.diet-step-number {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: var(--color-white-muted);
+  background: var(--color-black-card);
+  border: 2px solid var(--color-border);
+  transition: all 0.3s ease;
+}
+.diet-step-dot.active .diet-step-number {
+  border-color: var(--color-yellow);
+  color: var(--color-yellow);
+}
+.diet-step-dot.current .diet-step-number {
+  background: var(--color-yellow);
+  color: #000;
+  border-color: var(--color-yellow);
+  box-shadow: 0 0 16px rgba(255, 214, 0, 0.3);
+}
+.diet-step-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+  color: var(--color-white-muted);
+}
+.diet-step-dot.active .diet-step-label {
+  color: var(--color-yellow);
+}
+
+/* Goal Selection Cards */
+.diet-goal-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 8px;
+  padding: 1.5rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-black-card);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  color: var(--color-white);
+  min-height: 160px;
+}
+.diet-goal-card:hover {
+  border-color: var(--goal-color, var(--color-yellow));
+  background: rgba(255, 255, 255, 0.02);
+  transform: translateY(-3px);
+}
+.diet-goal-card.active {
+  border-color: var(--goal-color, var(--color-yellow));
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 0 20px rgba(255, 214, 0, 0.1), inset 0 0 0 1px var(--goal-color, var(--color-yellow));
+}
+.diet-goal-emoji {
+  font-size: 2.2rem;
+  line-height: 1;
+}
+.diet-goal-card strong {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.diet-goal-card small {
+  font-size: 0.72rem;
+  color: var(--color-white-muted);
+  line-height: 1.4;
+}
+
+/* Allergy Chips */
+.diet-allergy-chip {
+  padding: 6px 14px;
+  border-radius: 100px;
+  border: 1px solid var(--color-border);
+  background: var(--color-black-card);
+  color: var(--color-white-muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.diet-allergy-chip:hover {
+  border-color: var(--color-yellow);
+  color: var(--color-yellow);
+}
+.diet-allergy-chip.active {
+  border-color: var(--color-yellow);
+  background: rgba(255, 214, 0, 0.1);
+  color: var(--color-yellow);
+}
+
+/* Avatar Initials */
+.avatar-initials {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #000;
+  flex-shrink: 0;
+}
+
+/* Diet Stats Card */
+.diet-stats-card {
+  animation: fadeInScale 0.5s ease-out;
+}
+@keyframes fadeInScale {
+  0% { opacity: 0; transform: scale(0.97); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* Diet Meal Table */
+.diet-meal-table {
+  font-size: 0.85rem;
+}
+.diet-meal-table th,
+.diet-meal-table td {
+  border-color: rgba(255, 255, 255, 0.05) !important;
+  padding: 8px 6px;
+}
+
+/* Diet Phase Card */
+.diet-phase-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.diet-phase-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Diet Day Card */
+.diet-day-card {
+  transition: transform 0.3s ease;
+}
+.diet-day-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Light mode overrides for Diet Chart */
+[data-theme="light"] .diet-goal-card {
+  background: var(--color-black-card);
+  border-color: var(--color-border);
+  color: var(--color-white);
+}
+[data-theme="light"] .diet-allergy-chip {
+  background: var(--color-black-card);
+  border-color: var(--color-border);
+  color: var(--color-white-muted);
+}
+[data-theme="light"] .diet-step-number {
+  background: var(--color-black-card);
+  border-color: var(--color-border);
+  color: var(--color-white-muted);
+}
+[data-theme="light"] .diet-meal-table th,
+[data-theme="light"] .diet-meal-table td {
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+
+/* Responsive for diet chart */
+@media (max-width: 768px) {
+  .diet-goal-card {
+    min-height: 130px;
+    padding: 1rem 0.75rem;
+  }
+  .diet-goal-emoji {
+    font-size: 1.6rem;
+  }
+  .diet-goal-card strong {
+    font-size: 0.78rem;
+  }
+  .diet-goal-card small {
+    font-size: 0.65rem;
+  }
+  .diet-step-progress::before {
+    width: 75%;
+  }
+  .diet-step-number {
+    width: 30px;
+    height: 30px;
+    font-size: 0.75rem;
+  }
+  .avatar-initials {
+    width: 40px;
+    height: 40px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Responsive Desktop Header spacing to prevent cramping */
+@media (min-width: 992px) {
+  .navbar-ff .navbar-nav {
+    display: flex !important;
+    align-items: center !important;
+    gap: clamp(2px, 0.4vw, 10px) !important;
+  }
+  
+  .navbar-ff .nav-link-ff {
+    font-size: clamp(0.72rem, 0.8vw, 0.85rem) !important;
+    padding: 6px clamp(6px, 0.8vw, 12px) 4px !important;
+    letter-spacing: 0.2px !important;
+  }
+
+  .navbar-ff .navbar-brand {
+    margin-right: clamp(10px, 2vw, 30px) !important;
+  }
+
+  .navbar-ff .btn-join-nav {
+    padding: 6px clamp(12px, 1.2vw, 20px) !important;
+    font-size: clamp(0.72rem, 0.8vw, 0.85rem) !important;
+    margin-left: 4px !important;
+  }
+}
+
+/* Sleek Protein Reference Search Bar */
+.protein-search-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 2px 14px;
+  transition: all 0.25s ease;
+}
+.protein-search-group:focus-within {
+  border-color: #ff8a00;
+  box-shadow: 0 0 0 3px rgba(255, 138, 0, 0.12);
+  background: rgba(255, 255, 255, 0.03);
+}
+.protein-search-icon {
+  font-size: 1rem;
+  color: #ff8a00;
+  margin-right: 10px;
+}
+.protein-search-input {
+  background: transparent !important;
+  border: none !important;
+  color: #fff !important;
+  box-shadow: none !important;
+  padding: 10px 4px !important;
+  width: 100%;
+}
+.protein-search-input::placeholder {
+  color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Header style different font and bold */
+.protein-table-header th {
+  font-family: 'Oswald', sans-serif !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.8px !important;
+  font-size: 0.85rem !important;
+  text-transform: uppercase !important;
+  color: var(--color-white-muted) !important;
+}
+
+

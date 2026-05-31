@@ -19,6 +19,7 @@ import JoinPage from './pages/JoinPage';
 import PrivacyPage from './pages/PrivacyPage';
 import TermsPage from './pages/TermsPage';
 import CalculatorsPage from './pages/CalculatorsPage';
+import DietChartPage from './pages/DietChartPage';
 
 const App = () => {
   useEffect(() => {
@@ -45,6 +46,7 @@ const App = () => {
           <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/terms" element={<TermsPage />} />
           <Route path="/calculators" element={<CalculatorsPage />} />
+          <Route path="/diet-chart" element={<DietChartPage />} />
         </Routes>
         <Footer />
       </BrowserRouter>

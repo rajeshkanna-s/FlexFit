@@ -28,9 +28,15 @@ const TrainerCard = ({ photo, name, role, specialization, experience, certificat
       <a className="btn-ff btn-ff-outline px-3" href={instagramUrl} target="_blank" rel="noreferrer" aria-label={`${name} Instagram`}>
         <Instagram />
       </a>
-      <Link className="btn-ff btn-ff-primary px-3" to="/contact" aria-label={`Choose branch and WhatsApp ${name}`}>
+      <a
+        className="btn-ff btn-ff-primary px-3"
+        href={`https://wa.me/919940846719?text=Hi%20FlexFit!%20I%20want%20to%20enquire%20about%20personal%20training%20with%20${encodeURIComponent(name)}.`}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Chat with FlexFit Club on WhatsApp about trainer ${name}`}
+      >
         <Whatsapp />
-      </Link>
+      </a>
     </div>
   </article>
 );

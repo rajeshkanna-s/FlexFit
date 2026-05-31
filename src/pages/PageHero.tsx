@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, ClockFill, GeoAltFill, LightningChargeFill } from 'react-bootstrap-icons';
+import { ClockFill, GeoAltFill, LightningChargeFill } from 'react-bootstrap-icons';
 import SectionLabel from '../components/common/SectionLabel';
 
 interface PageHeroProps {
@@ -17,7 +17,8 @@ const defaultSubtitles: Record<string, string> = {
   Exercise: 'Browse FlexFit workout videos by muscle group, equipment, and training goal.',
   Gallery: 'Explore the training floor, cardio zone, free weights, and daily FlexFit energy.',
   Contact: 'Message, call, or visit our Chrompet or Chitlapakkam branch. We will help you choose the right next step.',
-  'Join Now': 'Select your plan, share your goal, and start with a free trial or challenge enquiry.'
+  'Join Now': 'Select your plan, share your goal, and start with a free trial or challenge enquiry.',
+  'Diet Chart': 'South Indian nutrition plans tailored to your body, goal, and dietary preference. Powered by science, rooted in local cuisine.'
 };
 
 const PageHero = ({ label, title, highlight, subtitle, showInfoCard = false }: PageHeroProps) => {
@@ -39,11 +40,6 @@ const PageHero = ({ label, title, highlight, subtitle, showInfoCard = false }: P
               )}
             </h1>
             {heroSubtitle && <p className="page-hero-copy">{heroSubtitle}</p>}
-            <div className="page-breadcrumb">
-              <Link to="/">Home</Link>
-              <ArrowRight />
-              <span>{label}</span>
-            </div>
           </div>
           {showInfoCard && (
             <div className="col-lg-4">

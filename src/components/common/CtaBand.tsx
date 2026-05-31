@@ -22,9 +22,9 @@ const CtaBand = ({
           <Link className="btn-ff btn-ff-dark" to="/join">
             <LightningChargeFill /> Join Now
           </Link>
-          <Link className="btn-ff conversion-whatsapp" to="/contact">
+          <a className="btn-ff conversion-whatsapp" href="https://wa.me/919940846719?text=Hi%20FlexFit!%20I%20want%20to%20enquire%20about%20your%20fitness%20programs%20and%20membership." target="_blank" rel="noopener noreferrer">
             <Whatsapp /> WhatsApp
-          </Link>
+          </a>
         </div>
       </div>
     </div>

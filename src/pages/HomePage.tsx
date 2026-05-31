@@ -14,11 +14,11 @@ import TransformationChallenge from '../components/common/TransformationChalleng
 const HomePage = () => (
   <>
     <Helmet>
-      <title>FlexFit Club - Best Gym in Chrompet, Chennai | Get Into Good Addiction</title>
-      <meta name="description" content="Join FlexFit Club, Chennai's premier gym in Chrompet. Strength training, cardio, personal coaching, and 6+ programs. Starting at Rs. 999/month." />
+      <title>FlexFit Club - Gym in Chrompet & Chitlapakkam Chennai | Get Into Good Addiction</title>
+      <meta name="description" content="Join FlexFit Club in Chrompet and Anna Nagar, Chitlapakkam. Strength training, cardio, personal coaching, and branch-wise transformation offers." />
       <meta name="keywords" content="gym chrompet, gym chennai, flexfit club, personal training chennai, fitness center chrompet" />
-      <meta property="og:title" content="FlexFit Club - Best Gym in Chrompet, Chennai" />
-      <meta property="og:description" content="Transform your body at FlexFit Club in Chrompet, Chennai." />
+      <meta property="og:title" content="FlexFit Club - Gym in Chrompet & Chitlapakkam Chennai" />
+      <meta property="og:description" content="Transform your body at FlexFit Club in Chrompet and Anna Nagar, Chitlapakkam." />
       <meta property="og:image" content="/assets/images/logo.png" />
       <meta property="og:url" content="https://flexfitclub.in" />
       <meta name="twitter:card" content="summary_large_image" />
@@ -31,24 +31,24 @@ const HomePage = () => (
         <div className="row g-5 align-items-center">
           <div className="col-lg-5">
             <div className="about-image-wrap">
-              <img src="/assets/images/about-gym.jpg" alt="FlexFit Club gym interior" />
+              <img src="/assets/Gallery/FlexFit_Athlete_Holding_Weight_Plates.png" alt="FlexFit Club members training inside the gym" />
               <span className="badge-float">3+ Years of Excellence</span>
             </div>
           </div>
           <div className="col-lg-7">
-            <SectionLabel text="Our Story" />
-            <SectionHeading line1="Built For Champions" line2="Open To Everyone" highlightLine={1} />
+            <SectionLabel text="About FlexFit" />
+            <SectionHeading line1="Dream Physique" line2="Expertly Guided" highlightLine={2} />
             <blockquote className="quote-block">
-              At FlexFit Club, we believe fitness isn't a privilege - it's a right. We built this space so anyone who walks through our doors walks out stronger.
+              At FlexFit, we help individuals achieve their dream physique.
             </blockquote>
             <p className="text-muted-ff">
-              Located in the heart of Chrompet, Chennai, FlexFit Club was founded with one mission: to make world-class fitness accessible to every person in our community. Whether you're a complete beginner or an experienced athlete, our certified trainers and premium equipment are here to push you beyond your limits safely and effectively.
+              Whether you are looking to lose fat, gain muscle, improve strength, or train for bodybuilding, our coaches build personalized and science-backed plans around your body, goal, and routine.
             </p>
             <div className="row g-3 mt-3">
               {[
-                [TrophyFill, 'Certified Expert Trainers', 'Personalized protocols designed for your body type and goals.'],
-                [GearFill, 'Premium Equipment', '60+ modern cardio, strength, and functional training units.'],
-                [PeopleFill, 'Community Culture', 'A family that celebrates every milestone and transformation.']
+                [GearFill, 'Personalized Plans', 'Workout programs for fat loss, muscle gain, weight management, and contest prep.'],
+                [PeopleFill, 'Nutrition Coaching', 'Practical food guidance that helps you fuel performance and sustain progress.'],
+                [TrophyFill, 'Transformation Focus', 'Training, recovery, and accountability designed for measurable long-term results.']
               ].map(([Icon, title, text]) => (
                 <div className="col-md-4" key={String(title)}>
                   <div className="icon-badge"><Icon /></div>
@@ -57,7 +57,7 @@ const HomePage = () => (
                 </div>
               ))}
             </div>
-            <Link className="btn-ff btn-ff-primary mt-3" to="/join">Join Our Family</Link>
+            <Link className="btn-ff btn-ff-primary mt-3" to="/about">Learn About FlexFit</Link>
           </div>
         </div>
       </div>
@@ -71,11 +71,11 @@ const HomePage = () => (
       <div className="container d-lg-flex justify-content-between align-items-center gap-4">
         <div>
           <h2>Ready To Transform?</h2>
-          <p className="mb-lg-0">Book your FREE trial session today. No commitment needed.</p>
+          <p className="mb-lg-0">Pick a plan and start your FlexFit journey today.</p>
         </div>
         <div className="d-flex flex-wrap gap-3 mt-3 mt-lg-0">
-          <Link className="btn-ff btn-ff-dark" to="/join">Book Free Trial</Link>
-          <a className="btn-ff border border-dark text-dark" href="https://wa.me/919940846719" target="_blank" rel="noreferrer">WhatsApp Us</a>
+          <Link className="btn-ff btn-ff-dark" to="/join">Join Now</Link>
+          <Link className="btn-ff border border-dark text-dark" to="/contact">WhatsApp Us</Link>
         </div>
       </div>
     </section>

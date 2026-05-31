@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Personal training illustration</title>
+  <desc id="desc">Two athletes training together in a black and white mountain-inspired scene.</desc>
+  <rect width="1200" height="720" fill="#f8f8f2"/>
+  <path d="M0 314 172 160l83 78 128-150 144 176 96-92 146 168 89-82 342 256v206H0z" fill="#07131b"/>
+  <path d="M50 331 172 221l76 63 130-139 144 178 101-92 142 157 94-84 291 219" fill="none" stroke="#f8f8f2" stroke-width="21" stroke-linejoin="round"/>
+  <path d="M0 514c205-35 391-36 558 0s385 52 642 8v198H0z" fill="#f8f8f2"/>
+  <g fill="#07131b" stroke="#07131b" stroke-width="10" stroke-linejoin="round">
+    <g transform="translate(370 496)">
+      <circle cx="-42" cy="-172" r="42"/>
+      <path d="M-89-117c43-51 106-49 150 3l62 72c24 28-18 64-43 37l-46-47-63 87 86 52c23 14 28 44 12 66L-4 256c-24 35-80 4-58-34l52-92-112-68c-40-24-45-70-19-109z"/>
+      <path d="M-126-5-244 72c-35 23-73-29-38-53l123-88c38-27 76-20 112 21l27 31-58 66z"/>
+      <path d="M-111 112h166l85 115c26 35-28 75-54 41l-63-78h-150z"/>
+    </g>
+    <g transform="translate(840 496) scale(-1 1)">
+      <circle cx="-42" cy="-172" r="42"/>
+      <path d="M-89-117c43-51 106-49 150 3l62 72c24 28-18 64-43 37l-46-47-63 87 86 52c23 14 28 44 12 66L-4 256c-24 35-80 4-58-34l52-92-112-68c-40-24-45-70-19-109z"/>
+      <path d="M-126-5-244 72c-35 23-73-29-38-53l123-88c38-27 76-20 112 21l27 31-58 66z"/>
+      <path d="M-111 112h166l85 115c26 35-28 75-54 41l-63-78h-150z"/>
+    </g>
+  </g>
+  <g stroke="#ffd600" stroke-width="18" stroke-linecap="round">
+    <path d="M521 402c52 42 104 42 156 0"/>
+    <path d="M565 404h70"/>
+  </g>
+  <path d="M128 646c270-34 503-28 944 0" stroke="#07131b" stroke-width="12" stroke-linecap="round" fill="none" opacity=".25"/>
+</svg>

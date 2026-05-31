@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Instagram, Whatsapp } from 'react-bootstrap-icons';
 
 interface TrainerCardProps {
@@ -11,7 +12,7 @@ interface TrainerCardProps {
   whatsappNumber: string;
 }
 
-const TrainerCard = ({ photo, name, role, specialization, experience, certification, instagramUrl, whatsappNumber }: TrainerCardProps) => (
+const TrainerCard = ({ photo, name, role, specialization, experience, certification, instagramUrl }: TrainerCardProps) => (
   <article className="trainer-card" data-aos="fade-up">
     <img src={photo} alt={name} />
     <h3>{name}</h3>
@@ -27,9 +28,9 @@ const TrainerCard = ({ photo, name, role, specialization, experience, certificat
       <a className="btn-ff btn-ff-outline px-3" href={instagramUrl} target="_blank" rel="noreferrer" aria-label={`${name} Instagram`}>
         <Instagram />
       </a>
-      <a className="btn-ff btn-ff-primary px-3" href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noreferrer" aria-label={`${name} WhatsApp`}>
+      <Link className="btn-ff btn-ff-primary px-3" to="/contact" aria-label={`Choose branch and WhatsApp ${name}`}>
         <Whatsapp />
-      </a>
+      </Link>
     </div>
   </article>
 );

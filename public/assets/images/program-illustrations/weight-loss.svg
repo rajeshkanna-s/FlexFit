@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Weight loss program illustration</title>
+  <desc id="desc">Athletic silhouette, measuring tape, scale, and yellow progress accents.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1">
+      <stop offset="0" stop-color="#050505"/>
+      <stop offset=".55" stop-color="#151515"/>
+      <stop offset="1" stop-color="#050505"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="720" fill="url(#bg)"/>
+  <g stroke="#242424" stroke-width="5" opacity=".75">
+    <path d="M140 105h920M140 615h920"/>
+    <path d="M216 105v510M984 105v510"/>
+  </g>
+  <g transform="translate(590 363)" fill="#f7f7f7" stroke="#060606" stroke-width="8" stroke-linejoin="round">
+    <circle cx="0" cy="-182" r="50"/>
+    <path d="M-74-123c25-27 123-27 148 0 15 70 11 141-16 213H-58c-27-72-31-143-16-213z"/>
+    <path d="M-70-97c-58 45-96 103-117 176-12 40-74 22-62-19 29-100 84-177 166-231z"/>
+    <path d="M70-97c58 45 96 103 117 176 12 40 74 22 62-19-29-100-84-177-166-231z"/>
+    <path d="M-62 90-92 294h79L0 168l13 126h79L62 90z"/>
+  </g>
+  <g fill="none" stroke="#ffd600" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M322 316c78 41 181 62 278 62s200-21 278-62" stroke-width="18"/>
+    <path d="M335 316v-46M413 346v-40M491 364v-45M569 376v-38M647 376v-38M725 364v-45M803 346v-40M881 316v-46" stroke-width="9"/>
+  </g>
+  <g transform="translate(178 504)" fill="#f7f7f7">
+    <rect x="0" y="0" width="214" height="126" rx="28"/>
+    <path d="M56 46c35-28 68-28 104 0" stroke="#050505" stroke-width="14" stroke-linecap="round" fill="none"/>
+    <circle cx="108" cy="62" r="12" fill="#ffd600"/>
+  </g>
+  <g stroke="#ffd600" stroke-width="14" stroke-linecap="round" fill="none">
+    <path d="M842 140h178v86h-178z"/>
+    <path d="M868 197l32-34 34 45 35-61 27 50"/>
+  </g>
+</svg>

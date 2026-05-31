@@ -3,11 +3,11 @@ import SectionHeading from '../common/SectionHeading';
 import SectionLabel from '../common/SectionLabel';
 
 const images = [
-  '/assets/Gallery/FlexFit_Gym_Interior_Daytime_View.png',
-  '/assets/Gallery/FlexFit_Gym_Interior_Equipment_View_1.png',
-  '/assets/Gallery/FlexFit_Dumbbell_Barbell_Rack_Setup.png',
-  '/assets/Gallery/FlexFit_Gym_Members_Training_Session.png',
-  '/assets/Gallery/FlexFit_Signboard_Night_View.png'
+  { src: '/assets/Gallery/FlexFit_Gym_Interior_Daytime_View.png', branch: 'Chrompet Branch' },
+  { src: '/assets/Gallery/FlexFit_Gym_Interior_Equipment_View_1.png', branch: 'Chrompet Branch' },
+  { src: '/assets/Gallery/FlexFit_Dumbbell_Barbell_Rack_Setup.png', branch: 'Chrompet Branch' },
+  { src: '/assets/Gallery/FlexFit_Gym_Members_Training_Session.png', branch: 'Chrompet Branch' },
+  { src: '/assets/Gallery/ChitlapakkamBracnch/download.jpg', branch: 'Chitlapakkam Branch' }
 ];
 
 const GalleryPreview = () => (
@@ -19,8 +19,9 @@ const GalleryPreview = () => (
       </div>
       <div className="gallery-grid">
         {images.map((image, index) => (
-          <Link className={`gallery-tile ${index === 0 ? 'wide' : ''}`} to="/gallery" key={image}>
-            <img src={image} alt={`FlexFit gym preview ${index + 1}`} />
+          <Link className={`gallery-tile ${index === 0 ? 'wide' : ''}`} to="/gallery" key={image.src}>
+            <img src={image.src} alt={`FlexFit gym preview ${index + 1}`} />
+            <span className="gallery-branch-badge">{image.branch}</span>
           </Link>
         ))}
       </div>

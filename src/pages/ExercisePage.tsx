@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Check, ChevronDown, Search } from 'react-bootstrap-icons';
 import SectionHeading from '../components/common/SectionHeading';
@@ -48,6 +48,54 @@ const MUSCLE_ORDER = [
 const assetPath = (folder: 'Workouts' | 'Exercise_Images', file?: string) => (
   file ? `/assets/${folder}/${encodeURIComponent(file)}` : '/assets/images/logo.png'
 );
+
+const LazyVideoCard = ({ exercise }: { exercise: (typeof videoExercises)[number] }) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const card = cardRef.current;
+    const video = videoRef.current;
+    if (!card || !video) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(card);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <article className="exercise-card" ref={cardRef}>
+      <div className="exercise-media">
+        <video
+          ref={videoRef}
+          loop
+          muted
+          playsInline
+          preload="none"
+        >
+          <source src={assetPath('Workouts', exercise.media)} type="video/mp4" />
+        </video>
+      </div>
+      <div className="exercise-card-body">
+        <div className="exercise-tags">
+          <span>{exercise.equipment}</span>
+          <span>{exercise.muscle}</span>
+        </div>
+        <h3>{exercise.name}</h3>
+        <p>{exercise.workoutName}</p>
+      </div>
+    </article>
+  );
+};
 
 const uniqueOptions = (preferred: string[], values: string[], allLabel: string) => {
   const available = new Set(values.filter(Boolean));
@@ -145,10 +193,6 @@ const ExercisePage = () => {
               <SectionLabel text="Workout Guide" />
               <SectionHeading line1="Find The Right" line2="Exercise" highlightLine={2} />
             </div>
-            <div className="exercise-counts">
-              <strong>{videoExercises.length}</strong>
-              <span>Playable videos</span>
-            </div>
           </div>
 
           <div className="exercise-filter-panel">
@@ -168,28 +212,7 @@ const ExercisePage = () => {
 
           <div className="exercise-grid">
             {visibleExercises.map((exercise) => (
-              <article className="exercise-card" key={exercise.id}>
-                <div className="exercise-media">
-                  <video
-                    autoPlay
-                    controls
-                    loop
-                    muted
-                    playsInline
-                    preload="metadata"
-                  >
-                    <source src={assetPath('Workouts', exercise.media)} type="video/mp4" />
-                  </video>
-                </div>
-                <div className="exercise-card-body">
-                  <div className="exercise-tags">
-                    <span>{exercise.equipment}</span>
-                    <span>{exercise.muscle}</span>
-                  </div>
-                  <h3>{exercise.name}</h3>
-                  <p>{exercise.workoutName}</p>
-                </div>
-              </article>
+              <LazyVideoCard exercise={exercise} key={exercise.id} />
             ))}
           </div>
 

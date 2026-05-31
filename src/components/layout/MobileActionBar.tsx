@@ -11,10 +11,10 @@ const MobileActionBar = () => (
       <Calendar2CheckFill />
       Join
     </Link>
-    <a href="https://wa.me/919940846719?text=Hi%20FlexFit!%20I%20want%20to%20know%20more." target="_blank" rel="noreferrer">
+    <Link to="/contact">
       <Whatsapp />
       WhatsApp
-    </a>
+    </Link>
   </div>
 );
 

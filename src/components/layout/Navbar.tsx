@@ -26,7 +26,8 @@ const Navbar = () => {
     <nav className={`navbar navbar-expand-lg fixed-top navbar-ff ${scrolled ? 'scrolled' : ''} ${open ? 'menu-open' : ''}`}>
       <div className="container">
         <NavLink to="/" className="navbar-brand" onClick={() => setOpen(false)}>
-          <img src="/assets/images/logo.png" alt="FlexFit Club" height="58" />
+          <img className="navbar-brand-logo" src="/assets/images/logo.png" alt="FlexFit Club" height="58" />
+          <img className="navbar-brand-wordmark" src="/assets/images/logo-wordmark.png" alt="" aria-hidden="true" />
         </NavLink>
         <button className="navbar-toggler" type="button" aria-label="Toggle navigation" onClick={() => setOpen((value) => !value)}>
           <span className="navbar-toggler-icon" />

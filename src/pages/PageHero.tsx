@@ -7,28 +7,29 @@ interface PageHeroProps {
   title: string;
   highlight?: string;
   subtitle?: string;
+  showInfoCard?: boolean;
 }
 
 const defaultSubtitles: Record<string, string> = {
-  'About Us': 'A community-first gym in Chrompet built for beginners, athletes, and every goal in between.',
+  'About Us': 'A community-first gym with Chennai branches built for beginners, athletes, and every goal in between.',
   Programs: 'Pick the training path that matches your body, schedule, and transformation goal.',
   Membership: 'Simple regular memberships plus a focused 90-day transformation plan for faster results.',
   Gallery: 'Explore the training floor, cardio zone, free weights, and daily FlexFit energy.',
-  Contact: 'Message, call, or visit us in Chrompet. We will help you choose the right next step.',
+  Contact: 'Message, call, or visit our Chrompet or Chitlapakkam branch. We will help you choose the right next step.',
   'Join Now': 'Select your plan, share your goal, and start with a free trial or challenge enquiry.'
 };
 
-const PageHero = ({ label, title, highlight, subtitle }: PageHeroProps) => (
+const PageHero = ({ label, title, highlight, subtitle, showInfoCard = false }: PageHeroProps) => (
   <section className="page-hero" style={{ backgroundImage: "url('/assets/Gallery/FlexFit_Logo_Black_Background.png')" }}>
     <div className="container">
       <div className="row g-4 align-items-end">
-        <div className="col-lg-8">
+        <div className={showInfoCard ? 'col-lg-8' : 'col-lg-10'}>
           <SectionLabel text={label} />
           <h1>
             {title}
             {highlight && (
               <>
-                <br />
+                {' '}
                 <span className="text-yellow">{highlight}</span>
               </>
             )}
@@ -40,25 +41,27 @@ const PageHero = ({ label, title, highlight, subtitle }: PageHeroProps) => (
             <span>{label}</span>
           </div>
         </div>
-        <div className="col-lg-4">
-          <div className="hero-info-card">
-            <div>
-              <ClockFill />
-              <span>Open from 5 AM</span>
+        {showInfoCard && (
+          <div className="col-lg-4">
+            <div className="hero-info-card">
+              <div>
+                <ClockFill />
+                <span>Open from 5 AM</span>
+              </div>
+              <div>
+                <LightningChargeFill />
+                <span>90-day challenge live</span>
+              </div>
+              <div>
+                <GeoAltFill />
+                <span>2 Chennai branches</span>
+              </div>
+              <Link className="btn-ff btn-ff-primary w-100 mt-3" to="/join">
+                ENROLL NOW
+              </Link>
             </div>
-            <div>
-              <LightningChargeFill />
-              <span>90-day challenge live</span>
-            </div>
-            <div>
-              <GeoAltFill />
-              <span>Chrompet, Chennai</span>
-            </div>
-            <Link className="btn-ff btn-ff-primary w-100 mt-3" to="/join">
-              Book Free Trial
-            </Link>
           </div>
-        </div>
+        )}
       </div>
     </div>
   </section>

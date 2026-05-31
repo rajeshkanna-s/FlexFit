@@ -6,8 +6,11 @@ import SectionHeading from '../components/common/SectionHeading';
 import SectionLabel from '../components/common/SectionLabel';
 import TransformationChallenge from '../components/common/TransformationChallenge';
 import CtaBand from '../components/common/CtaBand';
+import { branchLocations } from '../data/locations.data';
 import { plans } from '../data/plans.data';
 import PageHero from './PageHero';
+
+const challengePriceText = branchLocations.map((location) => `${location.shortName}: ${location.challengeOffer.price}`).join(' | ');
 
 const faqs = [
   ['Can I freeze my membership?', 'Yes, members can freeze their membership for up to 1 month per year due to travel, health issues, or personal reasons. Contact us at least 3 days in advance.'],
@@ -15,10 +18,10 @@ const faqs = [
   ['Do you offer student discounts?', 'Yes! Full-time students get 15% off on Basic and Pro plans. Bring your valid student ID to the front desk.'],
   ['What is the minimum membership duration?', 'Minimum is 1 month for all plans. No long-term lock-in unless you choose annual billing for the discount.'],
   ['Can I upgrade my plan mid-month?', "Yes, you can upgrade anytime. You'll pay the prorated difference for the remaining days of the current month."],
-  ['Are there couple or family discounts?', 'Yes! Couples get 10% off. Families of 3+ get 15% off. WhatsApp us for details: wa.me/919940846719'],
+  ['Are there couple or family discounts?', 'Yes! Couples get 10% off. Families of 3+ get 15% off. Send an enquiry from the Contact page and choose your preferred branch.'],
   ['Is there parking available?', "Street parking is available on Muthusamy Main Road. We're working on dedicated parking - sorry for the inconvenience."],
-  ['Do you offer a free trial?', 'Yes! Every new member gets 1 FREE trial session before committing. Book via our Join page or WhatsApp us.'],
-  ['What is the 90 Days Body Transformation Challenge?', 'It is a focused 90-day plan for weight loss, muscle gain, fat loss, or maintaining a fit body. It includes 1-to-1 personal training, a body-specific diet chart, a custom workout plan, and full guidance for Rs. 5000 only. Limited seats are available.']
+  ['Do you offer a free trial?', 'Yes! Every new member gets 1 FREE trial session before committing. Book via our Join page and choose your preferred branch.'],
+  ['What is the 90 Days Body Transformation Challenge?', `It is a focused 90-day plan for weight loss, muscle gain, fat loss, or maintaining a fit body. It includes personal training, a diet chart, a custom workout plan, and full guidance. Branch-wise price: ${challengePriceText}. Limited seats are available.`]
 ];
 
 const existingMembershipPlans = [
@@ -108,19 +111,19 @@ const MembershipPage = () => {
   return (
     <>
       <Helmet>
-        <title>Gym Membership Plans & Pricing | FlexFit Club Chrompet Chennai</title>
-        <meta name="description" content="FlexFit Club membership plans from Rs. 999/month plus the new 90 Days Body Transformation Challenge at Rs. 5000 only." />
+        <title>Gym Membership Plans & Branch Pricing | FlexFit Club Chennai</title>
+        <meta name="description" content="FlexFit Club membership plans and branch-wise offers for Chrompet and Anna Nagar, Chitlapakkam, including 90 Days Body Transformation Challenge pricing." />
         <link rel="canonical" href="https://flexfitclub.in/membership" />
       </Helmet>
-      <PageHero label="Membership" title="Plans That" highlight="Fit Your Goal" />
+      <PageHero label="Membership" title="Plans That" highlight="Fit Your Goal" showInfoCard />
       <TransformationChallenge />
       <section className="section">
         <div className="container">
           <div className="text-center mb-5">
-            <SectionLabel text="Existing Rate Card" />
+            <SectionLabel text="Chrompet Branch Rate Card" />
             <SectionHeading line1="In-Gym" line2="Membership Plans" highlightLine={2} centered />
             <p className="text-muted-ff mx-auto mb-0" style={{ maxWidth: 720 }}>
-              These are the current in-gym plan options from the FlexFit printed rate card. Pick a short starter plan or lock in more value with longer memberships.
+              These are the current Chrompet branch in-gym plan options from the FlexFit printed rate card. Chitlapakkam branch offer prices are shown above in the branch-wise challenge section.
             </p>
           </div>
           <div className="legacy-plan-grid">

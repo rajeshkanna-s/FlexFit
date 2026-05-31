@@ -4,7 +4,7 @@ export const programs: Program[] = [
   {
     id: '1',
     slug: 'strength',
-    image: '/assets/images/programs/strength.jpg',
+    image: '/assets/images/program-illustrations/strength-training.png',
     icon: 'activity',
     badge: 'BEGINNER TO ADVANCED',
     title: 'STRENGTH TRAINING',
@@ -17,7 +17,7 @@ export const programs: Program[] = [
   {
     id: '2',
     slug: 'cardio',
-    image: '/assets/images/programs/cardio.jpg',
+    image: '/assets/images/program-illustrations/cardio-hiit.png',
     icon: 'heart',
     badge: 'ALL FITNESS LEVELS',
     title: 'CARDIO & HIIT',
@@ -30,7 +30,7 @@ export const programs: Program[] = [
   {
     id: '3',
     slug: 'personal',
-    image: '/assets/images/programs/personal.jpg',
+    image: '/assets/images/program-illustrations/personal-training.png',
     icon: 'person',
     badge: '1-ON-1 COACHING',
     title: 'PERSONAL TRAINING',
@@ -43,7 +43,7 @@ export const programs: Program[] = [
   {
     id: '4',
     slug: 'weightloss',
-    image: '/assets/images/programs/weightloss.jpg',
+    image: '/assets/images/program-illustrations/weight-loss.png',
     icon: 'graph',
     badge: '90-DAY CHALLENGE',
     title: 'WEIGHT LOSS PROGRAM',
@@ -56,7 +56,7 @@ export const programs: Program[] = [
   {
     id: '5',
     slug: 'muscle',
-    image: '/assets/images/programs/muscle.jpg',
+    image: '/assets/images/program-illustrations/muscle-building.png',
     icon: 'lightning',
     badge: 'HYPERTROPHY FOCUSED',
     title: 'MUSCLE BUILDING',
@@ -69,7 +69,7 @@ export const programs: Program[] = [
   {
     id: '6',
     slug: 'contest-prep',
-    image: '/assets/images/programs/muscle.jpg',
+    image: '/assets/images/program-illustrations/contest-prep.png',
     icon: 'trophy',
     badge: 'NATURAL BODYBUILDING',
     title: 'BODYBUILDING CONTEST PREP',

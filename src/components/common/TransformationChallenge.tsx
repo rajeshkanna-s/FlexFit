@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { CheckCircleFill, LightningChargeFill } from 'react-bootstrap-icons';
+import { branchLocations } from '../../data/locations.data';
 import SectionLabel from './SectionLabel';
 
 interface TransformationChallengeProps {
@@ -23,20 +24,33 @@ const TransformationChallenge = ({ compact = false }: TransformationChallengePro
               <span className="text-yellow">Transformation Challenge</span>
             </h2>
             <p className="text-muted-ff mb-4">
-              Join today and choose your best fit with personal attention, diet guidance, custom workouts, and full support.
+              Join today and choose the branch that fits you. Pricing changes by branch, so every enquiry confirms the correct offer.
             </p>
-            <div className="challenge-price-wrap">
-              <span className="challenge-price">Rs. 5000/-</span>
-              <span className="challenge-only">Only</span>
+            <div className="challenge-branch-grid">
+              {branchLocations.map((location) => (
+                <article className="challenge-branch-card" key={location.id}>
+                  <span>{location.shortName}</span>
+                  <h3>{location.challengeOffer.title}</h3>
+                  <div className="challenge-branch-price">{location.challengeOffer.price}</div>
+                  <p>{location.challengeOffer.description}</p>
+                  <div className="challenge-couple-offer">
+                    <span>{location.coupleOffer.title}</span>
+                    <strong>{location.coupleOffer.price}</strong>
+                  </div>
+                  <Link className="btn-ff btn-ff-outline w-100" to={`/join?plan=challenge&branch=${location.id}`}>
+                    Select Branch
+                  </Link>
+                </article>
+              ))}
             </div>
             <p className="text-yellow fw-bold mb-4">Limited seats available</p>
             <div className="d-flex flex-wrap gap-3">
               <Link className="btn-ff btn-ff-primary" to="/join?plan=challenge">
                 <LightningChargeFill /> Reserve Challenge Seat
               </Link>
-              <a className="btn-ff btn-ff-outline" href="https://wa.me/919940846719?text=Hi%20FlexFit!%20I%20want%20to%20know%20about%20the%2090%20Days%20Body%20Transformation%20Challenge." target="_blank" rel="noreferrer">
+              <Link className="btn-ff btn-ff-outline" to="/join?plan=challenge">
                 WhatsApp Details
-              </a>
+              </Link>
             </div>
           </div>
           <div className="col-lg-7">

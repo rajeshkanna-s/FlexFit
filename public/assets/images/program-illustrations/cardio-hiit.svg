@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Cardio and HIIT illustration</title>
+  <desc id="desc">Runner silhouette with speed lines and yellow pulse accents.</desc>
+  <rect width="1200" height="720" fill="#f6f6f0"/>
+  <g fill="#101010" opacity=".08">
+    <circle cx="1020" cy="86" r="180"/>
+    <circle cx="150" cy="640" r="260"/>
+  </g>
+  <g stroke="#ffd600" stroke-width="16" stroke-linecap="round" fill="none">
+    <path d="M118 553h228l36-67 58 124 61-272 66 168h514"/>
+  </g>
+  <g transform="translate(640 353) rotate(-8)" fill="#050505">
+    <circle cx="-58" cy="-176" r="58"/>
+    <path d="M-107-107c38-41 97-41 144-8l78 55c33 23 1 71-34 48l-55-35-51 103 128 83c22 14 28 44 14 66l-97 150c-28 42-94 6-68-39l72-121-140-88c-42-26-52-70-29-118z"/>
+    <path d="M-159-31l-109 79c-35 25-76-27-42-55l118-96c42-34 82-28 118 18l29 38-57 73z"/>
+    <path d="M-97 123l-138 19-86 130c-28 43-96 5-68-40l102-160c10-15 27-25 45-28l112-18z"/>
+    <path d="M96 130l170 72c47 20 19 92-29 73l-169-69z"/>
+  </g>
+  <g stroke="#050505" stroke-width="10" stroke-linecap="round" opacity=".35">
+    <path d="M116 252h276M100 324h210M151 396h150"/>
+    <path d="M881 448h202M838 518h260"/>
+  </g>
+  <g stroke="#ffd600" stroke-width="12" stroke-linecap="round" opacity=".88">
+    <path d="M746 93h310M813 148h194"/>
+  </g>
+</svg>

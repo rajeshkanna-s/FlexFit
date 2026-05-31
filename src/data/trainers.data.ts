@@ -1,7 +1,7 @@
 export const trainers = [
   {
     id: '1',
-    photo: '/assets/images/trainers/trainer-1.jpg',
+    photo: '/assets/images/site/trainer-head-coach.png',
     name: 'FlexFit Head Coach',
     role: 'Head Trainer & Founder',
     specialization: 'Strength Training - Bodybuilding - Nutrition',
@@ -12,7 +12,7 @@ export const trainers = [
   },
   {
     id: '2',
-    photo: '/assets/images/trainers/trainer-2.jpg',
+    photo: '/assets/images/site/trainer-hiit-coach.png',
     name: 'FlexFit HIIT Coach',
     role: 'Cardio & HIIT Coach',
     specialization: 'Weight Loss - Zumba - CrossFit',
@@ -23,7 +23,7 @@ export const trainers = [
   },
   {
     id: '3',
-    photo: '/assets/images/trainers/trainer-3.jpg',
+    photo: '/assets/images/site/trainer-mobility-coach.png',
     name: 'FlexFit Yoga Coach',
     role: 'Yoga & Flexibility Coach',
     specialization: 'Hatha Yoga - Mobility - Recovery',
@@ -34,7 +34,7 @@ export const trainers = [
   },
   {
     id: '4',
-    photo: '/assets/images/trainers/trainer-4.jpg',
+    photo: '/assets/images/site/trainer-nutrition-coach.png',
     name: 'FlexFit Nutrition Coach',
     role: 'Nutrition & Wellness Coach',
     specialization: 'Diet Plans - Supplements - Wellness',

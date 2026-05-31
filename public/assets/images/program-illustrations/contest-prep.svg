@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Bodybuilding contest prep illustration</title>
+  <desc id="desc">Stage-ready bodybuilder silhouette with trophy and spotlight accents.</desc>
+  <rect width="1200" height="720" fill="#f8f8f2"/>
+  <g fill="#06131b">
+    <path d="M0 548h1200v172H0z"/>
+    <path d="M115 548c122-108 247-162 374-162s263 53 423 162z" opacity=".08"/>
+  </g>
+  <g stroke="#ffd600" stroke-width="16" stroke-linecap="round" opacity=".85">
+    <path d="M164 92 405 548"/>
+    <path d="M1036 92 795 548"/>
+    <path d="M600 72v430"/>
+  </g>
+  <g transform="translate(600 355)" fill="#06131b" stroke="#f8f8f2" stroke-width="7" stroke-linejoin="round">
+    <circle cx="0" cy="-161" r="44"/>
+    <path d="M-72-106c22-31 122-31 144 0 15 63 8 130-20 199H-52c-28-69-35-136-20-199z"/>
+    <path d="M-73-83c-67-5-119-35-158-91-23-32-72 4-50 38 54 82 130 129 227 141z"/>
+    <path d="M73-83c67-5 119-35 158-91 23-32 72 4 50 38-54 82-130 129-227 141z"/>
+    <path d="M-230-176c-38-35-84-36-121-6 33 37 77 53 132 47z"/>
+    <path d="M230-176c38-35 84-36 121-6-33 37-77 53-132 47z"/>
+    <path d="M-52 93-102 286h76L0 166l26 120h76L52 93z"/>
+  </g>
+  <g transform="translate(889 415)" fill="#ffd600" stroke="#06131b" stroke-width="8" stroke-linejoin="round">
+    <path d="M-58-72H58v51c0 56-35 95-58 95s-58-39-58-95z"/>
+    <path d="M-58-51h-50c2 55 34 89 78 93"/>
+    <path d="M58-51h50c-2 55-34 89-78 93"/>
+    <path d="M-24 74h48v52h-48z"/>
+    <path d="M-80 126H80v42H-80z"/>
+  </g>
+  <g stroke="#06131b" stroke-width="12" stroke-linecap="round" opacity=".35">
+    <path d="M150 612h900"/>
+    <path d="M240 656h720"/>
+  </g>
+</svg>

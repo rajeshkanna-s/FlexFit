@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Strength training illustration</title>
+  <desc id="desc">Black and white bodybuilder illustration with yellow gym accents.</desc>
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="45%" r="60%">
+      <stop offset="0" stop-color="#ffd600" stop-opacity=".2"/>
+      <stop offset=".42" stop-color="#111" stop-opacity=".7"/>
+      <stop offset="1" stop-color="#050505"/>
+    </radialGradient>
+    <filter id="softGlow" x="-25%" y="-25%" width="150%" height="150%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="720" fill="url(#glow)"/>
+  <g stroke="#2a2a2a" stroke-width="4" opacity=".45">
+    <path d="M80 650h1040"/>
+    <path d="M140 96v560M1060 96v560M245 120v490M955 120v490"/>
+  </g>
+  <g fill="none" stroke="#ffd600" stroke-linecap="round" filter="url(#softGlow)" opacity=".9">
+    <path d="M220 165v382" stroke-width="10"/>
+    <path d="M980 165v382" stroke-width="10"/>
+  </g>
+  <g transform="translate(600 360)" fill="#f7f7f7" stroke="#050505" stroke-width="9" stroke-linejoin="round">
+    <path d="M-85-142c20-38 55-58 85-58s65 20 85 58c-22 23-51 35-85 35s-63-12-85-35z"/>
+    <path d="M-44-196c8-26 80-26 88 0v58h-88z" fill="#0c0c0c" stroke="#f7f7f7"/>
+    <circle cx="0" cy="-154" r="44"/>
+    <path d="M-155-88c-84-18-132-78-176-152-18-31-60-13-50 22 25 94 94 172 198 211 39 14 65-72 28-81z"/>
+    <path d="M155-88c84-18 132-78 176-152 18-31 60-13 50 22-25 94-94 172-198 211-39 14-65-72-28-81z"/>
+    <path d="M-224-218c-26-45-73-52-109-22 24 52 70 80 126 77z"/>
+    <path d="M224-218c26-45 73-52 109-22-24 52-70 80-126 77z"/>
+    <path d="M-119-74c30 35 65 53 119 53s89-18 119-53c35 79 54 166 42 270h-322c-12-104 7-191 42-270z"/>
+    <path d="M-76 27c20 21 45 31 76 31s56-10 76-31"/>
+    <path d="M-96 101h192M-110 165h220"/>
+    <path d="M-119 196l-38 178h95l30-140h64l30 140h95l-38-178z"/>
+  </g>
+  <g fill="#ffd600" opacity=".95">
+    <rect x="187" y="560" width="826" height="18" rx="9"/>
+    <circle cx="600" cy="594" r="12"/>
+  </g>
+</svg>

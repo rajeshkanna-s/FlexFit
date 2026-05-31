@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Muscle building illustration</title>
+  <desc id="desc">Lifter curling a dumbbell with bold monochrome anatomy and yellow equipment.</desc>
+  <rect width="1200" height="720" fill="#080808"/>
+  <g opacity=".42" stroke="#252525" stroke-width="5">
+    <path d="M88 595h1024M104 126h992M180 126v469M1020 126v469"/>
+  </g>
+  <g transform="translate(590 370)" fill="#f7f7f7" stroke="#050505" stroke-width="9" stroke-linejoin="round">
+    <circle cx="-18" cy="-174" r="51"/>
+    <path d="M-66-119c26-30 101-36 144-5 52 37 66 94 37 159l-51 116H-82l-37-99c-24-64-5-128 53-171z"/>
+    <path d="M-106-70c-84 13-139 63-170 150-16 46 49 69 69 25 21-49 55-78 107-86z"/>
+    <path d="M91-85c75 4 132 43 170 117 22 43-38 78-64 38-24-37-58-59-103-68z"/>
+    <path d="M-73 151-140 345h85l63-135 58 135h91L83 151z"/>
+    <path d="M-38-24c20 27 47 41 82 41s64-14 86-43"/>
+  </g>
+  <g transform="translate(303 440) rotate(-18)" fill="#ffd600" stroke="#050505" stroke-width="8">
+    <rect x="-130" y="-20" width="260" height="40" rx="20"/>
+    <rect x="-196" y="-62" width="54" height="124" rx="13"/>
+    <rect x="142" y="-62" width="54" height="124" rx="13"/>
+    <rect x="-245" y="-44" width="42" height="88" rx="10"/>
+    <rect x="203" y="-44" width="42" height="88" rx="10"/>
+  </g>
+  <g stroke="#ffd600" stroke-width="14" stroke-linecap="round" opacity=".9">
+    <path d="M774 148h206M812 202h142"/>
+    <path d="M130 186h134"/>
+  </g>
+</svg>

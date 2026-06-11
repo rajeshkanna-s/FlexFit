@@ -200,7 +200,7 @@ export function generatePremiumPDF(data: PDFData) {
       ${getHeaderHtml(`Weekly Diet Chart`)}
       
       <div class="title-bar">
-        <h2>${gMeta.emoji} ${data.name}'s Weekly ${gMeta.label} Diet Plan</h2>
+        <h2>${gMeta.emoji} FlexFit Weekly ${gMeta.label} Diet Plan</h2>
         <div class="subtitle">${gMeta.tagline} • Prepared by FlexFit Club Nutrition Team</div>
       </div>
       
@@ -295,7 +295,7 @@ export function generatePremiumPDF(data: PDFData) {
       ${getHeaderHtml(`Monthly Progression`)}
       
       <div class="title-bar">
-        <h2>${gMeta.emoji} ${data.name}'s Monthly ${gMeta.label} Plan</h2>
+        <h2>${gMeta.emoji} FlexFit Monthly ${gMeta.label} Plan</h2>
         <div class="subtitle">${gMeta.tagline} • Prepared by FlexFit Club Nutrition Team</div>
       </div>
       
@@ -333,7 +333,7 @@ export function generatePremiumPDF(data: PDFData) {
       ${getHeaderHtml(`Combined Diet Plan`)}
       
       <div class="title-bar">
-        <h2>${gMeta.emoji} ${data.name}'s ${gMeta.label} Diet Plan</h2>
+        <h2>${gMeta.emoji} FlexFit ${gMeta.label} Diet Plan</h2>
         <div class="subtitle">${gMeta.tagline} • Prepared by FlexFit Club Nutrition Team</div>
       </div>
       
@@ -445,7 +445,7 @@ export function generatePremiumPDF(data: PDFData) {
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>${data.name}'s Diet Plan — FlexFit Club</title>
+<title>FlexFit Diet Plan — FlexFit Club</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 

@@ -19,6 +19,7 @@ export interface BranchLocation {
   };
   challengeOffer: BranchOffer;
   coupleOffer: BranchOffer;
+  yearlyOffer: BranchOffer;
 }
 
 export const branchLocations: BranchLocation[] = [
@@ -44,6 +45,11 @@ export const branchLocations: BranchLocation[] = [
       title: '12 Months Couple Offer',
       price: 'Rs. 10,000/-',
       description: 'Annual couple package for two members.'
+    },
+    yearlyOffer: {
+      title: '12 Months Yearly Plan',
+      price: 'Rs. 5,555/-',
+      description: 'Annual individual membership plan.'
     }
   },
   {
@@ -68,6 +74,11 @@ export const branchLocations: BranchLocation[] = [
       title: '12 Months Couple Offer',
       price: 'Rs. 13,999/-',
       description: 'Chitlapakkam branch couple offer from the opening flyer.'
+    },
+    yearlyOffer: {
+      title: '12 Months Yearly Plan',
+      price: 'Rs. 7,000/-',
+      description: 'Annual individual membership plan.'
     }
   }
 ];

@@ -10,7 +10,7 @@ import SectionLabel from '../components/common/SectionLabel';
 import { branchLocationIds, branchLocations, getBranchLocation } from '../data/locations.data';
 import PageHero from './PageHero';
 
-type PlanKey = 'challenge' | 'couple';
+type PlanKey = 'challenge' | 'couple' | 'yearly';
 
 interface JoinFormValues {
   name: string;
@@ -38,17 +38,20 @@ const schema: yup.ObjectSchema<JoinFormValues> = yup.object({
 
 const planOptions: { key: PlanKey; title: string; price: string }[] = [
   { key: 'challenge', title: '90-Day Challenge', price: 'Branch-wise price' },
-  { key: 'couple', title: 'Couple Offer', price: 'Branch-wise price' }
+  { key: 'couple', title: 'Couple Offer', price: 'Branch-wise price' },
+  { key: 'yearly', title: 'Yearly Plan', price: 'Branch-wise price' }
 ];
 
 const planLabels: Record<PlanKey, string> = {
   challenge: '90 Days Body Transformation Challenge',
-  couple: '12 Months Couple Offer'
+  couple: '12 Months Couple Offer',
+  yearly: '12 Months Yearly Plan'
 };
 
 const planSummary: Record<PlanKey, string> = {
   challenge: 'Focused 90-day body transformation with personal attention, diet chart, workout plan, and full guidance. Price depends on your selected branch.',
-  couple: 'Annual couple package for two members. Price depends on your selected branch.'
+  couple: 'Annual couple package for two members. Price depends on your selected branch.',
+  yearly: 'Annual individual membership plan. Price depends on your selected branch.'
 };
 
 const JoinPage = () => {
@@ -61,7 +64,8 @@ const JoinPage = () => {
   const initialPlan = useMemo<PlanKey>(() => {
     const plan = searchParams.get('plan');
     if (plan === 'couple-offer') return 'couple';
-    return plan && ['challenge', 'couple'].includes(plan) ? (plan as PlanKey) : 'challenge';
+    if (plan === 'yearly-plan') return 'yearly';
+    return plan && ['challenge', 'couple', 'yearly'].includes(plan) ? (plan as PlanKey) : 'challenge';
   }, [searchParams]);
   const [selectedPlan, setSelectedPlan] = useState<PlanKey>(initialPlan);
   const [status, setStatus] = useState<'idle' | 'success'>('idle');
@@ -74,6 +78,7 @@ const JoinPage = () => {
   const getPlanPrice = (planKey: PlanKey, fallback: string) => {
     if (planKey === 'challenge') return selectedBranch?.challengeOffer.price || 'Choose branch for price';
     if (planKey === 'couple') return selectedBranch?.coupleOffer.price || 'Choose branch for price';
+    if (planKey === 'yearly') return selectedBranch?.yearlyOffer.price || 'Choose branch for price';
     return fallback;
   };
   const handleBranchSelect = (branchId: string) => {
@@ -87,7 +92,9 @@ const JoinPage = () => {
       ? ` Branch challenge price: ${branch?.challengeOffer.price || 'Not specified'}.`
       : selectedPlan === 'couple'
         ? ` Branch couple offer price: ${branch?.coupleOffer.price || 'Not specified'}.`
-        : '';
+        : selectedPlan === 'yearly'
+          ? ` Branch yearly plan price: ${branch?.yearlyOffer.price || 'Not specified'}.`
+          : '';
     const message = encodeURIComponent(
       `Hi FlexFit! My name is ${values.name}, I want to join/enquire about the ${planLabels[selectedPlan]} plan.${programText} Preferred branch: ${branch?.shortName || values.branchId}.${branchOfferText} Address: ${branch?.address || 'Not specified'}. Map: ${branch?.mapUrl || 'Not specified'}. Goal: ${values.goal}. Timing: ${values.timing || 'Flexible'}. Please contact me.`
     );
@@ -152,6 +159,7 @@ const JoinPage = () => {
                       {planSummary[selectedPlan]}
                       {selectedPlan === 'challenge' && ` Selected branch price: ${selectedBranch?.challengeOffer.price || 'Choose a branch first.'}`}
                       {selectedPlan === 'couple' && ` Selected branch price: ${selectedBranch?.coupleOffer.price || 'Choose a branch first.'}`}
+                      {selectedPlan === 'yearly' && ` Selected branch price: ${selectedBranch?.yearlyOffer.price || 'Choose a branch first.'}`}
                       {programInterest ? ` Program interest: ${programInterest}.` : ''}
                     </p>
                   </div>
@@ -202,7 +210,7 @@ const JoinPage = () => {
                   </div>
                   {status === 'success' && <div className="alert alert-success">Success! We opened WhatsApp so the team can confirm your enquiry.</div>}
                   <button className="btn-ff btn-ff-primary w-100" type="submit" disabled={isSubmitting}>
-                    {selectedPlan === 'challenge' ? 'Reserve My Challenge Seat' : 'Send Couple Offer Enquiry'}
+                    {selectedPlan === 'challenge' ? 'Reserve My Challenge Seat' : selectedPlan === 'couple' ? 'Send Couple Offer Enquiry' : 'Send Yearly Plan Enquiry'}
                   </button>
                 </form>
               </div>

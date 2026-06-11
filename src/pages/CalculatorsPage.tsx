@@ -7,7 +7,6 @@ import {
   Activity,
   PersonFill,
   Rulers,
-  ArrowCounterclockwise,
   Bullseye,
   TrophyFill,
   ChevronRight,
@@ -265,6 +264,20 @@ export default function CalculatorsPage() {
     return heightUnit === 'cm' ? num : num * 2.54;
   };
 
+  // Block 'e', 'E', '+', '-' in numeric inputs
+  const blockInvalidChar = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (['e', 'E', '+', '-'].includes(e.key)) {
+      e.preventDefault();
+    }
+  };
+
+  // Block 'e', 'E', '+', '-', '.' in whole-number inputs (Age)
+  const blockInvalidAgeChar = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (['e', 'E', '+', '-', '.'].includes(e.key)) {
+      e.preventDefault();
+    }
+  };
+
   // --- 1. BMI State ---
   const [bmiWeight, setBmiWeight] = useState('');
   const [bmiHeight, setBmiHeight] = useState('');
@@ -279,12 +292,12 @@ export default function CalculatorsPage() {
     const wKg = toKg(bmiWeight);
     const hCm = toCm(bmiHeight);
 
-    if (wKg <= 0 || hCm <= 0) {
-      setBmiError('Please enter valid, positive values for height and weight.');
+    if (wKg < 10 || hCm < 50) {
+      setBmiError('Please enter realistic values: weight must be at least 10 kg (22 lb) and height at least 50 cm (20 inches).');
       return;
     }
     if (wKg > 400 || hCm > 272) {
-      setBmiError('Please verify your measurements. The entered values seem extremely high.');
+      setBmiError('Please verify your measurements: weight must not exceed 400 kg (880 lb) and height must not exceed 272 cm (107 inches).');
       return;
     }
 
@@ -320,16 +333,16 @@ export default function CalculatorsPage() {
     const hCm = toCm(calHeight);
     const age = parseInt(calAge);
 
-    if (wKg <= 0 || hCm <= 0 || isNaN(age) || age <= 0) {
-      setCalError('Please fill in all details with valid positive numbers.');
+    if (wKg < 10 || hCm < 50 || isNaN(age) || age < 12) {
+      setCalError('Please enter realistic values: age must be at least 12, weight must be at least 10 kg (22 lb), and height must be at least 50 cm (20 inches).');
       return;
     }
-    if (age < 12 || age > 100) {
-      setCalError('This calculator is designed for individuals between 12 and 100 years old.');
+    if (age > 100) {
+      setCalError('This calculator is designed for individuals up to 100 years old.');
       return;
     }
     if (wKg > 400 || hCm > 272) {
-      setCalError('Please double check inputs. Values are outside ordinary physical limits.');
+      setCalError('Please verify inputs: weight must not exceed 400 kg (880 lb) and height must not exceed 272 cm (107 inches).');
       return;
     }
 
@@ -378,16 +391,16 @@ export default function CalculatorsPage() {
     const hCm = toCm(macHeight);
     const age = parseInt(macAge);
 
-    if (wKg <= 0 || hCm <= 0 || isNaN(age) || age <= 0) {
-      setMacError('Please enter valid numbers for gender, age, weight, and height.');
+    if (wKg < 10 || hCm < 50 || isNaN(age) || age < 12) {
+      setMacError('Please enter realistic values: age must be at least 12, weight must be at least 10 kg (22 lb), and height must be at least 50 cm (20 inches).');
       return;
     }
-    if (age < 12 || age > 100) {
+    if (age > 100) {
       setMacError('Age must be between 12 and 100.');
       return;
     }
     if (wKg > 400 || hCm > 272) {
-      setMacError('Please verify height and weight inputs.');
+      setMacError('Please verify inputs: weight must not exceed 400 kg (880 lb) and height must not exceed 272 cm (107 inches).');
       return;
     }
 
@@ -507,9 +520,13 @@ export default function CalculatorsPage() {
                           placeholder="Enter weight"
                           className="form-control"
                           value={bmiWeight}
-                          onChange={(e) => setBmiWeight(e.target.value)}
+                          onKeyDown={blockInvalidChar}
+                          onChange={(e) => {
+                            const val = e.target.value;
+                            if (val.length <= 6) setBmiWeight(val);
+                          }}
                           required
-                          min="1"
+                          min="10"
                         />
                         <div className="input-group-text p-1 d-flex gap-1" style={{ background: 'var(--color-black-card)', borderColor: 'var(--color-border)', zIndex: 3 }}>
                           <button
@@ -543,9 +560,13 @@ export default function CalculatorsPage() {
                           placeholder="Enter height"
                           className="form-control"
                           value={bmiHeight}
-                          onChange={(e) => setBmiHeight(e.target.value)}
+                          onKeyDown={blockInvalidChar}
+                          onChange={(e) => {
+                            const val = e.target.value;
+                            if (val.length <= 6) setBmiHeight(val);
+                          }}
                           required
-                          min="1"
+                          min="50"
                         />
                         <div className="input-group-text p-1 d-flex gap-1" style={{ background: 'var(--color-black-card)', borderColor: 'var(--color-border)', zIndex: 3 }}>
                           <button
@@ -578,9 +599,8 @@ export default function CalculatorsPage() {
                         className="btn-ff btn-ff-outline px-3"
                         type="button"
                         onClick={handleBmiReset}
-                        title="Reset Fields"
                       >
-                        <ArrowCounterclockwise />
+                        Refresh
                       </button>
                     </div>
                   </form>
@@ -729,10 +749,14 @@ export default function CalculatorsPage() {
                         placeholder="Enter your age"
                         className="form-control"
                         value={calAge}
-                        onChange={(e) => setCalAge(e.target.value)}
+                        onKeyDown={blockInvalidAgeChar}
+                        onChange={(e) => {
+                          const val = e.target.value;
+                          if (val.length <= 3) setCalAge(val);
+                        }}
                         required
-                        min="1"
-                        max="120"
+                        min="12"
+                        max="100"
                       />
                     </div>
 
@@ -747,9 +771,13 @@ export default function CalculatorsPage() {
                           placeholder="Enter weight"
                           className="form-control"
                           value={calWeight}
-                          onChange={(e) => setCalWeight(e.target.value)}
+                          onKeyDown={blockInvalidChar}
+                          onChange={(e) => {
+                            const val = e.target.value;
+                            if (val.length <= 6) setCalWeight(val);
+                          }}
                           required
-                          min="1"
+                          min="10"
                         />
                         <div className="input-group-text p-1 d-flex gap-1" style={{ background: 'var(--color-black-card)', borderColor: 'var(--color-border)', zIndex: 3 }}>
                           <button
@@ -783,9 +811,13 @@ export default function CalculatorsPage() {
                           placeholder="Enter height"
                           className="form-control"
                           value={calHeight}
-                          onChange={(e) => setCalHeight(e.target.value)}
+                          onKeyDown={blockInvalidChar}
+                          onChange={(e) => {
+                            const val = e.target.value;
+                            if (val.length <= 6) setCalHeight(val);
+                          }}
                           required
-                          min="1"
+                          min="50"
                         />
                         <div className="input-group-text p-1 d-flex gap-1" style={{ background: 'var(--color-black-card)', borderColor: 'var(--color-border)', zIndex: 3 }}>
                           <button
@@ -838,9 +870,8 @@ export default function CalculatorsPage() {
                         className="btn-ff btn-ff-outline px-3"
                         type="button"
                         onClick={handleCalReset}
-                        title="Reset Fields"
                       >
-                        <ArrowCounterclockwise />
+                        Refresh
                       </button>
                     </div>
                   </form>
@@ -987,10 +1018,14 @@ export default function CalculatorsPage() {
                         placeholder="Enter your age"
                         className="form-control"
                         value={macAge}
-                        onChange={(e) => setMacAge(e.target.value)}
+                        onKeyDown={blockInvalidAgeChar}
+                        onChange={(e) => {
+                          const val = e.target.value;
+                          if (val.length <= 3) setMacAge(val);
+                        }}
                         required
-                        min="1"
-                        max="120"
+                        min="12"
+                        max="100"
                       />
                     </div>
 
@@ -1005,9 +1040,13 @@ export default function CalculatorsPage() {
                           placeholder="Enter weight"
                           className="form-control"
                           value={macWeight}
-                          onChange={(e) => setMacWeight(e.target.value)}
+                          onKeyDown={blockInvalidChar}
+                          onChange={(e) => {
+                            const val = e.target.value;
+                            if (val.length <= 6) setMacWeight(val);
+                          }}
                           required
-                          min="1"
+                          min="10"
                         />
                         <div className="input-group-text p-1 d-flex gap-1" style={{ background: 'var(--color-black-card)', borderColor: 'var(--color-border)', zIndex: 3 }}>
                           <button
@@ -1041,9 +1080,13 @@ export default function CalculatorsPage() {
                           placeholder="Enter height"
                           className="form-control"
                           value={macHeight}
-                          onChange={(e) => setMacHeight(e.target.value)}
+                          onKeyDown={blockInvalidChar}
+                          onChange={(e) => {
+                            const val = e.target.value;
+                            if (val.length <= 6) setMacHeight(val);
+                          }}
                           required
-                          min="1"
+                          min="50"
                         />
                         <div className="input-group-text p-1 d-flex gap-1" style={{ background: 'var(--color-black-card)', borderColor: 'var(--color-border)', zIndex: 3 }}>
                           <button
@@ -1135,9 +1178,8 @@ export default function CalculatorsPage() {
                         className="btn-ff btn-ff-outline px-3"
                         type="button"
                         onClick={handleMacReset}
-                        title="Reset Fields"
                       >
-                        <ArrowCounterclockwise />
+                        Refresh
                       </button>
                     </div>
                   </form>

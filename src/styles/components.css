@@ -1309,6 +1309,7 @@
   font-weight: 800;
   justify-content: space-between;
   margin-bottom: 24px;
+  scroll-margin-top: 160px;
 }
 
 .exercise-grid {

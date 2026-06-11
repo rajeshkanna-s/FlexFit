@@ -152,6 +152,13 @@ const ExercisePage = () => {
   const [muscle, setMuscle] = useState(() => searchParams.get('muscle') || 'All Muscles');
   const [query, setQuery] = useState(() => searchParams.get('query') || '');
   const [visibleCount, setVisibleCount] = useState(24);
+  const resultsRef = useRef<HTMLDivElement>(null);
+
+  const scrollToResults = () => {
+    setTimeout(() => {
+      resultsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  };
 
   // Sync state with URL search params changes
   useEffect(() => {
@@ -206,6 +213,7 @@ const ExercisePage = () => {
     setQuery('');
     setVisibleCount(24);
     setSearchParams({});
+    scrollToResults();
   };
 
   return (
@@ -230,12 +238,12 @@ const ExercisePage = () => {
               <Search />
               <input value={query} onChange={(event) => { setQuery(event.target.value); setVisibleCount(24); }} placeholder="Search exercise, muscle, equipment..." />
             </div>
-            <FilterSelect label="All Equipment" value={equipment} options={equipmentOptions} onChange={(value) => { setEquipment(value); setVisibleCount(24); }} />
-            <FilterSelect label="All Muscles" value={muscle} options={muscleOptions} onChange={(value) => { setMuscle(value); setVisibleCount(24); }} />
+            <FilterSelect label="All Equipment" value={equipment} options={equipmentOptions} onChange={(value) => { setEquipment(value); setVisibleCount(24); scrollToResults(); }} />
+            <FilterSelect label="All Muscles" value={muscle} options={muscleOptions} onChange={(value) => { setMuscle(value); setVisibleCount(24); scrollToResults(); }} />
             <button className="btn-ff btn-ff-outline exercise-reset" type="button" onClick={resetFilters}>Reset</button>
           </div>
 
-          <div className="exercise-result-bar">
+          <div className="exercise-result-bar" ref={resultsRef}>
             <span>{filteredExercises.length} matching videos</span>
             <span>{equipment} / {muscle}</span>
           </div>

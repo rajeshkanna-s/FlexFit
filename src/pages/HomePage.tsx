@@ -5,7 +5,6 @@ import GalleryPreview from '../components/home/GalleryPreview';
 import HeroIntroSection from '../components/home/HeroIntroSection';
 import HeroSection from '../components/home/HeroSection';
 import ServicesPreview from '../components/home/ServicesPreview';
-import StatsBar from '../components/home/StatsBar';
 import TestimonialsSection from '../components/home/TestimonialsSection';
 import WhyFlexFit from '../components/home/WhyFlexFit';
 import DailyWod from '../components/home/DailyWod';
@@ -28,7 +27,6 @@ const HomePage = () => (
     </Helmet>
     <HeroSection />
     <HeroIntroSection />
-    <StatsBar />
     <section className="section section-card">
       <div className="container">
         <div className="row g-5 align-items-center">

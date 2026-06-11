@@ -813,7 +813,7 @@ export default function DietChartPage() {
               {/* Print button */}
               <div className="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
                 <h2 className="text-uppercase mb-0">
-                  {name}'s <span className="text-yellow">Diet Plan</span>
+                  FlexFit <span className="text-yellow">Diet Plan</span>
                 </h2>
                 <div className="d-flex gap-2 flex-wrap">
                   <button className="btn-ff btn-ff-primary px-3 py-2 d-flex align-items-center gap-2" style={{ fontSize: '0.85rem' }} onClick={() => {

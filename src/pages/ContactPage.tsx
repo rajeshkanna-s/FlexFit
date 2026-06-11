@@ -36,7 +36,7 @@ const ContactPage = () => {
   const onSubmit = async (values: ContactFormValues) => {
     const branch = getBranchLocation(values.branchId);
     const message = encodeURIComponent(
-      `Hi FlexFit! My name is ${values.name}. Phone: ${values.phone}. Preferred branch: ${branch?.shortName || values.branchId}. 90-day challenge price: ${branch?.challengeOffer.price || 'Not specified'}. Couple offer price: ${branch?.coupleOffer.price || 'Not specified'}. Address: ${branch?.address || 'Not specified'}. Map: ${branch?.mapUrl || 'Not specified'}. Subject: ${values.subject}. ${values.message || ''}`
+      `Hi FlexFit! My name is ${values.name}. Phone: ${values.phone}. Preferred branch: ${branch?.shortName || values.branchId}. 90-day challenge price: ${branch?.challengeOffer.price || 'Not specified'}. Couple offer price: ${branch?.coupleOffer.price || 'Not specified'}. Yearly plan price: ${branch?.yearlyOffer?.price || 'Not specified'}. Address: ${branch?.address || 'Not specified'}. Map: ${branch?.mapUrl || 'Not specified'}. Subject: ${values.subject}. ${values.message || ''}`
     );
     setStatus('success');
     reset();

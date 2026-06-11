@@ -9,7 +9,7 @@ const HeroIntroSection = () => (
       <div className="hero-intro-copy" data-aos="fade-up">
         <h2>ACHIEVE YOUR DREAM PHYSIQUE</h2>
         <p className="lead text-muted-ff">
-          Transform your body. Strengthen your mind. FlexFit Club - Chrompet and Chitlapakkam. Every rep counts. Every goal is real.
+          Transform your body. Strengthen your mind. FlexFit Club- Every rep counts, Every goal is real.
         </p>
         <div className="hero-intro-actions">
           <Link className="btn-ff btn-ff-primary" to="/join">

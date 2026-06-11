@@ -347,7 +347,7 @@ export const exercises: ExerciseItem[] = [
         "id":  "video-38",
         "name":  "Cable Bar Lateral Pulldown",
         "workoutName":  "Cable Bar Lateral Pulldown",
-        "muscle":  "Upper Back",
+        "muscle":  "Lats",
         "equipment":  "Cable",
         "media":  "01501201-Cable-Bar-Lateral-Pulldown_Back (1).mp4",
         "mediaType":  "video"
@@ -356,7 +356,7 @@ export const exercises: ExerciseItem[] = [
         "id":  "video-39",
         "name":  "Cable Bar Lateral Pulldown",
         "workoutName":  "Cable Bar Lateral Pulldown",
-        "muscle":  "Upper Back",
+        "muscle":  "Lats",
         "equipment":  "Cable",
         "media":  "01501201-Cable-Bar-Lateral-Pulldown_Back.mp4",
         "mediaType":  "video"
@@ -518,7 +518,7 @@ export const exercises: ExerciseItem[] = [
         "id":  "video-57",
         "name":  "Cable Straight Arm Pulldown (With Rope)",
         "workoutName":  "Cable Straight Arm Pulldown (With Rope)",
-        "muscle":  "Upper Back",
+        "muscle":  "Lats",
         "equipment":  "Cable",
         "media":  "02371201-Cable-Straight-Arm-Pulldown-(with-rope)_Back.mp4",
         "mediaType":  "video"
@@ -527,7 +527,7 @@ export const exercises: ExerciseItem[] = [
         "id":  "video-58",
         "name":  "Cable Straight Arm Pulldown",
         "workoutName":  "Cable Straight Arm Pulldown",
-        "muscle":  "Upper Back",
+        "muscle":  "Lats",
         "equipment":  "Cable",
         "media":  "02381201-Cable-Straight-Arm-Pulldown_Back.mp4",
         "mediaType":  "video"
@@ -761,7 +761,7 @@ export const exercises: ExerciseItem[] = [
         "id":  "video-84",
         "name":  "Dumbbell Kickback",
         "workoutName":  "Dumbbell Kickback",
-        "muscle":  "Upper Arms",
+        "muscle":  "Triceps",
         "equipment":  "Dumbbell",
         "media":  "03331201-Dumbbell-Kickback_Upper-Arms.mp4",
         "mediaType":  "video"
@@ -1058,7 +1058,7 @@ export const exercises: ExerciseItem[] = [
         "id":  "video-117",
         "name":  "Lever Assisted Chin up",
         "workoutName":  "Lever Assisted Chin up",
-        "muscle":  "Other",
+        "muscle":  "Lats",
         "equipment":  "Machine",
         "media":  "05721201-Lever-Assisted-Chin-Up_Back_.mp4",
         "mediaType":  "video"
@@ -1085,7 +1085,7 @@ export const exercises: ExerciseItem[] = [
         "id":  "video-120",
         "name":  "Lever Front Pulldown",
         "workoutName":  "Lever Front Pulldown",
-        "muscle":  "Upper Back",
+        "muscle":  "Lats",
         "equipment":  "Machine",
         "media":  "05791201-Lever-Front-Pulldown_Back.mp4",
         "mediaType":  "video"
@@ -1391,7 +1391,7 @@ export const exercises: ExerciseItem[] = [
         "id":  "video-154",
         "name":  "Weighted Pull up",
         "workoutName":  "Weighted Pull up",
-        "muscle":  "Other",
+        "muscle":  "Lats",
         "equipment":  "None",
         "media":  "08411201-Weighted-Pull-Up_Back_.mp4",
         "mediaType":  "video"
@@ -1760,7 +1760,7 @@ export const exercises: ExerciseItem[] = [
         "id":  "video-195",
         "name":  "Cable One Arm Lat Pulldown",
         "workoutName":  "Cable One Arm Lat Pulldown",
-        "muscle":  "Upper Back",
+        "muscle":  "Lats",
         "equipment":  "Cable",
         "media":  "12041201-Cable-one-arm-lat-pulldown_back.mp4",
         "mediaType":  "video"
@@ -2399,7 +2399,7 @@ export const exercises: ExerciseItem[] = [
         "id":  "video-266",
         "name":  "Banded Back Underhand Pulldown",
         "workoutName":  "Banded Back Underhand Pulldown",
-        "muscle":  "Other",
+        "muscle":  "Lats",
         "equipment":  "Resistance Band",
         "media":  "31161201-Band-Fixed-Back-Underhand-Pulldown_Back_.mp4",
         "mediaType":  "video"
@@ -2489,7 +2489,7 @@ export const exercises: ExerciseItem[] = [
         "id":  "video-276",
         "name":  "Band Assisted Pull up",
         "workoutName":  "Band Assisted Pull up",
-        "muscle":  "Upper Back",
+        "muscle":  "Lats",
         "equipment":  "Resistance Band",
         "media":  "38441201-Band-Assisted-Pull-Up-(VERSION-3)-(female)_Back.mp4",
         "mediaType":  "video"
@@ -2561,7 +2561,7 @@ export const exercises: ExerciseItem[] = [
         "id":  "video-284",
         "name":  "Weighted Hang Chin up",
         "workoutName":  "Weighted Hang Chin up",
-        "muscle":  "Other",
+        "muscle":  "Lats",
         "equipment":  "None",
         "media":  "41811201-Weighted-Hang-Chin-Up_Back_.mp4",
         "mediaType":  "video"
@@ -2579,7 +2579,7 @@ export const exercises: ExerciseItem[] = [
         "id":  "video-286",
         "name":  "Band Knelling Lat Pulldown",
         "workoutName":  "Band Knelling Lat Pulldown",
-        "muscle":  "Other",
+        "muscle":  "Lats",
         "equipment":  "Resistance Band",
         "media":  "43581201-Band-Knelling-Lat-Pulldown_Back_.mp4",
         "mediaType":  "video"
@@ -2651,7 +2651,7 @@ export const exercises: ExerciseItem[] = [
         "id":  "video-294",
         "name":  "Pull up (Negative)",
         "workoutName":  "Pull up (Negative)",
-        "muscle":  "Other",
+        "muscle":  "Lats",
         "equipment":  "None",
         "media":  "47741201-Pull-up-(negative)-(female)_Back_.mp4",
         "mediaType":  "video"
@@ -2912,7 +2912,7 @@ export const exercises: ExerciseItem[] = [
         "id":  "video-323",
         "name":  "Cable Lateral Pulldown with Mag Grip",
         "workoutName":  "Cable Lateral Pulldown with Mag Grip",
-        "muscle":  "Other",
+        "muscle":  "Lats",
         "equipment":  "Cable",
         "media":  "63921201-Cable-Lateral-Pulldown-with-Mag-Grip_Back_.mp4",
         "mediaType":  "video"
@@ -3002,7 +3002,7 @@ export const exercises: ExerciseItem[] = [
         "id":  "video-333",
         "name":  "Hanging Front Lever Raise",
         "workoutName":  "Hanging Front Lever Raise",
-        "muscle":  "(1)",
+        "muscle":  "Abdominals",
         "equipment":  "Machine",
         "media":  "72511201-Hanging-Front-Lever-Raise-(male)_Waist_ (1).mp4",
         "mediaType":  "video"
@@ -3047,7 +3047,7 @@ export const exercises: ExerciseItem[] = [
         "id":  "video-338",
         "name":  "Cable Standing Supinated Face Pull (With Rope)",
         "workoutName":  "Cable Standing Supinated Face Pull (With Rope)",
-        "muscle":  "Sho",
+        "muscle":  "Shoulders",
         "equipment":  "Cable",
         "media":  "77441201-Cable-Standing-Supinated-Face-Pull-(with-rope)_Sho.mp4",
         "mediaType":  "video"
@@ -3137,7 +3137,7 @@ export const exercises: ExerciseItem[] = [
         "id":  "video-348",
         "name":  "Cable 45 Degrees Single Arm Reverse Fly",
         "workoutName":  "Cable 45 Degrees Single Arm Reverse Fly",
-        "muscle":  "Sho",
+        "muscle":  "Shoulders",
         "equipment":  "Cable",
         "media":  "98681201-Cable-45-degrees-Single-Arm-Reverse-Fly-(male)_Sho.mp4",
         "mediaType":  "video"
@@ -3146,7 +3146,7 @@ export const exercises: ExerciseItem[] = [
         "id":  "video-349",
         "name":  "Kettlebell Single Arm Shoulder Press",
         "workoutName":  "Kettlebell Single Arm Shoulder Press",
-        "muscle":  "Should",
+        "muscle":  "Shoulders",
         "equipment":  "Kettlebell",
         "media":  "99571201-Kettlebell-Single-Arm-Shoulder-Press-(male)_Should.mp4",
         "mediaType":  "video"

@@ -30,14 +30,32 @@ const TransformationChallenge = ({ compact = false }: TransformationChallengePro
               {branchLocations.map((location) => (
                 <article className="challenge-branch-card" key={location.id}>
                   <span>{location.shortName}</span>
-                  <h3>{location.challengeOffer.title}</h3>
-                  <div className="challenge-branch-price">{location.challengeOffer.price}</div>
-                  <p>{location.challengeOffer.description}</p>
+                  
+                  <div className="challenge-couple-offer mt-3">
+                    <span>{location.challengeOffer.title}</span>
+                    <strong>{location.challengeOffer.price}</strong>
+                    <div className="text-muted-ff small mt-1" style={{ fontSize: '0.78rem', opacity: 0.85 }}>
+                      {location.challengeOffer.description}
+                    </div>
+                  </div>
+
                   <div className="challenge-couple-offer">
                     <span>{location.coupleOffer.title}</span>
                     <strong>{location.coupleOffer.price}</strong>
+                    <div className="text-muted-ff small mt-1" style={{ fontSize: '0.78rem', opacity: 0.85 }}>
+                      {location.coupleOffer.description}
+                    </div>
                   </div>
-                  <Link className="btn-ff btn-ff-outline w-100" to={`/join?plan=challenge&branch=${location.id}`}>
+
+                  <div className="challenge-couple-offer">
+                    <span>{location.yearlyOffer.title}</span>
+                    <strong>{location.yearlyOffer.price}</strong>
+                    <div className="text-muted-ff small mt-1" style={{ fontSize: '0.78rem', opacity: 0.85 }}>
+                      {location.yearlyOffer.description}
+                    </div>
+                  </div>
+
+                  <Link className="btn-ff btn-ff-outline w-100" to={`/join?branch=${location.id}`}>
                     Select Branch
                   </Link>
                 </article>

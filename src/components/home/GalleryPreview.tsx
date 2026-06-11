@@ -25,6 +25,9 @@ const GalleryPreview = () => (
         ))}
       </div>
       <div className="text-center mt-5">
+        <Link className="btn-ff btn-ff-outline px-4 mb-4" to="/gallery">
+          View Full Gallery
+        </Link>
         <p className="text-muted-ff mb-2">Follow our daily transformations on Instagram</p>
         <a className="text-yellow fw-bold" href="https://www.instagram.com/flex._.fit_" target="_blank" rel="noreferrer">
           @flex._.fit_

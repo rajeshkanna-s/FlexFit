@@ -176,6 +176,7 @@
 }
 
 .hero-section h1 {
+  color: #FFFFFF;
   font-size: clamp(2.9rem, 5.6vw, 4.2rem);
 }
 
@@ -213,6 +214,7 @@
 }
 
 .page-hero h1 {
+  color: #FFFFFF;
   font-size: clamp(2.15rem, 3.45vw, 3.1rem);
 }
 
@@ -284,7 +286,7 @@
 }
 
 .page-hero-copy {
-  color: var(--color-white-muted);
+  color: rgba(255, 255, 255, 0.75);
   font-size: 0.95rem;
   max-width: 620px;
   margin: 9px 0 12px;
@@ -338,7 +340,7 @@
 
 .stats-strip {
   background: var(--color-yellow);
-  color: var(--color-black);
+  color: #0D0D0D;
   padding: 28px 0;
 }
 
@@ -1391,7 +1393,7 @@
 
 .conversion-band {
   background: var(--color-yellow);
-  color: var(--color-black);
+  color: #0D0D0D;
   padding: 58px 0;
 }
 
@@ -1428,7 +1430,7 @@
 
 .conversion-whatsapp {
   background: #128C4A;
-  color: var(--color-white);
+  color: #FFFFFF;
 }
 
 .challenge-section {
@@ -2266,6 +2268,61 @@
 [data-theme='light'] .navbar-ff.scrolled .navbar-toggler-icon,
 [data-theme='light'] .navbar-ff.menu-open .navbar-toggler-icon {
   filter: none;
+}
+
+/* Light mode adjustments for always-dark blocks */
+[data-theme='light'] .challenge-offer h2 {
+  color: #FFFFFF !important;
+}
+
+[data-theme='light'] .challenge-offer .text-muted-ff {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+[data-theme='light'] .challenge-offer .challenge-branch-card {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+[data-theme='light'] .challenge-offer .challenge-branch-card h3 {
+  color: #FFFFFF !important;
+}
+
+[data-theme='light'] .challenge-offer .challenge-branch-card p {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+[data-theme='light'] .challenge-offer .challenge-couple-offer {
+  background: rgba(255, 214, 0, 0.08) !important;
+  border-color: rgba(255, 214, 0, 0.25) !important;
+}
+
+[data-theme='light'] .challenge-offer .challenge-couple-offer strong {
+  color: #FFFFFF !important;
+}
+
+[data-theme='light'] .challenge-offer .challenge-list-card {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+[data-theme='light'] .challenge-offer .challenge-list-card.featured {
+  border-color: var(--color-yellow) !important;
+}
+
+[data-theme='light'] .challenge-offer .challenge-list-card li {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+[data-theme='light'] .challenge-offer .btn-ff-outline {
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  color: #FFFFFF !important;
+  background: transparent !important;
+}
+
+[data-theme='light'] .challenge-offer .btn-ff-outline:hover {
+  border-color: var(--color-yellow) !important;
+  color: var(--color-yellow) !important;
 }
 
 /* Activity Level Selector Cards */

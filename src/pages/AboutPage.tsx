@@ -19,7 +19,7 @@ import PageHero from './PageHero';
 
 const offers = [
   ['Personalized Training Plans', 'Custom workout programs tailored to your specific goals, including fat loss, muscle gain, contest prep, and complete body transformations.'],
-  ['Nutrition Coaching', 'Guidance that helps you fuel your body properly, stay consistent, and get maximum results from every training phase.'],
+  ['Nutrition Training', 'Guidance that helps you fuel your body properly, stay consistent, and get maximum results from every training phase.'],
   ['Group Classes & Bootcamps', 'High-intensity group sessions that support fat loss, strength building, stamina, and overall fitness.'],
   ['Recovery & Mobility', 'Mobility-focused guidance and recovery support to help you move better, train harder, and perform at your best.']
 ];

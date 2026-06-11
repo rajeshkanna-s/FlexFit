@@ -48,7 +48,7 @@ const HomePage = () => (
             <div className="row g-3 mt-3">
               {[
                 [GearFill, 'Personalized Plans', 'Workout programs for fat loss, muscle gain, weight management, and contest prep.'],
-                [PeopleFill, 'Nutrition Coaching', 'Practical food guidance that helps you fuel performance and sustain progress.'],
+                [PeopleFill, 'Nutrition Training', 'Practical food guidance that helps you fuel performance and sustain progress.'],
                 [TrophyFill, 'Transformation Focus', 'Training, recovery, and accountability designed for measurable long-term results.']
               ].map(([Icon, title, text]) => (
                 <div className="col-md-4" key={String(title)}>

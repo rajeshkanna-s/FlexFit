@@ -32,7 +32,7 @@ const HomePage = () => (
         <div className="row g-5 align-items-center">
           <div className="col-lg-5">
             <div className="about-image-wrap">
-              <img src="/assets/Gallery/FlexFit_Athlete_Holding_Weight_Plates.png" alt="FlexFit Club members training inside the gym" />
+              <img src="/assets/Gallery/TrainerImage.PNG" alt="FlexFit Club members training inside the gym" />
 
             </div>
           </div>

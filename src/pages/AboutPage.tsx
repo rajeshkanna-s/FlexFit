@@ -51,7 +51,7 @@ const AboutPage = () => (
         <div className="row g-5 align-items-center mb-5">
           <div className="col-lg-5">
             <div className="about-image-wrap">
-              <img src="/assets/Gallery/FlexFit_Athlete_Holding_Weight_Plates.png" alt="FlexFit gym training floor with members and equipment" />
+              <img src="/assets/Gallery/TrainerImage.PNG" alt="FlexFit gym training floor with members and equipment" />
               <span className="badge-float">Dream Physique Coaching</span>
             </div>
           </div>

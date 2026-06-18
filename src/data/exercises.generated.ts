@@ -343,15 +343,7 @@ export const exercises: ExerciseItem[] = [
         "media":  "01491201-Cable-Alternate-Triceps-Extension_Upper-Arms_.mp4",
         "mediaType":  "video"
     },
-    {
-        "id":  "video-38",
-        "name":  "Cable Bar Lateral Pulldown",
-        "workoutName":  "Cable Bar Lateral Pulldown",
-        "muscle":  "Lats",
-        "equipment":  "Cable",
-        "media":  "01501201-Cable-Bar-Lateral-Pulldown_Back (1).mp4",
-        "mediaType":  "video"
-    },
+
     {
         "id":  "video-39",
         "name":  "Cable Bar Lateral Pulldown",
@@ -451,15 +443,7 @@ export const exercises: ExerciseItem[] = [
         "media":  "01941201-Cable-Overhead-Triceps-Extension-(rope-attachment)_Upper-Arms-FIX_.mp4",
         "mediaType":  "video"
     },
-    {
-        "id":  "video-50",
-        "name":  "Cable Pushdown",
-        "workoutName":  "Cable Pushdown",
-        "muscle":  "Triceps",
-        "equipment":  "Cable",
-        "media":  "02011201-Cable-Pushdown_Upper-Arms (1).mp4",
-        "mediaType":  "video"
-    },
+
     {
         "id":  "video-51",
         "name":  "Cable Pushdown",
@@ -2269,15 +2253,7 @@ export const exercises: ExerciseItem[] = [
         "media":  "26331201-Dumbbell-Seated-Palms-Up-Wrist-Curl-(female)_Forea.mp4",
         "mediaType":  "video"
     },
-    {
-        "id":  "video-252",
-        "name":  "Cable Seated Row with V Bar",
-        "workoutName":  "Cable Seated Row with V Bar",
-        "muscle":  "Upper Back",
-        "equipment":  "Cable",
-        "media":  "26611201-Cable-Seated-Row-with-V-bar_Back (1).mp4",
-        "mediaType":  "video"
-    },
+
     {
         "id":  "video-253",
         "name":  "Cable Seated Row with V Bar",
@@ -2999,19 +2975,10 @@ export const exercises: ExerciseItem[] = [
         "mediaType":  "video"
     },
     {
-        "id":  "video-333",
-        "name":  "Hanging Front Lever Raise",
-        "workoutName":  "Hanging Front Lever Raise",
-        "muscle":  "Abdominals",
-        "equipment":  "Machine",
-        "media":  "72511201-Hanging-Front-Lever-Raise-(male)_Waist_ (1).mp4",
-        "mediaType":  "video"
-    },
-    {
         "id":  "video-334",
         "name":  "Hanging Front Lever Raise",
         "workoutName":  "Hanging Front Lever Raise",
-        "muscle":  "Other",
+        "muscle":  "Abdominals",
         "equipment":  "Machine",
         "media":  "72511201-Hanging-Front-Lever-Raise-(male)_Waist_.mp4",
         "mediaType":  "video"
